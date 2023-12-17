@@ -12,7 +12,18 @@ namespace FinalTerm_Project_EMS
         ////
         ///
 
-        //Naming Conventions
+        //General Rules
+        // 1) When writing code make sure you can actually explain/know what your code does (without notes), as sir Julian may have you explain it
+        //if your planning to use an A.I Tools remember to only code that you actually understand. (He smells fear) 
+        //
+        
+
+        // 2) Avoid using comments, only use comments for organization or a brief explaination on what a function does
+        // Don't write comments on how your code works as you should be able to do it, verbally
+        // There will be a doc available where you can detail your code.
+
+
+        //Naming Conventions (Not really strict but for clarity)
         //
         //When making a file (.cs .xaml .dblml etc) = UpperCaseCamel
         //Class1.cs/
