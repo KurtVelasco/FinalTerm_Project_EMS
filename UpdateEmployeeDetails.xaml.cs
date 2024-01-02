@@ -20,14 +20,44 @@ namespace FinalTerm_Project_EMS
     public partial class UpdateEmployeeDetails : Window
     {
         public int EMPLOYEE_ID;
-        public string EMPLOYEE_EMAIL = string.Empty;    
+        public string EMPLOYEE_EMAIL = string.Empty;
+        EmployeeDatabaseDataContext db = new EmployeeDatabaseDataContext(Properties.Settings.Default.MockEMSDatabaseConnectionString);
         public UpdateEmployeeDetails()
         {
             InitializeComponent();
         }
+        private void FillComboBoxes()
+        {
+            List<USP_SELECT_ALL_tblDepartmentsResult> allDepartments = new List<USP_SELECT_ALL_tblDepartmentsResult>();
+            Dictionary<int, string> departmentDict = new Dictionary<int, string>();
+            allDepartments = db.USP_SELECT_ALL_tblDepartments().ToList();
+            foreach (USP_SELECT_ALL_tblDepartmentsResult department in allDepartments)
+            {
+                departmentDict[department.DepartmentID] = department.DepartmentName;
+            }
+            Combobox_Department.ItemsSource = null;
+            Combobox_Department.ItemsSource = departmentDict;
+
+
+            //////
+            ///Lambda Version 
+            Dictionary<int, string> lamdaPos = db.USP_SELECT_ALL_tblPositions().ToList()
+                .ToDictionary(position => position.PositionID, position => position.PositionName);
+            Combobox_Position.ItemsSource = null;
+            Combobox_Position.ItemsSource = lamdaPos;
+            //
+        }
+
         private void Button_GetEmployee_Click(object sender, RoutedEventArgs e)
         {
             bool isTrure = true;
+            string userInput = Textbox_GetEmail.Text;
+            List<USP_SEARCH_EMPLOYEEResult> employeeResult = db.USP_SEARCH_EMPLOYEE(userInput).ToList();
+            if(employeeResult.Count != 1)
+            {
+                MessageBox.Show("No Employee Found","Among Us OS",MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
             if (isTrure)
             {
                 MessageBox.Show("Employee Get");
@@ -48,23 +78,9 @@ namespace FinalTerm_Project_EMS
 
             MessageBox.Show(firstName + "\n" + lastName + "\n" + email + "\n" + address + "\n" + contact);
         }
-        private void FillComboBoxes()
-        {
-            // Example code, will be implemented once the the Database has been established
-
-            //List<USP_GETALL_AUTHORSResult> allAuthors = new List<USP_GETALL_AUTHORSResult>();
-            //allAuthors = db.USP_GETALL_AUTHORS().ToList();
-            //foreach (USP_GETALL_AUTHORSResult authors in allAuthors)
-            //{
-            //    authorsDict[authors.AuthorID] = authors.AuthorName;
-            //}
-            //comboBoxAuthors.ItemsSource = null;
-            //comboBoxAuthors.ItemsSource = authorsDict;
-        }
         private void Button_UpdateEmployment_Click(object sender, RoutedEventArgs e)
         {
  
-            //int departmentID = //KeyValuePair get The ID
         }
     }
 }
