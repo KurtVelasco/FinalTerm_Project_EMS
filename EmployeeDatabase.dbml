@@ -32,4 +32,13 @@
       <Column Name="PositionName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.USP_UPDATE_EMPLOYEE_PERSONAL" Method="USP_UPDATE_EMPLOYEE_PERSONAL">
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Birthday" Parameter="birthday" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="PhoneNumber" Parameter="phoneNumber" Type="System.String" DbType="NVarChar(13)" />
+    <Parameter Name="EmailAddress" Parameter="emailAddress" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="HomeAddress" Parameter="homeAddress" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

@@ -7,44 +7,48 @@
         mc:Ignorable="d"
         Title="UpdateEmployeeDetails" Height="471" Width="791">
     <Grid>
-        <GroupBox Header="Personal Details" Margin="8,42,0,0" Height="344" VerticalAlignment="Top" HorizontalAlignment="Left" Width="380"/>
+        <GroupBox Header="Personal Details" Margin="8,58,0,0" Height="344" VerticalAlignment="Top" HorizontalAlignment="Left" Width="380"/>
 
-        <TextBox x:Name="Textbox_LastName" IsEnabled="False"  HorizontalAlignment="Left" Margin="93,64,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="276"/>
-        <TextBox x:Name="Textbox_FirstName"  IsEnabled="False" HorizontalAlignment="Left" Margin="94,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="275"/>
-        <TextBox x:Name="Textbox_Email"  IsEnabled="False" HorizontalAlignment="Left" Margin="93,123,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="276"/>
-        <Button x:Name="Button_Update"  IsEnabled="False" Content="UPDATE INFORMATION" HorizontalAlignment="Left" Margin="30,352,0,0" VerticalAlignment="Top" Width="339" Height="22" Background="#FFFFB0B0" Click="Button_Update_Click"/>
-        <TextBox x:Name="Textbox_HomeAddress"  IsEnabled="False" HorizontalAlignment="Left" Margin="30,240,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="339" Height="93"/>
-        <TextBox x:Name="Textbox_Contact"  IsEnabled="False" HorizontalAlignment="Left" Margin="94,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="275"/>
-        <TextBox x:Name="Textbox_GetEmail" HorizontalAlignment="Left" Margin="61,19,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="154"/>
+        <TextBox x:Name="Textbox_LastName" IsEnabled="False"  HorizontalAlignment="Left" Margin="93,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="276"/>
+        <TextBox x:Name="Textbox_FirstName"  IsEnabled="False" HorizontalAlignment="Left" Margin="94,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="275"/>
+        <TextBox x:Name="Textbox_Email"  IsEnabled="False" HorizontalAlignment="Left" Margin="93,139,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="276"/>
+        <Button x:Name="Button_Update"  IsEnabled="False" Content="UPDATE INFORMATION" HorizontalAlignment="Left" Margin="30,368,0,0" VerticalAlignment="Top" Width="339" Height="22" Background="#FFFFB0B0" Click="Button_Update_Click"/>
+        <TextBox x:Name="Textbox_HomeAddress"  IsEnabled="False" HorizontalAlignment="Left" Margin="30,256,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="339" Height="93"/>
+        <TextBox x:Name="Textbox_Contact"  IsEnabled="False" HorizontalAlignment="Left" Margin="94,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="275"/>
+        <TextBox x:Name="Textbox_GetEmail" HorizontalAlignment="Left" Margin="61,19,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="213"/>
+           
 
 
+        <Label Content="Last Name&#xD;&#xA;" HorizontalAlignment="Left" Margin="22,77,0,0" VerticalAlignment="Top" Height="26"/>
 
-        <Label Content="Last Name&#xD;&#xA;" HorizontalAlignment="Left" Margin="22,61,0,0" VerticalAlignment="Top" Height="26"/>
-
-        <Label Content="First Name&#xD;&#xA;" HorizontalAlignment="Left" Margin="22,92,0,0" VerticalAlignment="Top" Height="28"/>
-        <Label Content="BirthDay&#xD;&#xA;" HorizontalAlignment="Left" Margin="23,182,0,0" VerticalAlignment="Top" Height="26"/>
-        <Label Content="HomeAddress&#xD;&#xA;" HorizontalAlignment="Left" Margin="23,213,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="0.496,0.631"/>
-        <DatePicker HorizontalAlignment="Left" Margin="93,182,0,0" VerticalAlignment="Top" Width="150"/>
-        <Label Content="Email" HorizontalAlignment="Left" Margin="22,120,0,0" VerticalAlignment="Top" Height="26"/>
-        <Label Content="Contact#" HorizontalAlignment="Left" Margin="22,151,0,0" VerticalAlignment="Top" Height="28"/>
+        <Label Content="First Name&#xD;&#xA;" HorizontalAlignment="Left" Margin="22,108,0,0" VerticalAlignment="Top" Height="28"/>
+        <Label Content="BirthDay&#xD;&#xA;" HorizontalAlignment="Left" Margin="23,198,0,0" VerticalAlignment="Top" Height="26"/>
+        <Label Content="HomeAddress&#xD;&#xA;" HorizontalAlignment="Left" Margin="23,229,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="0.496,0.631"/>
+        <DatePicker x:Name="DatePicker_Birthday" IsEnabled="False" HorizontalAlignment="Left" Margin="93,198,0,0" VerticalAlignment="Top" Width="150"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="22,136,0,0" VerticalAlignment="Top" Height="26"/>
+        <Label Content="Contact#" HorizontalAlignment="Left" Margin="22,167,0,0" VerticalAlignment="Top" Height="28"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="18,16,0,0" VerticalAlignment="Top" Height="26"/>
 
 
-        <Button x:Name="Button_GetEmployee" Content="Search Employee" HorizontalAlignment="Left" Margin="220,17,0,0" VerticalAlignment="Top" Width="168" Click="Button_GetEmployee_Click"/>
-        <GroupBox Header="Employee Details" Margin="398,42,0,0" Height="344" VerticalAlignment="Top" HorizontalAlignment="Left" Width="380"/>
-        <Button x:Name="Button_UpdateEmployment"  IsEnabled="False" Content="UPDATE INFORMATION" HorizontalAlignment="Left" Margin="420,352,0,0" VerticalAlignment="Top" Width="339" Height="22" Background="#FFFFB0B0" Click="Button_UpdateEmployment_Click"/>
-        <Label Content="Department;" HorizontalAlignment="Left" Margin="412,61,0,0" VerticalAlignment="Top" Height="26"/>
-        <Label Content="Password" HorizontalAlignment="Left" Margin="426,274,0,0" VerticalAlignment="Top" Height="26"/>
-        <ComboBox x:Name="Combobox_Department" HorizontalAlignment="Left" Margin="493,64,0,0" VerticalAlignment="Top" Width="208"/>
-        <Label Content="Position" HorizontalAlignment="Left" Margin="429,94,0,0" VerticalAlignment="Top" Height="26"/>
-        <ComboBox x:Name="Combobox_Position" HorizontalAlignment="Left" Margin="493,97,0,0" VerticalAlignment="Top" Width="208"/>
-        <TextBox x:Name="Textbox_Password"  IsEnabled="False" HorizontalAlignment="Left" Margin="493,278,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="208"/>
-        <Label Content="Status" HorizontalAlignment="Left" Margin="429,167,0,0" VerticalAlignment="Top" Height="26"/>
-        <ComboBox  x:Name="Combobox_Status" HorizontalAlignment="Left" Margin="493,167,0,0" VerticalAlignment="Top" Width="208"/>
-        <ComboBox  x:Name="Combobox_EmployedON" HorizontalAlignment="Left" Margin="493,206,0,0" VerticalAlignment="Top" Width="208"/>
-        <Label Content="Employed On" HorizontalAlignment="Left" Margin="404,204,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="-0.049,0.502"/>
-        <ComboBox x:Name="Combobox_ScheduleType" HorizontalAlignment="Left" Margin="493,130,0,0" VerticalAlignment="Top" Width="208"/>
-        <Label Content="Schedule Type" HorizontalAlignment="Left" Margin="404,126,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="-0.049,0.502"/>
+        <Button x:Name="Button_GetEmployee" Background="LightGreen" Content="Search Employee" HorizontalAlignment="Left" Margin="279,17,0,0" VerticalAlignment="Top" Width="168" Click="Button_GetEmployee_Click"/>
+        <GroupBox Header="Employee Details" Margin="398,58,0,0" Height="344" VerticalAlignment="Top" HorizontalAlignment="Left" Width="380"/>
+        <Button x:Name="Button_UpdateEmployment"  IsEnabled="False" Content="UPDATE INFORMATION" HorizontalAlignment="Left" Margin="420,368,0,0" VerticalAlignment="Top" Width="339" Height="22" Background="#FFFFB0B0" Click="Button_UpdateEmployment_Click"/>
+        <Label Content="Department" HorizontalAlignment="Left" Margin="412,77,0,0" VerticalAlignment="Top" Height="26"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="426,252,0,0" VerticalAlignment="Top" Height="26"/>
+        <ComboBox x:Name="Combobox_Department" DisplayMemberPath="Value" HorizontalAlignment="Left" Margin="623,80,0,0" VerticalAlignment="Top" Width="136"/>
+        <Label Content="Position" HorizontalAlignment="Left" Margin="429,110,0,0" VerticalAlignment="Top" Height="26"/>
+        <ComboBox x:Name="Combobox_Position" DisplayMemberPath="Value" HorizontalAlignment="Left" Margin="623,113,0,0" VerticalAlignment="Top" Width="136"/>
+        <TextBox x:Name="Textbox_Password"  IsEnabled="False" HorizontalAlignment="Left" Margin="493,256,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="208"/>
+        <Label Content="Status" HorizontalAlignment="Left" Margin="429,179,0,0" VerticalAlignment="Top" Height="26"/>
+        <ComboBox  x:Name="Combobox_Status" HorizontalAlignment="Left" Margin="623,179,0,0" VerticalAlignment="Top" Width="136"/>
+        <Label Content="Employed On" HorizontalAlignment="Left" Margin="404,220,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="-0.049,0.502"/>
+        <ComboBox x:Name="Combobox_ScheduleType" HorizontalAlignment="Left" Margin="623,146,0,0" VerticalAlignment="Top" Width="136"/>
+        <Label Content="Schedule Type" HorizontalAlignment="Left" Margin="404,142,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="-0.049,0.502"/>
+        <DatePicker x:Name="DatePicker_EmployedOn" IsEnabled="False" HorizontalAlignment="Left" Margin="493,220,0,0" VerticalAlignment="Top" Width="266"/>
+        <TextBox x:Name="Textbox_CurrentDepartment" IsEnabled="False"  HorizontalAlignment="Left" Margin="493,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+        <TextBox x:Name="Textbox_CurrentPosition" IsEnabled="False"  HorizontalAlignment="Left" Margin="493,114,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+        <TextBox x:Name="Textbox_CurrentScheduleType" IsEnabled="False"  HorizontalAlignment="Left" Margin="493,149,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+        <TextBox x:Name="Textbox_CurrentStatus" IsEnabled="False"  HorizontalAlignment="Left" Margin="493,181,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
 
     </Grid>
 </Window>

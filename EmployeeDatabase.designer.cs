@@ -82,6 +82,13 @@ namespace FinalTerm_Project_EMS
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<USP_SELECT_ALL_tblPositionsResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_UPDATE_EMPLOYEE_PERSONAL")]
+		public int USP_UPDATE_EMPLOYEE_PERSONAL([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="NVarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Birthday", DbType="Date")] System.Nullable<System.DateTime> birthday, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneNumber", DbType="NVarChar(13)")] string phoneNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmailAddress", DbType="NVarChar(50)")] string emailAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HomeAddress", DbType="NVarChar(255)")] string homeAddress)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), firstName, lastName, birthday, phoneNumber, emailAddress, homeAddress);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	public partial class USP_SEARCH_EMPLOYEEResult
