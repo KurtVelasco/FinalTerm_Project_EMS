@@ -56,11 +56,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddingEmployee.xaml.cs">
+      <DependentUpon>AddingEmployee.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeDatabase.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EmployeeDatabase.dbml</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeManagment_Admin.xaml.cs">
+      <DependentUpon>EmployeeManagment_Admin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeManagment_Employee.xaml.cs">
+      <DependentUpon>EmployeeManagment_Employee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EMSLogin.xaml.cs">
+      <DependentUpon>EMSLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LogInCredentials.cs" />
     <Compile Include="README.cs" />
     <Compile Include="SearchEmployee.xaml.cs">
       <DependentUpon>SearchEmployee.xaml</DependentUpon>
@@ -68,6 +81,22 @@
     <Compile Include="UpdateEmployeeDetails.xaml.cs">
       <DependentUpon>UpdateEmployeeDetails.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddingEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmployeeManagment_Admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmployeeManagment_Employee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EMSLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
