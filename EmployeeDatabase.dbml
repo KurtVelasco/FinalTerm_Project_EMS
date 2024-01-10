@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MockEMSDatabase" Class="EmployeeDatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-3SE38U6N\SQLEXPRESS;Initial Catalog=MockEMSDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="FinalTerm_Project_EMS.Properties.Settings" SettingsPropertyName="MockEMSDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblClasses" Member="tblClasses">
+    <Type Name="tblClass">
+      <Column Name="ClassID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Class" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="EndTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Association Name="tblClass_tblClassSchedule" Member="tblClassSchedules" ThisKey="ClassID" OtherKey="ClassID" Type="tblClassSchedule" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblClassSchedules" Member="tblClassSchedules">
+    <Type Name="tblClassSchedule">
+      <Column Name="ClassScheduleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ClassID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tblClass_tblClassSchedule" Member="tblClass" ThisKey="ClassID" OtherKey="ClassID" Type="tblClass" IsForeignKey="true" />
+      <Association Name="tblEmployee_tblClassSchedule" Member="tblEmployee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="tblEmployee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEmployees" Member="tblEmployees">
+    <Type Name="tblEmployee">
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="MiddleName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Birthday" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="EmailAddress" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="HomeAddress" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="tblEmployee_tblClassSchedule" Member="tblClassSchedules" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="tblClassSchedule" />
+      <Association Name="tblEmployee_tblNTESchedule" Member="tblNTESchedules" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="tblNTESchedule" />
+      <Association Name="tblEmployee_tblAttendance" Member="tblAttendances" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="tblAttendance" />
+      <Association Name="tblEmployee_tblEmployeeDetail" Member="tblEmployeeDetails" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="tblEmployeeDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblNTESchedules" Member="tblNTESchedules">
+    <Type Name="tblNTESchedule">
+      <Column Name="NTEScheduleID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="EndTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Association Name="tblEmployee_tblNTESchedule" Member="tblEmployee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="tblEmployee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblAttendance" Member="tblAttendances">
+    <Type Name="tblAttendance">
+      <Column Name="AttendanceID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TimeIn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TimeOut" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tblEmployee_tblAttendance" Member="tblEmployee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="tblEmployee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEmployeeDetails" Member="tblEmployeeDetails">
+    <Type Name="tblEmployeeDetail">
+      <Column Name="EmployeeDetailsID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PositionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ScheduleTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployedOn" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="tblEmployee_tblEmployeeDetail" Member="tblEmployee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="tblEmployee" IsForeignKey="true" />
+      <Association Name="tblDepartment_tblEmployeeDetail" Member="tblDepartment" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="tblDepartment" IsForeignKey="true" />
+      <Association Name="tblPosition_tblEmployeeDetail" Member="tblPosition" ThisKey="PositionID" OtherKey="PositionID" Type="tblPosition" IsForeignKey="true" />
+      <Association Name="tblStatuse_tblEmployeeDetail" Member="tblStatuse" ThisKey="StatusID" OtherKey="StatusID" Type="tblStatuse" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblDepartments" Member="tblDepartments">
+    <Type Name="tblDepartment">
+      <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="tblDepartment_tblEmployeeDetail" Member="tblEmployeeDetails" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="tblEmployeeDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblPositions" Member="tblPositions">
+    <Type Name="tblPosition">
+      <Column Name="PositionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PositionName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="tblPosition_tblEmployeeDetail" Member="tblEmployeeDetails" ThisKey="PositionID" OtherKey="PositionID" Type="tblEmployeeDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblStatuses" Member="tblStatuses">
+    <Type Name="tblStatuse">
+      <Column Name="StatusID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StatusName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="tblStatuse_tblEmployeeDetail" Member="tblEmployeeDetails" ThisKey="StatusID" OtherKey="StatusID" Type="tblEmployeeDetail" />
+    </Type>
+  </Table>
+</Database>
