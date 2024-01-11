@@ -59,6 +59,9 @@
     <Compile Include="AddingEmployee.xaml.cs">
       <DependentUpon>AddingEmployee.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Attendance.xaml.cs">
+      <DependentUpon>Attendance.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeDatabase.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -82,6 +85,10 @@
       <DependentUpon>UpdateEmployeeDetails.xaml</DependentUpon>
     </Compile>
     <Page Include="AddingEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Attendance.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
