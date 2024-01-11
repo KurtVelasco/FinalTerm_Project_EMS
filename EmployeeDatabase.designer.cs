@@ -23,7 +23,7 @@ namespace FinalTerm_Project_EMS
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="MockEMSDatabase")]
-	public partial class EmployeeDatabaseDataContext : System.Data.Linq.DataContext
+	public partial class DataClasses1DataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -56,31 +56,31 @@ namespace FinalTerm_Project_EMS
     partial void DeletetblPosition(tblPosition instance);
     #endregion
 		
-		public EmployeeDatabaseDataContext() : 
+		public DataClasses1DataContext() : 
 				base(global::FinalTerm_Project_EMS.Properties.Settings.Default.MockEMSDatabaseConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public EmployeeDatabaseDataContext(string connection) : 
+		public DataClasses1DataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public EmployeeDatabaseDataContext(System.Data.IDbConnection connection) : 
+		public DataClasses1DataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public EmployeeDatabaseDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public DataClasses1DataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public EmployeeDatabaseDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public DataClasses1DataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
@@ -1766,19 +1766,21 @@ namespace FinalTerm_Project_EMS
 		
 		private string _FirstName;
 		
+		private string _MiddleName;
+		
 		private string _LastName;
 		
 		private string _DepartmentName;
 		
 		private string _PositionName;
 		
-		private string _Status;
+		private string _StatusName;
 		
 		public Retrieve_EmployeeDetailsResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
 		public string FirstName
 		{
 			get
@@ -1794,7 +1796,23 @@ namespace FinalTerm_Project_EMS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MiddleName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string MiddleName
+		{
+			get
+			{
+				return this._MiddleName;
+			}
+			set
+			{
+				if ((this._MiddleName != value))
+				{
+					this._MiddleName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
 		public string LastName
 		{
 			get
@@ -1842,18 +1860,18 @@ namespace FinalTerm_Project_EMS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Status
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string StatusName
 		{
 			get
 			{
-				return this._Status;
+				return this._StatusName;
 			}
 			set
 			{
-				if ((this._Status != value))
+				if ((this._StatusName != value))
 				{
-					this._Status = value;
+					this._StatusName = value;
 				}
 			}
 		}
