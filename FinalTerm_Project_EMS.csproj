@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddEmployeeDetails.xaml.cs">
+      <DependentUpon>AddEmployeeDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="README.cs" />
     <Compile Include="SearchEmployee.xaml.cs">
       <DependentUpon>SearchEmployee.xaml</DependentUpon>
@@ -62,6 +65,10 @@
     <Compile Include="UpdateEmployeeDetails.xaml.cs">
       <DependentUpon>UpdateEmployeeDetails.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddEmployeeDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
