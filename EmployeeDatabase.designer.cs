@@ -113,6 +113,10 @@ namespace FinalTerm_Project_EMS
 		
 		private string _PositionName;
 		
+		private int _StatusID1;
+		
+		private string _StatusName;
+		
 		public USP_LOGIN_EMPLOYEEResult()
 		{
 		}
@@ -433,6 +437,38 @@ namespace FinalTerm_Project_EMS
 				if ((this._PositionName != value))
 				{
 					this._PositionName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusID1", DbType="Int NOT NULL")]
+		public int StatusID1
+		{
+			get
+			{
+				return this._StatusID1;
+			}
+			set
+			{
+				if ((this._StatusID1 != value))
+				{
+					this._StatusID1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string StatusName
+		{
+			get
+			{
+				return this._StatusName;
+			}
+			set
+			{
+				if ((this._StatusName != value))
+				{
+					this._StatusName = value;
 				}
 			}
 		}
