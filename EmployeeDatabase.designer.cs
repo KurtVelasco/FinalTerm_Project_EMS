@@ -117,6 +117,13 @@ namespace FinalTerm_Project_EMS
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), firstName, middleName, lastName, birthday, phoneNumber, emailAddress, homeAddress);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_UPDATE_EMPLOYEE_EMPLOYMENT")]
+		public int USP_UPDATE_EMPLOYEE_EMPLOYMENT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmmployeeID", DbType="Int")] System.Nullable<int> emmployeeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DepartmentID", DbType="Int")] System.Nullable<int> departmentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PositionID", DbType="Int")] System.Nullable<int> positionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchedTypeID", DbType="Int")] System.Nullable<int> schedTypeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StatusID", DbType="Int")] System.Nullable<int> statusID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployedON", DbType="Date")] System.Nullable<System.DateTime> employedON, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(255)")] string password)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), emmployeeID, departmentID, positionID, schedTypeID, statusID, employedON, password);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	public partial class USP_LOGIN_EMPLOYEEResult

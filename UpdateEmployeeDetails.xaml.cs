@@ -23,8 +23,8 @@ namespace FinalTerm_Project_EMS
 
         public Dictionary<int, string> departmentDict = new Dictionary<int, string>();
         public Dictionary<int, string> positionDict = new Dictionary<int, string>();
-        public string[] employeeStatusOptions = { "ACTIVE", "LONG ABSENCE", "TERMINATED", "RESIGNED", "DECEASED" };
-        public string[] employeeScheduleType = { "TYPE1", "TYPE2", "TYPE3", }; //PlaceHolder
+        public Dictionary<int, string> statusDict = new Dictionary<int, string>();
+        public Dictionary<int, string> schedDict = new Dictionary<int, string>();
 
         public UpdateEmployeeDetails()
         {
@@ -34,13 +34,16 @@ namespace FinalTerm_Project_EMS
 
         private void FillComboBoxes()
         {
+            Combobox_Department.ItemsSource = null;
+            Combobox_Position.ItemsSource = null;
+            Combobox_Status.ItemsSource = null;
+            Combobox_ScheduleType.ItemsSource = null;
             List<USP_SELECT_ALL_tblDepartmentsResult> allDepartments = new List<USP_SELECT_ALL_tblDepartmentsResult>();
             allDepartments = db.USP_SELECT_ALL_tblDepartments().ToList();
             foreach (USP_SELECT_ALL_tblDepartmentsResult department in allDepartments)
             {
                 departmentDict[department.DepartmentID] = department.DepartmentName;
             }
-            Combobox_Department.ItemsSource = null;
             Combobox_Department.ItemsSource = departmentDict;
 
             List<USP_SELECT_ALL_tblPositionsResult> allPositions = db.USP_SELECT_ALL_tblPositions().ToList();
@@ -48,14 +51,13 @@ namespace FinalTerm_Project_EMS
             {
                 positionDict[positions.PositionID] = positions.PositionName;
             }
-            Combobox_Position.ItemsSource = null;
             Combobox_Position.ItemsSource = positionDict;
 
-            Combobox_Status.ItemsSource = null;
-            Combobox_Status.ItemsSource = employeeStatusOptions;
-
-            Combobox_ScheduleType.ItemsSource = null;
-            Combobox_ScheduleType.ItemsSource = employeeScheduleType;
+            statusDict = db.USP_SELECT_ALL_tblStatus().ToDictionary(status => status.StatusID, status => status.StatusName);
+            Combobox_Status.ItemsSource = statusDict;
+    
+            schedDict = db.USP_SELECT_ALL_tblSchedType().ToDictionary(sched => sched.ScheduleTypeID, sched => sched.ScheduleType);
+            Combobox_ScheduleType.ItemsSource = schedDict;
 
             //////
             ///Lambda Version 
@@ -74,19 +76,27 @@ namespace FinalTerm_Project_EMS
             {
                 USP_SEARCH_EMPLOYEE_BY_EMAILResult employee = employeeResult[0];
                 Combobox_Department.SelectedItem = departmentDict.FirstOrDefault(x => x.Key == employee.DepartmentID);
-                Combobox_Position.SelectedValue = positionDict.FirstOrDefault(x => x.Key == employee.PositionID);  
+                Combobox_Position.SelectedItem = positionDict.FirstOrDefault(x => x.Key == employee.PositionID);  
+                Combobox_Status.SelectedItem = statusDict.FirstOrDefault(x => x.Key== employee.StatusID);
+                Combobox_ScheduleType.SelectedItem = schedDict.FirstOrDefault(x => x.Key == employee.ScheduleTypeID);
                 Textbox_LastName.Text = employee.LastName;
+                Textbox_MiddleName.Text = employee.MiddleName;
                 Textbox_FirstName.Text = employee.FirstName;
                 Textbox_Email.Text = employee.EmailAddress;
                 Textbox_HomeAddress.Text = employee.HomeAddress;
                 Textbox_Contact.Text = employee.PhoneNumber;    
                 DatePicker_Birthday.SelectedDate = employee.Birthday;
+                DatePicker_EmployedOn.SelectedDate = employee.EmployedOn;   
 
+
+                Textbox_MiddleName.IsEnabled = true;
                 Textbox_LastName.IsEnabled = true;
+                Textbox_Email.IsEnabled = true; 
                 Textbox_FirstName.IsEnabled = true;
                 Textbox_HomeAddress.IsEnabled = true;
                 Textbox_Contact.IsEnabled = true;
                 DatePicker_Birthday.IsEnabled = true;
+                DatePicker_EmployedOn.IsEnabled = true;
                 Button_Update.IsEnabled = true;
             }
             else

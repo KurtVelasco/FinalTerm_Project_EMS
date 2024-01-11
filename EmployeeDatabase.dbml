@@ -97,4 +97,14 @@
     <Parameter Name="HomeAddress" Parameter="homeAddress" Type="System.String" DbType="NVarChar(255)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.USP_UPDATE_EMPLOYEE_EMPLOYMENT" Method="USP_UPDATE_EMPLOYEE_EMPLOYMENT">
+    <Parameter Name="EmmployeeID" Parameter="emmployeeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DepartmentID" Parameter="departmentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PositionID" Parameter="positionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SchedTypeID" Parameter="schedTypeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StatusID" Parameter="statusID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="EmployedON" Parameter="employedON" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

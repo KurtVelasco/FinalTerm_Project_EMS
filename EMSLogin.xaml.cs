@@ -26,29 +26,24 @@ namespace FinalTerm_Project_EMS
         }
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
-            //string password = tbx_password.Password, email = tbx_email.Text;
-            //List<USP_LOGIN_EMPLOYEEResult> accounts = new List<USP_LOGIN_EMPLOYEEResult>();
+            string password = tbx_password.Password, email = tbx_email.Text;
+            List<USP_LOGIN_EMPLOYEEResult> accounts = new List<USP_LOGIN_EMPLOYEEResult>();
+            accounts = db.USP_LOGIN_EMPLOYEE(email, password).ToList();
+            if (accounts.Count == 1)
+            {              
+                if (accounts[0].PositionName == "ADMIN")
+                {
+                    if (accounts[0].DepartmentName == "HR")
+                    {
 
-            //accounts = db.USP_LOGIN_EMPLOYEE(email, password).ToList();
+                    }
+                }
+                
+            }
+            else
+            {
 
-            //if (accounts.Count == 1)
-            //{
-            //    if (accounts[0].Status == "ACTIVE")
-            //    {
-            //        if (accounts[0].PositionName == "ADMIN")
-            //        {
-            //            if (accounts[0].DepartmentName == "HR")
-            //            {
-
-            //            }
-            //        }
-            //    }
-            //}
-
-            //else
-            //{
-
-            //}
+            }
 
         }
 
