@@ -31,18 +31,36 @@ namespace FinalTerm_Project_EMS
             accounts = db.USP_LOGIN_EMPLOYEE(email, password).ToList();
             if (accounts.Count == 1)
             {              
-                if (accounts[0].PositionName == "ADMIN")
+                if(accounts[0].DepartmentName == "Human Resources")
                 {
-                    if (accounts[0].DepartmentName == "HR")
+                    if (accounts[0].PositionName == "Administator")
+                    { 
+                        LogInCredentials.SetData(accounts[0].EmailAddress, accounts[0].Password, accounts[0].LastName,
+                            accounts[0].DepartmentName, accounts[0].PositionName);
+                        MessageBox.Show("Welcome:" + accounts[0].LastName + " " + accounts[0].FirstName, "Successful Login", MessageBoxButton.OK, MessageBoxImage.Information);
+                        EmployeeManagment_Admin em = new EmployeeManagment_Admin();
+                        em.Show();
+                        this.Close();                       
+                    }
+                    else
                     {
-
+                        LogInCredentials.SetData(accounts[0].EmailAddress, accounts[0].Password, accounts[0].LastName,
+                           accounts[0].DepartmentName, accounts[0].PositionName);
+                        MessageBox.Show("Welcome:" + accounts[0].LastName + " " + accounts[0].FirstName, "Successful Login", MessageBoxButton.OK, MessageBoxImage.Information);
+                        EmployeeManagment_Employee ee = new EmployeeManagment_Employee();
+                        ee.Show();
+                        this.Close();
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Incorrect Email/Password", "Wrong Login", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
                 
-            }
+            } 
             else
             {
-
+                MessageBox.Show("Incorrect Email/Password","Wrong Login",MessageBoxButton.OK,MessageBoxImage.Error);
             }
 
         }

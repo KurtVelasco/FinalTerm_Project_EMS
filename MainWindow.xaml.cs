@@ -24,5 +24,12 @@ namespace FinalTerm_Project_EMS
         {
             InitializeComponent();
         }
+
+        private void Button_EMS_Click(object sender, RoutedEventArgs e)
+        {
+            EMSLogin ems = new EMSLogin();
+            ems.Show();
+            this.Close();
+        }
     }
 }

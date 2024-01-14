@@ -34,9 +34,8 @@ namespace FinalTerm_Project_EMS
         {
             if (!ValidateFields()) 
                 return;
-
             int employeeID = -1;
-            foreach (tblEmployee employee in DB.tblEmployees)
+            foreach (tblEmployees employee in DB.tblEmployees)
             {
                 if (employee.EmailAddress == tbxEmail.Text)
                 {
