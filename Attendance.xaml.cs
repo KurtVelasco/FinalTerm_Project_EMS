@@ -24,7 +24,7 @@ namespace FinalTerm_Project_EMS
     public partial class Attendance : Window
     {
         public EmployeeDatabaseDataContext DB { get; set; } = new EmployeeDatabaseDataContext();
-
+       
         public Attendance()
         {
             InitializeComponent();
@@ -35,7 +35,7 @@ namespace FinalTerm_Project_EMS
             if (!ValidateFields()) 
                 return;
             int employeeID = -1;
-            foreach (tblEmployees employee in DB.tblEmployees)
+            foreach (tblEmployee employee in DB.tblEmployees)
             {
                 if (employee.EmailAddress == tbxEmail.Text)
                 {
@@ -149,7 +149,7 @@ namespace FinalTerm_Project_EMS
                                 DateTime.TryParse(strTimeOut, out DateTime timeOut)
                             )
                             {
-                                DB.uspUploadAttendanceData(timeIn, timeOut, employeeID);
+                                //DB.uspUploadAttendanceData(timeIn, timeOut, employeeID);
                             }
                         }
                     }

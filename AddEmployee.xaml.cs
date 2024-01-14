@@ -27,14 +27,11 @@ namespace FinalTerm_Project_EMS
         private string GetEmail;
         private string Password;
         private string MiddleName;
-
-        // Declare variables for ComboBox content
         private int Department;
         private int Position;
         private int Status;
         private int ScheduleType;
 
-        // Declare variables for DatePicker content
         private DateTime? Birthday;
         private DateTime? EmployedOn;
 
