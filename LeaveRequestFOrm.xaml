@@ -1,0 +1,40 @@
+﻿<Window x:Class="FinalTerm_Project_EMS.LeaveRequestForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinalTerm_Project_EMS"
+        mc:Ignorable="d"
+        Title="LeaveRequestForm" Height="450" Width="634">
+    <Grid>
+        <Label Content="EmployeeID" HorizontalAlignment="Left" Margin="329,53,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbxEmployeeID" HorizontalAlignment="Left" Margin="329,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+
+        <Label Content="Start Date" HorizontalAlignment="Left" Margin="329,108,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <DatePicker x:Name="dpStartDate" HorizontalAlignment="Left" Margin="329,138,0,0" VerticalAlignment="Top" Width="250"/>
+
+        <Label Content="Duration (in days)" HorizontalAlignment="Left" Margin="324,168,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbxDuration" HorizontalAlignment="Left" Margin="329,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+
+        <Label Content="Reason for Leave" HorizontalAlignment="Left" Margin="324,228,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ComboBox x:Name="cbxReason" HorizontalAlignment="Left" Margin="329,256,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <Label Content="Destination Address" HorizontalAlignment="Left" Margin="326,303,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbxDestination" HorizontalAlignment="Left" Margin="329,334,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="53"/>
+
+        <Label Content="Leave Request Form" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="26,53,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="49" Width="284" FontSize="24"/>
+
+        <Label Content="Remaining Allocated Requests" HorizontalAlignment="Left" Margin="43,107,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbxRemaining" HorizontalAlignment="Left" Margin="43,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181"/>
+
+        <Label Content="Pending Requests" HorizontalAlignment="Left" Margin="43,181,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ComboBox x:Name="cbxPending" HorizontalAlignment="Left" Margin="48,209,0,0" VerticalAlignment="Top" Width="176"/>
+        
+        <Label Content="Approved Requests" HorizontalAlignment="Left" Margin="43,259,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ComboBox x:Name="cbxApproved" HorizontalAlignment="Left" Margin="48,287,0,0" VerticalAlignment="Top" Width="176"/>
+        
+        <Button x:Name="btnFileRequest" Content="File Request" HorizontalAlignment="Left" Margin="48,346,0,0" VerticalAlignment="Top" Height="34" Width="120"/>
+
+
+    </Grid>
+</Window>
