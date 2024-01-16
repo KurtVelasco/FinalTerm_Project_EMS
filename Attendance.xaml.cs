@@ -52,7 +52,18 @@ namespace FinalTerm_Project_EMS
             {
                 DateTime timeIn = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, hour, minute, 0);
 
-                DB.uspTimeIn(employeeID, timeIn);
+                bool? success = false;
+
+                DB.uspTimeIn(employeeID, timeIn, ref success);
+
+                if ((bool)!success)
+                {
+                    MessageBox.Show("Time-in failed. Employee already times in for today");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Failed to convert Hour and/or Minute values. Please try again.");
             }
 
 
