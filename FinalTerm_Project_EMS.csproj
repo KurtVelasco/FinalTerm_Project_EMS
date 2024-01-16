@@ -79,6 +79,9 @@
     <Compile Include="EMSLogin.xaml.cs">
       <DependentUpon>EMSLogin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LeaveRequestForm.xaml.cs">
+      <DependentUpon>LeaveRequestForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LogInCredentials.cs" />
     <Compile Include="README.cs" />
     <Compile Include="SearchEmployee.xaml.cs">
@@ -108,6 +111,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EMSLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LeaveRequestForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
