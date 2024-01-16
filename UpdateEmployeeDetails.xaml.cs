@@ -38,25 +38,44 @@ namespace FinalTerm_Project_EMS
             Combobox_Position.ItemsSource = null;
             Combobox_Status.ItemsSource = null;
             Combobox_ScheduleType.ItemsSource = null;
-            List<USP_SELECT_ALL_tblDepartmentsResult> allDepartments = new List<USP_SELECT_ALL_tblDepartmentsResult>();
-            allDepartments = db.USP_SELECT_ALL_tblDepartments().ToList();
-            foreach (USP_SELECT_ALL_tblDepartmentsResult department in allDepartments)
-            {
-                departmentDict[department.DepartmentID] = department.DepartmentName;
-            }
-            Combobox_Department.ItemsSource = departmentDict;
+            //List<USP_SELECT_ALL_tblDepartmentsResult> allDepartments = new List<USP_SELECT_ALL_tblDepartmentsResult>();
+            //allDepartments = db.USP_SELECT_ALL_tblDepartments().ToList();
+            //foreach (USP_SELECT_ALL_tblDepartmentsResult department in allDepartments)
+            //{
+            //    departmentDict[department.DepartmentID] = department.DepartmentName;
+            //}
+            //Combobox_Department.ItemsSource = departmentDict;
 
-            List<USP_SELECT_ALL_tblPositionsResult> allPositions = db.USP_SELECT_ALL_tblPositions().ToList();
-            foreach(USP_SELECT_ALL_tblPositionsResult positions in allPositions)
+            //List<USP_SELECT_ALL_tblPositionsResult> allPositions = db.USP_SELECT_ALL_tblPositions().ToList();
+            //foreach(USP_SELECT_ALL_tblPositionsResult positions in allPositions)
+            //{
+            //    positionDict[positions.PositionID] = positions.PositionName;
+            //}
+
+
+            //statusDict = db.USP_SELECT_ALL_tblStatus().ToDictionary(status => status.StatusID, status => status.StatusName);
+
+            //schedDict = db.USP_SELECT_ALL_tblSchedType().ToDictionary(sched => sched.ScheduleTypeID, sched => sched.ScheduleType);
+
+            foreach (tblDepartment dps in db.tblDepartments)
             {
-                positionDict[positions.PositionID] = positions.PositionName;
+                departmentDict[dps.DepartmentID] = dps.DepartmentName;
+            }
+            foreach (tblPosition tp in db.tblPositions)
+            {
+                positionDict[tp.PositionID] = tp.PositionName;
+            }
+            foreach (tblStatuse ts in db.tblStatuses)
+            {
+                statusDict[ts.StatusID] = ts.StatusName;
+            }
+            foreach (tblScheduleType ts in db.tblScheduleTypes)
+            {
+                schedDict[ts.ScheduleTypeID] = ts.ScheduleType;
             }
             Combobox_Position.ItemsSource = positionDict;
-
-            statusDict = db.USP_SELECT_ALL_tblStatus().ToDictionary(status => status.StatusID, status => status.StatusName);
-            Combobox_Status.ItemsSource = statusDict;
-    
-            schedDict = db.USP_SELECT_ALL_tblSchedType().ToDictionary(sched => sched.ScheduleTypeID, sched => sched.ScheduleType);
+            Combobox_Department.ItemsSource = departmentDict;
+            Combobox_Department.ItemsSource = departmentDict;
             Combobox_ScheduleType.ItemsSource = schedDict;
 
             //////
