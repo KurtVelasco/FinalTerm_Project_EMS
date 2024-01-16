@@ -60,6 +60,10 @@ namespace FinalTerm_Project_EMS
                 {
                     MessageBox.Show("Time-in failed. Employee already times in for today");
                 }
+                else
+                {
+                    MessageBox.Show("Time-in successful");
+                }
             }
             else
             {
