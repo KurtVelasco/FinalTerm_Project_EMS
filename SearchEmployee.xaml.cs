@@ -1,5 +1,6 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,10 @@ namespace FinalTerm_Project_EMS
     /// </summary>
     public partial class SearchEmployee : Window
     {
-        List<string> SAMPLE_DATA = new List<string>();
+        EmployeeDatabaseDataContext db = new EmployeeDatabaseDataContext(Properties.Settings.Default.MockEMSDatabaseConnectionString);
+        
+        private List<string> employeeData = new List<string>();
+
         public SearchEmployee()
         {
             InitializeComponent();
@@ -30,9 +34,12 @@ namespace FinalTerm_Project_EMS
         private void UIInitialization()
         {
             //Emulates Database Data
-            SAMPLE_DATA.Add("Eldridge Gabriel,Esteban,Non-Teaching Department,Maintenance,Active");
-            SAMPLE_DATA.Add("Kurt Francis,Velasco,Non-Teaching Department,Maintenance,Inactive");
-            SAMPLE_DATA.Add("Keane Andre,Tolentino,Non-Teaching Department,Maintenance,Active");
+            List<Retrieve_EmployeeDetailsResult> allDetails = new List<Retrieve_EmployeeDetailsResult>();
+            allDetails = db.Retrieve_EmployeeDetails().ToList();
+            foreach (var detail in allDetails)
+            {
+                employeeData.Add($"{detail.FirstName},{detail.MiddleName},{detail.LastName},{detail.DepartmentName},{detail.PositionName},{detail.StatusName}");
+            }
 
             cbxDeptSearch.Items.Add("[Department]");
             cbxPosSearch.Items.Add("[Position]");
@@ -43,21 +50,33 @@ namespace FinalTerm_Project_EMS
             cbxStsSearch.SelectedIndex = 0;
         }
 
+        public class Employee
+        {
+            public string FirstName { get; set; }
+            public string MiddleName { get; set; }
+            public string LastName { get; set; }
+            public string Department { get; set; }
+            public string Position { get; set; }
+            public string Status { get; set; }
+        }
+
         private void ListAll()
         {
-            lbxFNResult.Items.Clear();
-            lbxLNResult.Items.Clear();
-            lbxDeptResult.Items.Clear();
-            lbxPosResult.Items.Clear();
-            lbxStsResult.Items.Clear();
-            foreach (string item in SAMPLE_DATA)
+            lv_employeedata.Items.Clear();
+            lv_employeedata.ItemsSource = null;
+            foreach (string item in employeeData)
             {
                 string[] split = item.Split(',');
-                lbxFNResult.Items.Add(split[0]);
-                lbxLNResult.Items.Add(split[1]);
-                lbxDeptResult.Items.Add(split[2]);
-                lbxPosResult.Items.Add(split[3]);
-                lbxStsResult.Items.Add(split[4]);
+                lv_employeedata.Items.Add(new Employee
+                {
+                    FirstName = split[0],
+                    MiddleName = split[1],
+                    LastName = split[2],
+                    Department = split[3],
+                    Position = split[4],
+                    Status = split[5]
+                });
+
                 if (!cbxDeptSearch.Items.Contains(split[2]))
                 {
                     cbxDeptSearch.Items.Add(split[2]);
@@ -116,21 +135,21 @@ namespace FinalTerm_Project_EMS
         private void SearchByName(string firstName, string lastName)
         {
             //PlaceHolder
-            lbxFNResult.Items.Clear();
-            lbxLNResult.Items.Clear();
-            lbxDeptResult.Items.Clear();
-            lbxPosResult.Items.Clear();
-            lbxStsResult.Items.Clear();
-            foreach (string item in SAMPLE_DATA)
+            lv_employeedata.ItemsSource = null;
+            foreach (string item in employeeData)
             {
                 string[] split = item.Split(',');
                 if (firstName == split[0] && lastName == split[1])
                 {
-                    lbxFNResult.Items.Add(split[0]);
-                    lbxLNResult.Items.Add(split[1]);
-                    lbxDeptResult.Items.Add(split[2]);
-                    lbxPosResult.Items.Add(split[3]);
-                    lbxStsResult.Items.Add(split[4]);
+                    lv_employeedata.Items.Add(new Employee
+                    {
+                        FirstName = split[0],
+                        MiddleName = split[1],
+                        LastName = split[2],
+                        Department = split[3],
+                        Position = split[4],
+                        Status = split[5]
+                    });
                 }
             }
         }
@@ -155,45 +174,53 @@ namespace FinalTerm_Project_EMS
             }
 
             //PlaceHolder
-            lbxFNResult.Items.Clear();
-            lbxLNResult.Items.Clear();
-            lbxDeptResult.Items.Clear();
-            lbxPosResult.Items.Clear();
-            lbxStsResult.Items.Clear();
-            foreach (string item in SAMPLE_DATA)
+            lv_employeedata.ItemsSource = null;
+            foreach (string item in employeeData)
             {
                 string[] split = item.Split(',');
                 if (dept)
                 {
                     if (value == split[2])
                     {
-                        lbxFNResult.Items.Add(split[0]);
-                        lbxLNResult.Items.Add(split[1]);
-                        lbxDeptResult.Items.Add(split[2]);
-                        lbxPosResult.Items.Add(split[3]);
-                        lbxStsResult.Items.Add(split[4]);
+                        lv_employeedata.Items.Add(new Employee
+                        {
+                            FirstName = split[0],
+                            MiddleName = split[1],
+                            LastName = split[2],
+                            Department = split[3],
+                            Position = split[4],
+                            Status = split[5]
+                        });
                     }
                 }
                 else if (pos)
                 {
                     if (value == split[3])
                     {
-                        lbxFNResult.Items.Add(split[0]);
-                        lbxLNResult.Items.Add(split[1]);
-                        lbxDeptResult.Items.Add(split[2]);
-                        lbxPosResult.Items.Add(split[3]);
-                        lbxStsResult.Items.Add(split[4]);
+                        lv_employeedata.Items.Add(new Employee
+                        {
+                            FirstName = split[0],
+                            MiddleName = split[1],
+                            LastName = split[2],
+                            Department = split[3],
+                            Position = split[4],
+                            Status = split[5]
+                        });
                     }
                 }
                 else if (sts)
                 {
                     if (value == split[4])
                     {
-                        lbxFNResult.Items.Add(split[0]);
-                        lbxLNResult.Items.Add(split[1]);
-                        lbxDeptResult.Items.Add(split[2]);
-                        lbxPosResult.Items.Add(split[3]);
-                        lbxStsResult.Items.Add(split[4]);
+                        lv_employeedata.Items.Add(new Employee
+                        {
+                            FirstName = split[0],
+                            MiddleName = split[1],
+                            LastName = split[2],
+                            Department = split[3],
+                            Position = split[4],
+                            Status = split[5]
+                        });
                     }
                 }
             }

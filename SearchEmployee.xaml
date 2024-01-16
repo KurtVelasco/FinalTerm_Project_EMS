@@ -13,18 +13,25 @@
         <ComboBox x:Name="cbxDeptSearch" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="120" LostFocus="CBXLostFocus"/>
         <ComboBox x:Name="cbxPosSearch" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" Width="120" LostFocus="CBXLostFocus"/>
         <ComboBox x:Name="cbxStsSearch" HorizontalAlignment="Left" Margin="10,149,0,0" VerticalAlignment="Top" Width="120" LostFocus="CBXLostFocus"/>
-        <ListBox x:Name="lbxFNResult" Width ="160" Margin="135,41,505,10" BorderBrush="White" Background="#FFF3F3F3"/>
-        <ListBox x:Name="lbxPosResult" Margin="630,41,68,10" BorderBrush="White" Background="#FFF3F3F3"/>
-        <ListBox x:Name="lbxStsResult" Margin="737,41,10,10" BorderBrush="White" Background="#FFF3F3F3"/>
         <Rectangle HorizontalAlignment="Left" Height="15" Margin="785,419,0,0" Stroke="Black" VerticalAlignment="Top" Width="15" Opacity="0"/>
-        <ListBox x:Name="lbxLNResult" Width ="160" Margin="300,41,340,10" BorderBrush="White" Background="#FFF3F3F3"/>
         <Label Content="First Name" HorizontalAlignment="Left" Margin="179,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Content="Last Name" HorizontalAlignment="Left" Margin="345,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Content="Department" HorizontalAlignment="Left" Margin="506,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Content="Position" HorizontalAlignment="Left" Margin="653,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Content="Status" HorizontalAlignment="Left" Margin="741,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <ListBox x:Name="lbxDeptResult" Width ="160" Margin="465,41,175,10" BorderBrush="White" Background="#FFF3F3F3"/>
         <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="10,176,0,0" VerticalAlignment="Top" Width="120" Click="btnSearch_Click"/>
         <Button x:Name="btnListAll" Content="List All" HorizontalAlignment="Left" Margin="10,201,0,0" VerticalAlignment="Top" Width="120" Click="btnListAll_Click"/>
+        <ListView x:Name="lv_employeedata" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="145,0,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="First Name" DisplayMemberBinding="{Binding Path = FirstName}" Width = "110"/>
+                    <GridViewColumn Header="Middle Name" DisplayMemberBinding="{Binding Path = MiddleName}" Width = "110"/>
+                    <GridViewColumn Header="Last Name" DisplayMemberBinding="{Binding Path = LastName}" Width = "110"/>
+                    <GridViewColumn Header="Department" DisplayMemberBinding="{Binding Path = Department}" Width = "110"/>
+                    <GridViewColumn Header="Position" DisplayMemberBinding="{Binding Path = Position}" Width = "105"/>
+                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Path = Status}" Width = "100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>

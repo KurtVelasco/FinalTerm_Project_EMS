@@ -52,7 +52,8 @@ namespace FinalTerm_Project_EMS
             {
                 DateTime timeIn = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, hour, minute, 0);
 
-                DB.uspTimeIn(employeeID, timeIn);
+                
+               // DB.uspTimeIn(employeeID, timeIn);
             }
 
 

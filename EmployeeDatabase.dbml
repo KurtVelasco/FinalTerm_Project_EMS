@@ -3,8 +3,8 @@
   <Table Name="dbo.tblAttendance" Member="tblAttendances">
     <Type Name="tblAttendance">
       <Column Name="AttendanceID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TimeIn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="TimeOut" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TimeIn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TimeOut" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="tblEmployee_tblAttendance" Member="tblEmployee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="tblEmployee" IsForeignKey="true" />
     </Type>
@@ -44,6 +44,7 @@
       <Column Name="ScheduleTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="EmployedOn" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="LeaveEntitlements" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="tblDepartment_tblEmployeeDetail" Member="tblDepartment" ThisKey="DepartmentID" OtherKey="DepartmentID" Type="tblDepartment" IsForeignKey="true" />
       <Association Name="tblEmployee_tblEmployeeDetail" Member="tblEmployee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="tblEmployee" IsForeignKey="true" />
       <Association Name="tblPosition_tblEmployeeDetail" Member="tblPosition" ThisKey="PositionID" OtherKey="PositionID" Type="tblPosition" IsForeignKey="true" />
@@ -71,12 +72,16 @@
   </Table>
   <Table Name="dbo.tblLeaveRequests" Member="tblLeaveRequests">
     <Type Name="tblLeaveRequest">
-      <Column Name="LeaveRequestID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Message" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="IsApproved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="Remarks" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LeaveRequestID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="DateFiled" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Duration" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DestinationAddress" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="RequestNotes" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsApproved" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ApprovalRemarks" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="isVacation" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="tblEmployee_tblLeaveRequest" Member="tblEmployee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="tblEmployee" IsForeignKey="true" />
     </Type>
   </Table>
@@ -121,111 +126,39 @@
       <Association Name="tblStatuse_tblEmployeeDetail" Member="tblEmployeeDetails" ThisKey="StatusID" OtherKey="StatusID" Type="tblEmployeeDetail" />
     </Type>
   </Table>
-  <Function Name="dbo.USP_LOGIN_EMPLOYEE" Method="USP_LOGIN_EMPLOYEE">
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Passowrd" Parameter="passowrd" Type="System.String" DbType="NVarChar(50)" />
-    <ElementType Name="USP_LOGIN_EMPLOYEEResult">
-      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="FirstName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="MiddleName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="LastName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="Birthday" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(11) NOT NULL" CanBeNull="false" />
-      <Column Name="EmailAddress" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="HomeAddress" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="EmployeeDetailsID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="EmployeeID1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PositionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="StatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ScheduleTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="EmployedOn" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="DepartmentID1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="PositionID1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PositionName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.USP_SEARCH_EMPLOYEE_BY_EMAIL" Method="USP_SEARCH_EMPLOYEE_BY_EMAIL">
-    <Parameter Name="EmployeeEmail" Parameter="employeeEmail" Type="System.String" DbType="NVarChar(255)" />
-    <ElementType Name="USP_SEARCH_EMPLOYEE_BY_EMAILResult">
-      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="FirstName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="MiddleName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="LastName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="Birthday" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(11) NOT NULL" CanBeNull="false" />
-      <Column Name="EmailAddress" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="HomeAddress" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="EmployeeDetailsID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="EmployeeID1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PositionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="StatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ScheduleTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="EmployedOn" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="DepartmentID1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="PositionID1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PositionName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.USP_SELECT_ALL_tblDepartments" Method="USP_SELECT_ALL_tblDepartments">
-    <ElementType Name="USP_SELECT_ALL_tblDepartmentsResult">
-      <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.USP_SELECT_ALL_tblPositions" Method="USP_SELECT_ALL_tblPositions">
-    <ElementType Name="USP_SELECT_ALL_tblPositionsResult">
-      <Column Name="PositionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PositionName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.USP_SELECT_ALL_tblSchedType" Method="USP_SELECT_ALL_tblSchedType">
-    <ElementType Name="USP_SELECT_ALL_tblSchedTypeResult">
-      <Column Name="ScheduleTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ScheduleType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ScheduleStartTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
-      <Column Name="ScheduleEndTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.USP_SELECT_ALL_tblStatus" Method="USP_SELECT_ALL_tblStatus">
-    <ElementType Name="USP_SELECT_ALL_tblStatusResult">
-      <Column Name="StatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="StatusName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.USP_INSERT_EMPLOYEE_DETAILS" Method="USP_INSERT_EMPLOYEE_DETAILS">
-    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="NVarChar(255)" />
-    <Parameter Name="MiddleName" Parameter="middleName" Type="System.String" DbType="NVarChar(255)" />
-    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="NVarChar(255)" />
-    <Parameter Name="Birthday" Parameter="birthday" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="HomeAddress" Parameter="homeAddress" Type="System.String" DbType="NVarChar(255)" />
-    <Parameter Name="Contact" Parameter="contact" Type="System.String" DbType="NVarChar(11)" />
+  <Function Name="dbo.uspFileLeaveRequest" Method="uspFileLeaveRequest">
+    <Parameter Name="employeeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="startDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="duration" Type="System.Int32" DbType="Int" />
+    <Parameter Name="isVacation" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="destinationAddress" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="requestNotes" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="success" Type="System.Boolean" DbType="Bit" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.USP_UPDATE_EMPLOYEE_PERSONAL" Method="USP_UPDATE_EMPLOYEE_PERSONAL">
-    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="NVarChar(255)" />
-    <Parameter Name="MiddleName" Parameter="middleName" Type="System.String" DbType="NVarChar(255)" />
-    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="NVarChar(255)" />
-    <Parameter Name="Birthday" Parameter="birthday" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="PhoneNumber" Parameter="phoneNumber" Type="System.String" DbType="NVarChar(13)" />
-    <Parameter Name="EmailAddress" Parameter="emailAddress" Type="System.String" DbType="NVarChar(255)" />
-    <Parameter Name="HomeAddress" Parameter="homeAddress" Type="System.String" DbType="NVarChar(255)" />
+  <Function Name="dbo.uspRespondToLeaveRequest" Method="uspRespondToLeaveRequest">
+    <Parameter Name="leaveRequestId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="isApproved" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="approvalRemarks" Type="System.String" DbType="NVarChar(255)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.USP_UPDATE_EMPLOYEE_EMPLOYMENT" Method="USP_UPDATE_EMPLOYEE_EMPLOYMENT">
-    <Parameter Name="EmmployeeID" Parameter="emmployeeID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="DepartmentID" Parameter="departmentID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="PositionID" Parameter="positionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="SchedTypeID" Parameter="schedTypeID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="StatusID" Parameter="statusID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="EmployedON" Parameter="employedON" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(255)" />
+  <Function Name="dbo.uspTimeIn" Method="uspTimeIn">
+    <Parameter Name="employeeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="timeIn" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="success" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspTimeOut" Method="uspTimeOut">
+    <Parameter Name="employeeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="timeIn" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="timeOut" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="status" Type="System.String" DbType="NVarChar(255)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspUploadAttendanceData" Method="uspUploadAttendanceData">
+    <Parameter Name="timeIn" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="timeOut" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="employeeId" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.USP_CHECK_DUPLICATE_EMAILS" Method="USP_CHECK_DUPLICATE_EMAILS">
@@ -257,20 +190,97 @@
     <Parameter Name="EmployedOn" Parameter="employedOn" Type="System.DateTime" DbType="Date" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.uspTimeOut" Method="uspTimeOut">
-    <Parameter Name="employeeId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="timeIn" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="timeOut" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="status" Type="System.String" DbType="NVarChar(255)" Direction="InOut" />
+  <Function Name="dbo.USP_LOGIN_EMPLOYEE" Method="USP_LOGIN_EMPLOYEE">
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Passowrd" Parameter="passowrd" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="USP_LOGIN_EMPLOYEEResult">
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="MiddleName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Birthday" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="EmailAddress" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="HomeAddress" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeDetailsID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PositionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ScheduleTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployedOn" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="LeaveEntitlements" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentID1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PositionID1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PositionName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StatusID1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StatusName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.USP_SEARCH_EMPLOYEE_BY_EMAIL" Method="USP_SEARCH_EMPLOYEE_BY_EMAIL">
+    <Parameter Name="EmployeeEmail" Parameter="employeeEmail" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="USP_SEARCH_EMPLOYEE_BY_EMAILResult">
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="MiddleName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Birthday" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="EmailAddress" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="HomeAddress" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeDetailsID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PositionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ScheduleTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployedOn" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="LeaveEntitlements" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentID1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PositionID1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PositionName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StatusID1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StatusName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.USP_SELECT_ALL_tblPositions" Method="USP_SELECT_ALL_tblPositions">
+    <ElementType Name="USP_SELECT_ALL_tblPositionsResult">
+      <Column Name="PositionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PositionName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.USP_UPDATE_EMPLOYEE_EMPLOYMENT" Method="USP_UPDATE_EMPLOYEE_EMPLOYMENT">
+    <Parameter Name="EmmployeeID" Parameter="emmployeeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DepartmentID" Parameter="departmentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PositionID" Parameter="positionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SchedTypeID" Parameter="schedTypeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StatusID" Parameter="statusID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="EmployedON" Parameter="employedON" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(255)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.fnCheckEmailValidity" Method="fnCheckEmailValidity" IsComposable="true">
-    <Parameter Name="email" Type="System.String" DbType="NVarChar(255)" />
-    <Return Type="System.Boolean" />
-  </Function>
-  <Function Name="dbo.uspTimeIn" Method="uspTimeIn">
-    <Parameter Name="employeeId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="timeIn" Type="System.DateTime" DbType="DateTime" />
+  <Function Name="dbo.USP_UPDATE_EMPLOYEE_PERSONAL" Method="USP_UPDATE_EMPLOYEE_PERSONAL">
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="MiddleName" Parameter="middleName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Birthday" Parameter="birthday" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="PhoneNumber" Parameter="phoneNumber" Type="System.String" DbType="NVarChar(13)" />
+    <Parameter Name="EmailAddress" Parameter="emailAddress" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="HomeAddress" Parameter="homeAddress" Type="System.String" DbType="NVarChar(255)" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Retrieve_EmployeeDetails" Method="Retrieve_EmployeeDetails">
+    <ElementType Name="Retrieve_EmployeeDetailsResult">
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="MiddleName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PositionName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StatusName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
   </Function>
 </Database>
