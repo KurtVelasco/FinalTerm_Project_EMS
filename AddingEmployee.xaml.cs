@@ -47,7 +47,7 @@ namespace FinalTerm_Project_EMS
 
                 //In this case the USP INSERT EMPLOYEES Takes multiple parameters
                 //you can hover on the methods to show what you need in order
-                db.USP_INSERT_EMPLOYEE_DETAILS(firstName, middlename, lastName, birthday, emailAddress, homeAddress, phoneNumber);
+                //db.USP_INSERT_EMPLOYEE_DETAILS(firstName, middlename, lastName, birthday, emailAddress, homeAddress, phoneNumber);
 
 
                 // Show added details in a message box

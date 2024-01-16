@@ -194,66 +194,41 @@ namespace FinalTerm_Project_EMS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_LOGIN_EMPLOYEE")]
-		public ISingleResult<USP_LOGIN_EMPLOYEEResult> USP_LOGIN_EMPLOYEE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Passowrd", DbType="NVarChar(50)")] string passowrd)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspFileLeaveRequest")]
+		public int uspFileLeaveRequest([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> employeeId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> startDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> duration, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> isVacation, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string destinationAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string requestNotes, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> success)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email, passowrd);
-			return ((ISingleResult<USP_LOGIN_EMPLOYEEResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_SEARCH_EMPLOYEE_BY_EMAIL")]
-		public ISingleResult<USP_SEARCH_EMPLOYEE_BY_EMAILResult> USP_SEARCH_EMPLOYEE_BY_EMAIL([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployeeEmail", DbType="NVarChar(255)")] string employeeEmail)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeEmail);
-			return ((ISingleResult<USP_SEARCH_EMPLOYEE_BY_EMAILResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_SELECT_ALL_tblDepartments")]
-		public ISingleResult<USP_SELECT_ALL_tblDepartmentsResult> USP_SELECT_ALL_tblDepartments()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<USP_SELECT_ALL_tblDepartmentsResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_SELECT_ALL_tblPositions")]
-		public ISingleResult<USP_SELECT_ALL_tblPositionsResult> USP_SELECT_ALL_tblPositions()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<USP_SELECT_ALL_tblPositionsResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_SELECT_ALL_tblSchedType")]
-		public ISingleResult<USP_SELECT_ALL_tblSchedTypeResult> USP_SELECT_ALL_tblSchedType()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<USP_SELECT_ALL_tblSchedTypeResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_SELECT_ALL_tblStatus")]
-		public ISingleResult<USP_SELECT_ALL_tblStatusResult> USP_SELECT_ALL_tblStatus()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<USP_SELECT_ALL_tblStatusResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_INSERT_EMPLOYEE_DETAILS")]
-		public int USP_INSERT_EMPLOYEE_DETAILS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="NVarChar(255)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MiddleName", DbType="NVarChar(255)")] string middleName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(255)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Birthday", DbType="Date")] System.Nullable<System.DateTime> birthday, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HomeAddress", DbType="NVarChar(255)")] string homeAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Contact", DbType="NVarChar(11)")] string contact)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), firstName, middleName, lastName, birthday, email, homeAddress, contact);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeId, startDate, duration, isVacation, destinationAddress, requestNotes, success);
+			success = ((System.Nullable<bool>)(result.GetParameterValue(6)));
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_UPDATE_EMPLOYEE_PERSONAL")]
-		public int USP_UPDATE_EMPLOYEE_PERSONAL([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="NVarChar(255)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MiddleName", DbType="NVarChar(255)")] string middleName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(255)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Birthday", DbType="Date")] System.Nullable<System.DateTime> birthday, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneNumber", DbType="NVarChar(13)")] string phoneNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmailAddress", DbType="NVarChar(255)")] string emailAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HomeAddress", DbType="NVarChar(255)")] string homeAddress)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspRespondToLeaveRequest")]
+		public int uspRespondToLeaveRequest([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> leaveRequestId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> isApproved, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string approvalRemarks)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), firstName, middleName, lastName, birthday, phoneNumber, emailAddress, homeAddress);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), leaveRequestId, isApproved, approvalRemarks);
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_UPDATE_EMPLOYEE_EMPLOYMENT")]
-		public int USP_UPDATE_EMPLOYEE_EMPLOYMENT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmmployeeID", DbType="Int")] System.Nullable<int> emmployeeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DepartmentID", DbType="Int")] System.Nullable<int> departmentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PositionID", DbType="Int")] System.Nullable<int> positionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchedTypeID", DbType="Int")] System.Nullable<int> schedTypeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StatusID", DbType="Int")] System.Nullable<int> statusID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployedON", DbType="Date")] System.Nullable<System.DateTime> employedON, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(255)")] string password)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspTimeIn")]
+		public int uspTimeIn([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> employeeId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> timeIn, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> success)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), emmployeeID, departmentID, positionID, schedTypeID, statusID, employedON, password);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeId, timeIn, success);
+			success = ((System.Nullable<bool>)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspTimeOut")]
+		public int uspTimeOut([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> employeeId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> timeIn, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> timeOut, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] ref string status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeId, timeIn, timeOut, status);
+			status = ((string)(result.GetParameterValue(3)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspUploadAttendanceData")]
+		public int uspUploadAttendanceData([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> timeIn, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> timeOut, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> employeeId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), timeIn, timeOut, employeeId);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -271,25 +246,46 @@ namespace FinalTerm_Project_EMS
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspTimeOut")]
-		public int uspTimeOut([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> employeeId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> timeIn, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> timeOut, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] ref string status)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_LOGIN_EMPLOYEE")]
+		public ISingleResult<USP_LOGIN_EMPLOYEEResult> USP_LOGIN_EMPLOYEE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(255)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Passowrd", DbType="NVarChar(255)")] string passowrd)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeId, timeIn, timeOut, status);
-			status = ((string)(result.GetParameterValue(3)));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email, passowrd);
+			return ((ISingleResult<USP_LOGIN_EMPLOYEEResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_SEARCH_EMPLOYEE_BY_EMAIL")]
+		public ISingleResult<USP_SEARCH_EMPLOYEE_BY_EMAILResult> USP_SEARCH_EMPLOYEE_BY_EMAIL([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployeeEmail", DbType="NVarChar(255)")] string employeeEmail)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeEmail);
+			return ((ISingleResult<USP_SEARCH_EMPLOYEE_BY_EMAILResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_SELECT_ALL_tblPositions")]
+		public ISingleResult<USP_SELECT_ALL_tblPositionsResult> USP_SELECT_ALL_tblPositions()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<USP_SELECT_ALL_tblPositionsResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_UPDATE_EMPLOYEE_EMPLOYMENT")]
+		public int USP_UPDATE_EMPLOYEE_EMPLOYMENT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmmployeeID", DbType="Int")] System.Nullable<int> emmployeeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DepartmentID", DbType="Int")] System.Nullable<int> departmentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PositionID", DbType="Int")] System.Nullable<int> positionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchedTypeID", DbType="Int")] System.Nullable<int> schedTypeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StatusID", DbType="Int")] System.Nullable<int> statusID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployedON", DbType="Date")] System.Nullable<System.DateTime> employedON, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(255)")] string password)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), emmployeeID, departmentID, positionID, schedTypeID, statusID, employedON, password);
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.fnCheckEmailValidity", IsComposable=true)]
-		public System.Nullable<bool> fnCheckEmailValidity([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string email)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_UPDATE_EMPLOYEE_PERSONAL")]
+		public int USP_UPDATE_EMPLOYEE_PERSONAL([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="NVarChar(255)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MiddleName", DbType="NVarChar(255)")] string middleName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(255)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Birthday", DbType="Date")] System.Nullable<System.DateTime> birthday, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneNumber", DbType="NVarChar(13)")] string phoneNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmailAddress", DbType="NVarChar(255)")] string emailAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HomeAddress", DbType="NVarChar(255)")] string homeAddress)
 		{
-			return ((System.Nullable<bool>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email).ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), firstName, middleName, lastName, birthday, phoneNumber, emailAddress, homeAddress);
+			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspTimeIn")]
-		public int uspTimeIn([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> employeeId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> timeIn)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Retrieve_EmployeeDetails")]
+		public ISingleResult<Retrieve_EmployeeDetailsResult> Retrieve_EmployeeDetails()
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeId, timeIn);
-			return ((int)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<Retrieve_EmployeeDetailsResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -301,9 +297,9 @@ namespace FinalTerm_Project_EMS
 		
 		private int _AttendanceID;
 		
-		private System.DateTime _TimeIn;
+		private System.Nullable<System.DateTime> _TimeIn;
 		
-		private System.DateTime _TimeOut;
+		private System.Nullable<System.DateTime> _TimeOut;
 		
 		private int _EmployeeID;
 		
@@ -315,9 +311,9 @@ namespace FinalTerm_Project_EMS
     partial void OnCreated();
     partial void OnAttendanceIDChanging(int value);
     partial void OnAttendanceIDChanged();
-    partial void OnTimeInChanging(System.DateTime value);
+    partial void OnTimeInChanging(System.Nullable<System.DateTime> value);
     partial void OnTimeInChanged();
-    partial void OnTimeOutChanging(System.DateTime value);
+    partial void OnTimeOutChanging(System.Nullable<System.DateTime> value);
     partial void OnTimeOutChanged();
     partial void OnEmployeeIDChanging(int value);
     partial void OnEmployeeIDChanged();
@@ -349,8 +345,8 @@ namespace FinalTerm_Project_EMS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeIn", DbType="DateTime NOT NULL")]
-		public System.DateTime TimeIn
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeIn", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeIn
 		{
 			get
 			{
@@ -369,8 +365,8 @@ namespace FinalTerm_Project_EMS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeOut", DbType="DateTime NOT NULL")]
-		public System.DateTime TimeOut
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeOut", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeOut
 		{
 			get
 			{
@@ -958,6 +954,8 @@ namespace FinalTerm_Project_EMS
 		
 		private System.DateTime _EmployedOn;
 		
+		private int _LeaveEntitlements;
+		
 		private EntityRef<tblDepartment> _tblDepartment;
 		
 		private EntityRef<tblEmployee> _tblEmployee;
@@ -988,6 +986,8 @@ namespace FinalTerm_Project_EMS
     partial void OnPasswordChanged();
     partial void OnEmployedOnChanging(System.DateTime value);
     partial void OnEmployedOnChanged();
+    partial void OnLeaveEntitlementsChanging(int value);
+    partial void OnLeaveEntitlementsChanged();
     #endregion
 		
 		public tblEmployeeDetail()
@@ -1176,6 +1176,26 @@ namespace FinalTerm_Project_EMS
 					this._EmployedOn = value;
 					this.SendPropertyChanged("EmployedOn");
 					this.OnEmployedOnChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LeaveEntitlements", DbType="Int NOT NULL")]
+		public int LeaveEntitlements
+		{
+			get
+			{
+				return this._LeaveEntitlements;
+			}
+			set
+			{
+				if ((this._LeaveEntitlements != value))
+				{
+					this.OnLeaveEntitlementsChanging(value);
+					this.SendPropertyChanging();
+					this._LeaveEntitlements = value;
+					this.SendPropertyChanged("LeaveEntitlements");
+					this.OnLeaveEntitlementsChanged();
 				}
 			}
 		}
@@ -1777,15 +1797,23 @@ namespace FinalTerm_Project_EMS
 		
 		private int _LeaveRequestID;
 		
+		private System.DateTime _DateFiled;
+		
+		private System.DateTime _StartDate;
+		
+		private int _Duration;
+		
+		private string _DestinationAddress;
+		
+		private string _RequestNotes;
+		
 		private int _EmployeeID;
 		
-		private string _Message;
+		private System.Nullable<bool> _IsApproved;
 		
-		private bool _IsApproved;
+		private string _ApprovalRemarks;
 		
-		private string _Remarks;
-		
-		private System.DateTime _DateFiled;
+		private bool _isVacation;
 		
 		private EntityRef<tblEmployee> _tblEmployee;
 		
@@ -1795,16 +1823,24 @@ namespace FinalTerm_Project_EMS
     partial void OnCreated();
     partial void OnLeaveRequestIDChanging(int value);
     partial void OnLeaveRequestIDChanged();
-    partial void OnEmployeeIDChanging(int value);
-    partial void OnEmployeeIDChanged();
-    partial void OnMessageChanging(string value);
-    partial void OnMessageChanged();
-    partial void OnIsApprovedChanging(bool value);
-    partial void OnIsApprovedChanged();
-    partial void OnRemarksChanging(string value);
-    partial void OnRemarksChanged();
     partial void OnDateFiledChanging(System.DateTime value);
     partial void OnDateFiledChanged();
+    partial void OnStartDateChanging(System.DateTime value);
+    partial void OnStartDateChanged();
+    partial void OnDurationChanging(int value);
+    partial void OnDurationChanged();
+    partial void OnDestinationAddressChanging(string value);
+    partial void OnDestinationAddressChanged();
+    partial void OnRequestNotesChanging(string value);
+    partial void OnRequestNotesChanged();
+    partial void OnEmployeeIDChanging(int value);
+    partial void OnEmployeeIDChanged();
+    partial void OnIsApprovedChanging(System.Nullable<bool> value);
+    partial void OnIsApprovedChanged();
+    partial void OnApprovalRemarksChanging(string value);
+    partial void OnApprovalRemarksChanged();
+    partial void OnisVacationChanging(bool value);
+    partial void OnisVacationChanged();
     #endregion
 		
 		public tblLeaveRequest()
@@ -1813,7 +1849,7 @@ namespace FinalTerm_Project_EMS
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LeaveRequestID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LeaveRequestID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int LeaveRequestID
 		{
 			get
@@ -1829,6 +1865,106 @@ namespace FinalTerm_Project_EMS
 					this._LeaveRequestID = value;
 					this.SendPropertyChanged("LeaveRequestID");
 					this.OnLeaveRequestIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateFiled", DbType="DateTime NOT NULL")]
+		public System.DateTime DateFiled
+		{
+			get
+			{
+				return this._DateFiled;
+			}
+			set
+			{
+				if ((this._DateFiled != value))
+				{
+					this.OnDateFiledChanging(value);
+					this.SendPropertyChanging();
+					this._DateFiled = value;
+					this.SendPropertyChanged("DateFiled");
+					this.OnDateFiledChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="Date NOT NULL")]
+		public System.DateTime StartDate
+		{
+			get
+			{
+				return this._StartDate;
+			}
+			set
+			{
+				if ((this._StartDate != value))
+				{
+					this.OnStartDateChanging(value);
+					this.SendPropertyChanging();
+					this._StartDate = value;
+					this.SendPropertyChanged("StartDate");
+					this.OnStartDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Duration", DbType="Int NOT NULL")]
+		public int Duration
+		{
+			get
+			{
+				return this._Duration;
+			}
+			set
+			{
+				if ((this._Duration != value))
+				{
+					this.OnDurationChanging(value);
+					this.SendPropertyChanging();
+					this._Duration = value;
+					this.SendPropertyChanged("Duration");
+					this.OnDurationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DestinationAddress", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DestinationAddress
+		{
+			get
+			{
+				return this._DestinationAddress;
+			}
+			set
+			{
+				if ((this._DestinationAddress != value))
+				{
+					this.OnDestinationAddressChanging(value);
+					this.SendPropertyChanging();
+					this._DestinationAddress = value;
+					this.SendPropertyChanged("DestinationAddress");
+					this.OnDestinationAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RequestNotes", DbType="NVarChar(255)")]
+		public string RequestNotes
+		{
+			get
+			{
+				return this._RequestNotes;
+			}
+			set
+			{
+				if ((this._RequestNotes != value))
+				{
+					this.OnRequestNotesChanging(value);
+					this.SendPropertyChanging();
+					this._RequestNotes = value;
+					this.SendPropertyChanged("RequestNotes");
+					this.OnRequestNotesChanged();
 				}
 			}
 		}
@@ -1857,28 +1993,8 @@ namespace FinalTerm_Project_EMS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string Message
-		{
-			get
-			{
-				return this._Message;
-			}
-			set
-			{
-				if ((this._Message != value))
-				{
-					this.OnMessageChanging(value);
-					this.SendPropertyChanging();
-					this._Message = value;
-					this.SendPropertyChanged("Message");
-					this.OnMessageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsApproved", DbType="Bit NOT NULL")]
-		public bool IsApproved
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsApproved", DbType="Bit")]
+		public System.Nullable<bool> IsApproved
 		{
 			get
 			{
@@ -1897,42 +2013,42 @@ namespace FinalTerm_Project_EMS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Remarks", DbType="NVarChar(255)")]
-		public string Remarks
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApprovalRemarks", DbType="NVarChar(255)")]
+		public string ApprovalRemarks
 		{
 			get
 			{
-				return this._Remarks;
+				return this._ApprovalRemarks;
 			}
 			set
 			{
-				if ((this._Remarks != value))
+				if ((this._ApprovalRemarks != value))
 				{
-					this.OnRemarksChanging(value);
+					this.OnApprovalRemarksChanging(value);
 					this.SendPropertyChanging();
-					this._Remarks = value;
-					this.SendPropertyChanged("Remarks");
-					this.OnRemarksChanged();
+					this._ApprovalRemarks = value;
+					this.SendPropertyChanged("ApprovalRemarks");
+					this.OnApprovalRemarksChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateFiled", DbType="DateTime NOT NULL")]
-		public System.DateTime DateFiled
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isVacation", DbType="Bit NOT NULL")]
+		public bool isVacation
 		{
 			get
 			{
-				return this._DateFiled;
+				return this._isVacation;
 			}
 			set
 			{
-				if ((this._DateFiled != value))
+				if ((this._isVacation != value))
 				{
-					this.OnDateFiledChanging(value);
+					this.OnisVacationChanging(value);
 					this.SendPropertyChanging();
-					this._DateFiled = value;
-					this.SendPropertyChanged("DateFiled");
-					this.OnDateFiledChanged();
+					this._isVacation = value;
+					this.SendPropertyChanged("isVacation");
+					this.OnisVacationChanged();
 				}
 			}
 		}
@@ -2732,6 +2848,158 @@ namespace FinalTerm_Project_EMS
 		}
 	}
 	
+	public partial class USP_CHECK_DUPLICATE_EMAILSResult
+	{
+		
+		private int _EmployeeID;
+		
+		private string _FirstName;
+		
+		private string _MiddleName;
+		
+		private string _LastName;
+		
+		private System.DateTime _Birthday;
+		
+		private string _PhoneNumber;
+		
+		private string _EmailAddress;
+		
+		private string _HomeAddress;
+		
+		public USP_CHECK_DUPLICATE_EMAILSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int NOT NULL")]
+		public int EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					this._EmployeeID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this._FirstName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MiddleName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string MiddleName
+		{
+			get
+			{
+				return this._MiddleName;
+			}
+			set
+			{
+				if ((this._MiddleName != value))
+				{
+					this._MiddleName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this._LastName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Birthday", DbType="Date NOT NULL")]
+		public System.DateTime Birthday
+		{
+			get
+			{
+				return this._Birthday;
+			}
+			set
+			{
+				if ((this._Birthday != value))
+				{
+					this._Birthday = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="NVarChar(11) NOT NULL", CanBeNull=false)]
+		public string PhoneNumber
+		{
+			get
+			{
+				return this._PhoneNumber;
+			}
+			set
+			{
+				if ((this._PhoneNumber != value))
+				{
+					this._PhoneNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailAddress", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string EmailAddress
+		{
+			get
+			{
+				return this._EmailAddress;
+			}
+			set
+			{
+				if ((this._EmailAddress != value))
+				{
+					this._EmailAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HomeAddress", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string HomeAddress
+		{
+			get
+			{
+				return this._HomeAddress;
+			}
+			set
+			{
+				if ((this._HomeAddress != value))
+				{
+					this._HomeAddress = value;
+				}
+			}
+		}
+	}
+	
 	public partial class USP_LOGIN_EMPLOYEEResult
 	{
 		
@@ -2767,6 +3035,8 @@ namespace FinalTerm_Project_EMS
 		
 		private System.DateTime _EmployedOn;
 		
+		private int _LeaveEntitlements;
+		
 		private int _DepartmentID1;
 		
 		private string _DepartmentName;
@@ -2774,6 +3044,10 @@ namespace FinalTerm_Project_EMS
 		private int _PositionID1;
 		
 		private string _PositionName;
+		
+		private int _StatusID1;
+		
+		private string _StatusName;
 		
 		public USP_LOGIN_EMPLOYEEResult()
 		{
@@ -3035,6 +3309,22 @@ namespace FinalTerm_Project_EMS
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LeaveEntitlements", DbType="Int NOT NULL")]
+		public int LeaveEntitlements
+		{
+			get
+			{
+				return this._LeaveEntitlements;
+			}
+			set
+			{
+				if ((this._LeaveEntitlements != value))
+				{
+					this._LeaveEntitlements = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentID1", DbType="Int NOT NULL")]
 		public int DepartmentID1
 		{
@@ -3098,6 +3388,38 @@ namespace FinalTerm_Project_EMS
 				}
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusID1", DbType="Int NOT NULL")]
+		public int StatusID1
+		{
+			get
+			{
+				return this._StatusID1;
+			}
+			set
+			{
+				if ((this._StatusID1 != value))
+				{
+					this._StatusID1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string StatusName
+		{
+			get
+			{
+				return this._StatusName;
+			}
+			set
+			{
+				if ((this._StatusName != value))
+				{
+					this._StatusName = value;
+				}
+			}
+		}
 	}
 	
 	public partial class USP_SEARCH_EMPLOYEE_BY_EMAILResult
@@ -3135,6 +3457,8 @@ namespace FinalTerm_Project_EMS
 		
 		private System.DateTime _EmployedOn;
 		
+		private int _LeaveEntitlements;
+		
 		private int _DepartmentID1;
 		
 		private string _DepartmentName;
@@ -3142,6 +3466,10 @@ namespace FinalTerm_Project_EMS
 		private int _PositionID1;
 		
 		private string _PositionName;
+		
+		private int _StatusID1;
+		
+		private string _StatusName;
 		
 		public USP_SEARCH_EMPLOYEE_BY_EMAILResult()
 		{
@@ -3403,6 +3731,22 @@ namespace FinalTerm_Project_EMS
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LeaveEntitlements", DbType="Int NOT NULL")]
+		public int LeaveEntitlements
+		{
+			get
+			{
+				return this._LeaveEntitlements;
+			}
+			set
+			{
+				if ((this._LeaveEntitlements != value))
+				{
+					this._LeaveEntitlements = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentID1", DbType="Int NOT NULL")]
 		public int DepartmentID1
 		{
@@ -3466,47 +3810,35 @@ namespace FinalTerm_Project_EMS
 				}
 			}
 		}
-	}
-	
-	public partial class USP_SELECT_ALL_tblDepartmentsResult
-	{
 		
-		private int _DepartmentID;
-		
-		private string _DepartmentName;
-		
-		public USP_SELECT_ALL_tblDepartmentsResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentID", DbType="Int NOT NULL")]
-		public int DepartmentID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusID1", DbType="Int NOT NULL")]
+		public int StatusID1
 		{
 			get
 			{
-				return this._DepartmentID;
+				return this._StatusID1;
 			}
 			set
 			{
-				if ((this._DepartmentID != value))
+				if ((this._StatusID1 != value))
 				{
-					this._DepartmentID = value;
+					this._StatusID1 = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string DepartmentName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string StatusName
 		{
 			get
 			{
-				return this._DepartmentName;
+				return this._StatusName;
 			}
 			set
 			{
-				if ((this._DepartmentName != value))
+				if ((this._StatusName != value))
 				{
-					this._DepartmentName = value;
+					this._StatusName = value;
 				}
 			}
 		}
@@ -3556,134 +3888,8 @@ namespace FinalTerm_Project_EMS
 		}
 	}
 	
-	public partial class USP_SELECT_ALL_tblSchedTypeResult
+	public partial class Retrieve_EmployeeDetailsResult
 	{
-		
-		private int _ScheduleTypeID;
-		
-		private string _ScheduleType;
-		
-		private System.TimeSpan _ScheduleStartTime;
-		
-		private System.TimeSpan _ScheduleEndTime;
-		
-		public USP_SELECT_ALL_tblSchedTypeResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScheduleTypeID", DbType="Int NOT NULL")]
-		public int ScheduleTypeID
-		{
-			get
-			{
-				return this._ScheduleTypeID;
-			}
-			set
-			{
-				if ((this._ScheduleTypeID != value))
-				{
-					this._ScheduleTypeID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScheduleType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string ScheduleType
-		{
-			get
-			{
-				return this._ScheduleType;
-			}
-			set
-			{
-				if ((this._ScheduleType != value))
-				{
-					this._ScheduleType = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScheduleStartTime", DbType="Time NOT NULL")]
-		public System.TimeSpan ScheduleStartTime
-		{
-			get
-			{
-				return this._ScheduleStartTime;
-			}
-			set
-			{
-				if ((this._ScheduleStartTime != value))
-				{
-					this._ScheduleStartTime = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScheduleEndTime", DbType="Time NOT NULL")]
-		public System.TimeSpan ScheduleEndTime
-		{
-			get
-			{
-				return this._ScheduleEndTime;
-			}
-			set
-			{
-				if ((this._ScheduleEndTime != value))
-				{
-					this._ScheduleEndTime = value;
-				}
-			}
-		}
-	}
-	
-	public partial class USP_SELECT_ALL_tblStatusResult
-	{
-		
-		private int _StatusID;
-		
-		private string _StatusName;
-		
-		public USP_SELECT_ALL_tblStatusResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusID", DbType="Int NOT NULL")]
-		public int StatusID
-		{
-			get
-			{
-				return this._StatusID;
-			}
-			set
-			{
-				if ((this._StatusID != value))
-				{
-					this._StatusID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string StatusName
-		{
-			get
-			{
-				return this._StatusName;
-			}
-			set
-			{
-				if ((this._StatusName != value))
-				{
-					this._StatusName = value;
-				}
-			}
-		}
-	}
-	
-	public partial class USP_CHECK_DUPLICATE_EMAILSResult
-	{
-		
-		private int _EmployeeID;
 		
 		private string _FirstName;
 		
@@ -3691,32 +3897,14 @@ namespace FinalTerm_Project_EMS
 		
 		private string _LastName;
 		
-		private System.DateTime _Birthday;
+		private string _DepartmentName;
 		
-		private string _PhoneNumber;
+		private string _PositionName;
 		
-		private string _EmailAddress;
+		private string _StatusName;
 		
-		private string _HomeAddress;
-		
-		public USP_CHECK_DUPLICATE_EMAILSResult()
+		public Retrieve_EmployeeDetailsResult()
 		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int NOT NULL")]
-		public int EmployeeID
-		{
-			get
-			{
-				return this._EmployeeID;
-			}
-			set
-			{
-				if ((this._EmployeeID != value))
-				{
-					this._EmployeeID = value;
-				}
-			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
@@ -3767,66 +3955,50 @@ namespace FinalTerm_Project_EMS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Birthday", DbType="Date NOT NULL")]
-		public System.DateTime Birthday
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string DepartmentName
 		{
 			get
 			{
-				return this._Birthday;
+				return this._DepartmentName;
 			}
 			set
 			{
-				if ((this._Birthday != value))
+				if ((this._DepartmentName != value))
 				{
-					this._Birthday = value;
+					this._DepartmentName = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="NVarChar(11) NOT NULL", CanBeNull=false)]
-		public string PhoneNumber
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PositionName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PositionName
 		{
 			get
 			{
-				return this._PhoneNumber;
+				return this._PositionName;
 			}
 			set
 			{
-				if ((this._PhoneNumber != value))
+				if ((this._PositionName != value))
 				{
-					this._PhoneNumber = value;
+					this._PositionName = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailAddress", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string EmailAddress
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string StatusName
 		{
 			get
 			{
-				return this._EmailAddress;
+				return this._StatusName;
 			}
 			set
 			{
-				if ((this._EmailAddress != value))
+				if ((this._StatusName != value))
 				{
-					this._EmailAddress = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HomeAddress", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string HomeAddress
-		{
-			get
-			{
-				return this._HomeAddress;
-			}
-			set
-			{
-				if ((this._HomeAddress != value))
-				{
-					this._HomeAddress = value;
+					this._StatusName = value;
 				}
 			}
 		}
