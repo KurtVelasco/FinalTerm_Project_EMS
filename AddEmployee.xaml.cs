@@ -45,10 +45,31 @@ namespace FinalTerm_Project_EMS
 
         private void FillComboBoxes()
         {
-            Dictionary<int, string> department = db.USP_SELECT_ALL_tblDepartments().ToDictionary(dep => dep.DepartmentID, dep => dep.DepartmentName);
-            Dictionary<int, string> position = db.USP_SELECT_ALL_tblPositions().ToDictionary(pos => pos.PositionID, pos => pos.PositionName);
-            Dictionary<int, string> status = db.USP_SELECT_ALL_tblStatus().ToDictionary(stat => stat.StatusID, stat => stat.StatusName);
-            Dictionary<int,string> schedule = db.USP_SELECT_ALL_tblSchedType().ToDictionary(sched => sched.ScheduleTypeID, sched => sched.ScheduleType);
+            Dictionary<int, string> department = new Dictionary<int, string>();
+            Dictionary<int, string> position = new Dictionary<int, string>();
+            Dictionary<int, string> status = new Dictionary<int, string>();
+            Dictionary<int, string> schedule = new Dictionary<int, string>();
+            //Deleted because Keane said so
+            //Dictionary<int, string> department = db.USP_SELECT_ALL_tblDepartments().ToDictionary(dep => dep.DepartmentID, dep => dep.DepartmentName);
+            //Dictionary<int, string> position = db.USP_SELECT_ALL_tblPositions().ToDictionary(pos => pos.PositionID, pos => pos.PositionName);
+            //Dictionary<int, string> status = db.USP_SELECT_ALL_tblStatus().ToDictionary(stat => stat.StatusID, stat => stat.StatusName);
+            //Dictionary<int,string> schedule = db.USP_SELECT_ALL_tblSchedType().ToDictionary(sched => sched.ScheduleTypeID, sched => sched.ScheduleType);
+            foreach (tblDepartment dps in db.tblDepartments)
+            {
+                department[dps.DepartmentID] = dps.DepartmentName;  
+            }
+            foreach(tblPosition tp in db.tblPositions)
+            {
+                position[tp.PositionID] = tp.PositionName;
+            } 
+            foreach(tblStatuse ts in db.tblStatuses)
+            {
+                status[ts.StatusID] = ts.StatusName;    
+            }
+            foreach(tblScheduleType ts in db.tblScheduleTypes)
+            {
+                schedule[ts.ScheduleTypeID] = ts.ScheduleType;
+            }
 
             Combobox_Department.ItemsSource = department;
             Combobox_Position.ItemsSource = position;

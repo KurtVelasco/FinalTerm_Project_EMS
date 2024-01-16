@@ -6,7 +6,7 @@ using System.Text;
 
 namespace FinalTerm_Project_EMS
 {
-    internal class LogInCredentials
+    internal class LogInCredentials 
     {
         public static string EMPLOYEE_EMAIL = string.Empty;
         public static string EMPLOYEE_ID = string.Empty;

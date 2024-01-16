@@ -24,4 +24,8 @@ namespace FinalTerm_Project_EMS
             InitializeComponent();
         }
     }
+    public class Employee
+    {
+       
+    }
 }
