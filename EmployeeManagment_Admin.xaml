@@ -10,8 +10,8 @@
         <Button x:Name="Button_AddEmployee" Content="Add Employee" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Width="233" Height="32" Click="Button_AddEmployee_Click"/>
         <Button x:Name="Button_UpdateEmployee" Content="Update Employee Credentials" HorizontalAlignment="Left" Margin="0,150,0,0" VerticalAlignment="Top" Width="233" Height="32" Click="Button_UpdateEmployee_Click"/>
         <Button x:Name="Button_ViewLogs" Content="Search Employee" HorizontalAlignment="Left" Margin="0,200,0,0" VerticalAlignment="Top" Width="233" Height="32" Click="Button_ViewLogs_Click"/>
-        <Button  x:Name="Button_Placeholder" Content="View Logs" HorizontalAlignment="Left" Margin="0,250,0,0" VerticalAlignment="Top" Width="233" Height="32" Click="Button_Placeholder_Click"/>
-        <Button  x:Name="Button_LogOut" Content="Log Out" HorizontalAlignment="Left" Margin="0,350,0,0" VerticalAlignment="Top" Width="233" Height="32" Click="Button_Placeholder_Click"/>
+        <Button  x:Name="Button_Placeholder" Content="View Logs" HorizontalAlignment="Left" Margin="0,250,0,0" VerticalAlignment="Top" Width="233" Height="32" />
+        <Button  x:Name="Button_LogOut" Content="Log Out" HorizontalAlignment="Left" Margin="0,350,0,0" VerticalAlignment="Top" Width="233" Height="32" Click="Button_LogOut_Click"/>
 
     </Grid>
 </Window>
