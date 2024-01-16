@@ -25,7 +25,9 @@ namespace FinalTerm_Project_EMS
         }
         private void Button_AddEmployee_Click(object sender, RoutedEventArgs e)
         {
-            //Add Employee Details
+           AddEmployee ae = new AddEmployee();
+            ae.Show();
+            this.Close();
         }
 
         private void Button_UpdateEmployee_Click(object sender, RoutedEventArgs e)
@@ -42,9 +44,11 @@ namespace FinalTerm_Project_EMS
             this.Close();
         }
 
-        private void Button_Placeholder_Click(object sender, RoutedEventArgs e)
+        private void Button_LogOut_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow mw = new MainWindow();
+            mw.Show();
+            this.Close();
         }
     }
 }

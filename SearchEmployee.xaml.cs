@@ -300,5 +300,11 @@ namespace FinalTerm_Project_EMS
             }
         }
 
+        private void Button_ReturnMenu_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeeManagment_Admin am = new EmployeeManagment_Admin();
+            am.Show();
+            this.Close();
+        }
     }
 }
