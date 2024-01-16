@@ -165,6 +165,9 @@
     <None Include="EmployeeDatabase.dbml.layout">
       <DependentUpon>EmployeeDatabase.dbml</DependentUpon>
     </None>
+    <Resource Include="Fonts\Munich Regular.ttf" />
+    <Resource Include="Fonts\Helvetica Neue Bold.ttf" />
+    <Resource Include="Fonts\Helvetica Neue.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -175,6 +178,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Northville Public School %28Icon%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
