@@ -20,7 +20,7 @@ namespace FinalTerm_Project_EMS
     /// </summary>
     public partial class SearchEmployee : Window
     {
-        DataClasses1DataContext db = new DataClasses1DataContext(Properties.Settings.Default.MockEMSDatabaseConnectionString);
+        EmployeeDatabaseDataContext db = new EmployeeDatabaseDataContext(Properties.Settings.Default.MockEMSDatabaseConnectionString);
         
         private List<string> employeeData = new List<string>();
 
