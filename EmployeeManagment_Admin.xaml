@@ -5,13 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalTerm_Project_EMS"
         mc:Ignorable="d"
-        Title="EmployeeManagment_Admin" Height="450" Width="800">
+        Title="EmployeeManagment_Admin" Height="450" Width="800" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
     <Grid>
-        <Button x:Name="Button_AddEmployee" Content="Add Employee" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Width="233" Height="32" Click="Button_AddEmployee_Click"/>
-        <Button x:Name="Button_UpdateEmployee" Content="Update Employee Credentials" HorizontalAlignment="Left" Margin="0,150,0,0" VerticalAlignment="Top" Width="233" Height="32" Click="Button_UpdateEmployee_Click"/>
-        <Button x:Name="Button_ViewLogs" Content="Search Employee" HorizontalAlignment="Left" Margin="0,200,0,0" VerticalAlignment="Top" Width="233" Height="32" Click="Button_ViewLogs_Click"/>
-        <Button  x:Name="Button_Placeholder" Content="View Logs" HorizontalAlignment="Left" Margin="0,250,0,0" VerticalAlignment="Top" Width="233" Height="32" />
-        <Button  x:Name="Button_LogOut" Content="Log Out" HorizontalAlignment="Left" Margin="0,350,0,0" VerticalAlignment="Top" Width="233" Height="32" Click="Button_LogOut_Click"/>
+        <Rectangle HorizontalAlignment="Center" Height="434" Stroke="Black" VerticalAlignment="Center" Width="800" Fill="#FF8B280D"/>
+        <Rectangle HorizontalAlignment="Center" Height="363" VerticalAlignment="Center" Width="728" Fill="#FFFBC361"/>
+        <Image HorizontalAlignment="Left" Margin="64,0,0,0" VerticalAlignment="Center" Height="361" Width="364" Source="/Images/Northville Public School (Icon).png"/>
+        <Label x:Name="tbx_welcomelabel" Content="" Style="{StaticResource ResourceKey=MunichRegular}" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="310" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF8B280D" Margin="440,50,0,0"/>
+
+        <Button x:Name="Button_AddEmployee" Style="{StaticResource ResourceKey=RoundedButton}" Content="Add Employee" HorizontalAlignment="Left" Margin="495,98,0,0" VerticalAlignment="Top" Width="200" Height="40" Click="Button_AddEmployee_Click" Background="#FF8B280D" Foreground="White" BorderBrush="Black"/>
+        <Button x:Name="Button_UpdateEmployee" Style="{StaticResource ResourceKey=RoundedButton}" Content="Update Employee Credentials" HorizontalAlignment="Left" Margin="495,148,0,0" VerticalAlignment="Top" Width="200" Height="40" Click="Button_UpdateEmployee_Click" Background="#FF8B280D" Foreground="White" BorderBrush="Black"/>
+        <Button x:Name="Button_ViewLogs" Style="{StaticResource ResourceKey=RoundedButton}" Content="Search Employee" HorizontalAlignment="Left" Margin="495,197,0,0" VerticalAlignment="Top" Width="200" Height="40" Click="Button_ViewLogs_Click" Background="#FF8B280D" Foreground="White" BorderBrush="Black"/>
+        <Button x:Name="Button_Placeholder" Style="{StaticResource ResourceKey=RoundedButton}" Content="View Logs" HorizontalAlignment="Left" Margin="495,248,0,0" VerticalAlignment="Top" Width="200" Height="40" Background="#FF8B280D" Foreground="White" BorderBrush="Black" />
+        <Button x:Name="Button_LogOut" Style="{StaticResource ResourceKey=RoundedButton}" Content="Log Out" HorizontalAlignment="Left" Margin="495,322,0,0" VerticalAlignment="Top" Width="200" Height="40" Click="Button_LogOut_Click" Background="#FF8B280D" Foreground="White" BorderBrush="Red"/>
 
     </Grid>
 </Window>

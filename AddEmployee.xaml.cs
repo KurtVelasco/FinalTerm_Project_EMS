@@ -122,7 +122,6 @@ namespace FinalTerm_Project_EMS
             Email = Textbox_Email.Text;
             HomeAddress = Textbox_HomeAddress.Text;
             Contact = Textbox_Contact.Text;
-            GetEmail = Textbox_GetEmail.Text;
             Password = Textbox_Password.Text;
             MiddleName = Textbox_MiddleName.Text;
 
