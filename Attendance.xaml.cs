@@ -132,7 +132,11 @@ namespace FinalTerm_Project_EMS
                     // The using statement also closes the StreamReader.
                     using (StreamReader sr = new StreamReader("attendance.csv"))
                     {
+                        Dictionary<int, string[]> errRowsDict = new Dictionary<int, string[]>();
                         string line;
+                        int rowNum = -1;
+                        int errCounter = 0;
+
                         // Read and display lines from the file until the end of
                         // the file is reached.
                         while ((line = sr.ReadLine()) != null)
@@ -143,6 +147,11 @@ namespace FinalTerm_Project_EMS
                             string strTimeIn = cols[1];
                             string strTimeOut = cols[2];
 
+                            // Log row number
+                            rowNum++;
+
+                            // If all cols can be parsed by its data type, upload data
+                            // Note: this assumes no time-ins/time-outs are invalid 
                             if 
                             (
                                 int.TryParse(id, out int employeeID) &&
@@ -150,7 +159,12 @@ namespace FinalTerm_Project_EMS
                                 DateTime.TryParse(strTimeOut, out DateTime timeOut)
                             )
                             {
-                                //DB.uspUploadAttendanceData(timeIn, timeOut, employeeID);
+                                DB.uspUploadAttendanceData(timeIn, timeOut, employeeID);
+                            }
+                            else
+                            {
+                                // Save Errors
+                                errRowsDict.Add(rowNum, new string[] { id, strTimeIn, strTimeOut });
                             }
                         }
                     }
