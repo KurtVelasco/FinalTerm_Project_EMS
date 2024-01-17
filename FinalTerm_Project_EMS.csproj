@@ -182,5 +182,9 @@
   <ItemGroup>
     <Resource Include="Images\Northville Public School %28Icon%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="BGV.mp4" />
+    <Content Include="Video\BGV.mp4" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
