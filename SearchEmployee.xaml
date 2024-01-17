@@ -5,34 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalTerm_Project_EMS"
         mc:Ignorable="d"
-        Title="Search Window" Height="450" Width="800" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+       Title="Northville Public High School: Employee Management System - Search Employee" Height="450" Width="900" ResizeMode="NoResize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
     <Grid>
-        <TextBox x:Name="txtFNSearch" HorizontalAlignment="Left" Margin="10,41,0,0" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top" Width="120" Height="22" GotFocus="TextGotFocus" LostFocus="TextLostFocus"/>
-        <Label Content="Search By..." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="txtLNSearch" HorizontalAlignment="Left" Margin="10,68,0,0" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Top" Width="120" Height="22" GotFocus="TextGotFocus" LostFocus="TextLostFocus"/>
-        <ComboBox x:Name="cbxDeptSearch" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="120" LostFocus="CBXLostFocus"/>
-        <ComboBox x:Name="cbxPosSearch" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" Width="120" LostFocus="CBXLostFocus"/>
-        <ComboBox x:Name="cbxStsSearch" HorizontalAlignment="Left" Margin="10,149,0,0" VerticalAlignment="Top" Width="120" LostFocus="CBXLostFocus"/>
+        <Rectangle HorizontalAlignment="Center" Height="434" Stroke="Black" VerticalAlignment="Center" Width="900" Fill="#FF8B280D"/>
+        <Rectangle HorizontalAlignment="Left" RadiusX="5" RadiusY="5" Height="364" VerticalAlignment="Center" Width="180" Fill="#FFFBC361" Margin="35,0,0,0"/>
+
+        <TextBox x:Name="txtFNSearch" HorizontalAlignment="Left" Margin="65,80,0,0" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top" Width="120" Height="22" GotFocus="TextGotFocus" LostFocus="TextLostFocus"/>
+        <TextBox x:Name="txtLNSearch" HorizontalAlignment="Left" Margin="65,107,0,0" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Top" Width="120" Height="22" GotFocus="TextGotFocus" LostFocus="TextLostFocus"/>
+        <ComboBox x:Name="cbxDeptSearch" HorizontalAlignment="Left" Margin="65,134,0,0" VerticalAlignment="Top" Width="120" LostFocus="CBXLostFocus" Background="White"/>
+        <ComboBox x:Name="cbxPosSearch" HorizontalAlignment="Left" Margin="65,161,0,0" VerticalAlignment="Top" Width="120" LostFocus="CBXLostFocus" Background="White"/>
+        <ComboBox x:Name="cbxStsSearch" HorizontalAlignment="Left" Margin="65,188,0,0" VerticalAlignment="Top" Width="120" LostFocus="CBXLostFocus" Background="White" Foreground="#FF020202"/>
         <Rectangle HorizontalAlignment="Left" Height="15" Margin="785,419,0,0" Stroke="Black" VerticalAlignment="Top" Width="15" Opacity="0"/>
-        <Label Content="First Name" HorizontalAlignment="Left" Margin="179,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Last Name" HorizontalAlignment="Left" Margin="345,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Department" HorizontalAlignment="Left" Margin="506,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Position" HorizontalAlignment="Left" Margin="653,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Status" HorizontalAlignment="Left" Margin="741,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="10,176,0,0" VerticalAlignment="Top" Width="120" Click="btnSearch_Click"/>
-        <Button x:Name="btnListAll" Content="List All" HorizontalAlignment="Left" Margin="10,201,0,0" VerticalAlignment="Top" Width="120" Click="btnListAll_Click"/>
-        <ListView x:Name="lv_employeedata" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="145,0,0,0">
+        <Button x:Name="btnSearch" Style="{StaticResource ResourceKey=RoundedButton}" Content="Search" HorizontalAlignment="Left" Margin="65,215,0,0" VerticalAlignment="Top" Width="120" Height="40" Click="btnSearch_Click" Background="#FF8B280D" Foreground="White" BorderBrush="Black"/>
+        <Button x:Name="btnListAll" Style="{StaticResource ResourceKey=RoundedButton}" Content="List All" HorizontalAlignment="Left" Margin="65,260,0,0" VerticalAlignment="Top" Width="120" Height="40" Click="btnListAll_Click" Background="#FF8B280D" Foreground="White" BorderBrush="Black"/>
+
+        <Label Content="SEARCH" HorizontalContentAlignment="Center" FontFamily="Fonts/#Sofia Pro Bold" HorizontalAlignment="Left" Height="33" Margin="36,42,0,0" VerticalAlignment="Top" Width="178" FontSize="20" Foreground="#FF8B280D"/>
+
+        <ListView x:Name="lv_employeedata" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="239,35,41,35" Background="#FFFBC361" Foreground="Black" BorderBrush="#FFFBC361">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="First Name" DisplayMemberBinding="{Binding Path = FirstName}" Width = "110"/>
-                    <GridViewColumn Header="Middle Name" DisplayMemberBinding="{Binding Path = MiddleName}" Width = "110"/>
-                    <GridViewColumn Header="Last Name" DisplayMemberBinding="{Binding Path = LastName}" Width = "110"/>
-                    <GridViewColumn Header="Department" DisplayMemberBinding="{Binding Path = Department}" Width = "110"/>
-                    <GridViewColumn Header="Position" DisplayMemberBinding="{Binding Path = Position}" Width = "105"/>
+                    <GridViewColumn Header="Middle Name" DisplayMemberBinding="{Binding Path = MiddleName}" Width = "100"/>
+                    <GridViewColumn Header="Last Name" DisplayMemberBinding="{Binding Path = LastName}" Width = "100"/>
+                    <GridViewColumn Header="Department" DisplayMemberBinding="{Binding Path = Department}" Width = "100"/>
+                    <GridViewColumn Header="Position" DisplayMemberBinding="{Binding Path = Position}" Width = "100"/>
                     <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Path = Status}" Width = "100"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="Button_ReturnMenu" Content="Return" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top" Width="120" Click="Button_ReturnMenu_Click"/>
+        <Button x:Name="Button_ReturnMenu" Style="{StaticResource ResourceKey=RoundedButton}" Content="BACK" HorizontalAlignment="Left" Margin="65,346,0,0" VerticalAlignment="Top" Width="120" Height="40" Click="Button_ReturnMenu_Click" Background="#FF8B280D" BorderBrush="Red" Foreground="White"/>
     </Grid>
 </Window>

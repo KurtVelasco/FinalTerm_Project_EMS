@@ -5,13 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalTerm_Project_EMS"
         mc:Ignorable="d"
-        Title="EMSLogin" Height="270" Width="445">
+        Height="450" Width="800" ResizeMode="NoResize" SizeToContent="WidthAndHeight" Title="Northville Public High School: Employee Management System - Log In" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="Button" BasedOn="{StaticResource RoundedButton}">
+        </Style>
+    </Window.Resources>
     <Grid>
-        <GroupBox Header="Attendance Managment Login" Height="236" VerticalAlignment="Top" HorizontalAlignment="Left" Width="424"/>
-        <Label Content="Email" HorizontalAlignment="Left" Height="33" Margin="48,61,0,0" VerticalAlignment="Top" Width="72"/>
-        <Label Content="Password" HorizontalAlignment="Left" Height="33" Margin="48,99,0,0" VerticalAlignment="Top" Width="72"/>
-        <TextBox x:Name="tbx_email" HorizontalAlignment="Left" Height="24" Margin="125,61,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="255"/>
-        <PasswordBox x:Name="tbx_password" HorizontalAlignment="Left" Height="25" Margin="125,99,0,0" VerticalAlignment="Top" Width="255"/>
-        <Button x:Name="btn_login" Background="LightGreen" Content="Login" HorizontalAlignment="Left" Height="21" Margin="48,137,0,0" VerticalAlignment="Top" Width="332" Click="btn_login_Click"/>
+        <Rectangle HorizontalAlignment="Center" Height="434" Stroke="Black" VerticalAlignment="Center" Width="800" Fill="#FF8B280D"/>
+        <Rectangle HorizontalAlignment="Center" Height="363" VerticalAlignment="Center" Width="728" Fill="#FFFBC361"/>
+        <Image HorizontalAlignment="Left" Margin="64,0,0,0" VerticalAlignment="Center" Height="361" Width="364" Source="/Images/Northville Public School (Icon).png"/>
+
+        <Label Content="Email" FontFamily="Fonts/#Sofia Pro" HorizontalAlignment="Left" Height="33" Margin="435,185,0,0" VerticalAlignment="Top" Width="72"/>
+        <Label Content="Password" FontFamily="Fonts/#Sofia Pro" HorizontalAlignment="Left" Height="33" Margin="435,225,0,0" VerticalAlignment="Top" Width="72"/>
+        <TextBox x:Name="tbx_email" HorizontalAlignment="Left" Height="24" Margin="507,185,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200"/>
+        <PasswordBox x:Name="tbx_password" HorizontalAlignment="Left" Height="25" Margin="507,223,0,0" VerticalAlignment="Top" Width="200"/>
+        <Button x:Name="btn_login"  Style="{StaticResource ResourceKey=RoundedButton}" FontFamily="Fonts/#Munich Regular" Content="Login" HorizontalAlignment="Left" Height="40" Width="200" Margin="507,267,0,0" VerticalAlignment="Top"  Click="btn_login_Click" Background="#FF8B280D" Foreground="White" BorderBrush="Black" FontSize="15"/>
+        <Label Content="SIGN IN TO YOUR ACCOUNT" FontFamily="Fonts/#Sofia Pro Bold" HorizontalAlignment="Left" Height="33" Margin="435,129,0,0" VerticalAlignment="Top" Width="272" FontSize="20" Foreground="#FF8B280D"/>
     </Grid>
 </Window>
