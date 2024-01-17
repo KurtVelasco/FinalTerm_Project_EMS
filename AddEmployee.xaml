@@ -5,43 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalTerm_Project_EMS"
         mc:Ignorable="d"
-        Title="EmployeeManagment_Admin" Height="450" Width="800" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+        Title="Northville Public High School: Employee Management System - Add Employee" Height="450" Width="800" ResizeMode="NoResize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
     <Grid x:Name="mainGrid">
         <Rectangle HorizontalAlignment="Center" Height="434" Stroke="Black" VerticalAlignment="Center" Width="800" Fill="#FF8B280D"/>
         <Rectangle HorizontalAlignment="Center" Height="363" VerticalAlignment="Center" Width="728" Fill="#FFFBC361"/>
 
-        <Label Content="Last Name" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="64,50,0,0" VerticalAlignment="Top" Height="25" FontWeight="Bold" FontSize="10" Width="61"/>
-        <Label Content="Middle Name" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="64,75,0,0" VerticalAlignment="Top" Height="25" FontWeight="Bold" FontSize="10"/>
-        <Label Content="First Name" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="64,100,0,0" VerticalAlignment="Top" Height="25" FontWeight="Bold" FontSize="10" Width="61"/>
-        <Label Content="Email" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="64,125,0,0" VerticalAlignment="Top" Height="25" FontWeight="Bold" FontSize="10" Width="57"/>
-        <Label Content="Contact#" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="64,150,0,0" VerticalAlignment="Top" Height="26" FontWeight="Bold" Width="55" HorizontalContentAlignment="Left" FontSize="10"/>
-        <Label Content="Birthday" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="64,176,0,0" VerticalAlignment="Top" Height="26" FontWeight="Bold" FontSize="10" Width="55"/>
+        <Label Content="Last Name" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="64,80,0,0" VerticalAlignment="Top" Height="25" FontWeight="Bold" FontSize="10" Width="61"/>
+        <Label Content="Middle Name" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="64,105,0,0" VerticalAlignment="Top" Height="25" FontWeight="Bold" FontSize="10"/>
+        <Label Content="First Name" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="64,130,0,0" VerticalAlignment="Top" Height="25" FontWeight="Bold" FontSize="10" Width="61"/>
+        <Label Content="Email" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="64,155,0,0" VerticalAlignment="Top" Height="25" FontWeight="Bold" FontSize="10" Width="57"/>
+        <Label Content="Contact#" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="64,180,0,0" VerticalAlignment="Top" Height="26" FontWeight="Bold" Width="55" HorizontalContentAlignment="Left" FontSize="10"/>
+        <Label Content="Birthday" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="64,205,0,0" VerticalAlignment="Top" Height="26" FontWeight="Bold" FontSize="10" Width="55"/>
 
-        <Label Content="Department" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="389,50,0,0" VerticalAlignment="Top" Height="26" Width="69" FontWeight="Bold" FontSize="10"/>
-        <Label Content="Position" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="389,75,0,0" VerticalAlignment="Top" Height="26" Width="69" FontWeight="Bold" FontSize="10"/>
-        <Label Content="Password" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="389,150,0,0" VerticalAlignment="Top" Height="26" Width="69" FontWeight="Bold" FontSize="10"/>
-        <Label Content="Status" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="389,125,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="-0.38,-1.037" Width="69" FontWeight="Bold" FontSize="10"/>
-        <Label Content="Employed On" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="389,176,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="-0.049,0.502" Width="69" FontWeight="Bold" FontSize="10"/>
-        <Label Content="Schedule Type" FontFamily="Fonts/#Munich Regular" Margin="389,100,342,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="-0.049,0.502" FontWeight="Bold" FontSize="10"/>
-
-        <TextBox x:Name="Textbox_LastName"  HorizontalAlignment="Left" Margin="124,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223"/>
-        <TextBox x:Name="Textbox_MiddleName"   HorizontalAlignment="Left" Margin="124,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223"/>
-        <TextBox x:Name="Textbox_FirstName"   HorizontalAlignment="Left" Margin="124,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="222"/>
-        <TextBox x:Name="Textbox_Email"   HorizontalAlignment="Left" Margin="124,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="222"/>
-        <TextBox x:Name="Textbox_HomeAddress"   HorizontalAlignment="Center" Margin="0,271,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="684" Height="63"/>
-        <TextBox x:Name="Textbox_Contact"   HorizontalAlignment="Left" Margin="124,150,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="222"/>
+        <Label Content="Department" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="427,80,0,0" VerticalAlignment="Top" Height="26" Width="69" FontWeight="Bold" FontSize="10"/>
+        <Label Content="Position" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="427,105,0,0" VerticalAlignment="Top" Height="26" Width="69" FontWeight="Bold" FontSize="10"/>
+        <Label Content="Schedule Type" FontFamily="Fonts/#Munich Regular" Margin="427,130,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="-0.049,0.502" FontWeight="Bold" FontSize="10" HorizontalAlignment="Left"/>
+        <Label Content="Status" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="427,155,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="-0.38,-1.037" Width="69" FontWeight="Bold" FontSize="10"/>
+        <Label Content="Password" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="427,180,0,0" VerticalAlignment="Top" Height="26" Width="69" FontWeight="Bold" FontSize="10"/>
+        <Label Content="Employed On" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="428,0,0,0" VerticalAlignment="Center" Height="26" RenderTransformOrigin="-0.049,0.502" Width="69" FontWeight="Bold" FontSize="10"/>
         <Label Content="Home Address" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="58,244,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="0.496,0.631" FontWeight="Bold" FontSize="14"/>
-        <DatePicker x:Name="DatePicker_Birthday" HorizontalAlignment="Left" Margin="124,173,0,0" VerticalAlignment="Top" Width="150" Height="25"/>
 
-        <ComboBox x:Name="Combobox_Department" DisplayMemberPath="Value" HorizontalAlignment="Left" Margin="464,50,0,0" VerticalAlignment="Top" Width="222" Height="18"/>
-        <ComboBox x:Name="Combobox_Position" DisplayMemberPath="Value" HorizontalAlignment="Left" Margin="464,75,0,0" VerticalAlignment="Top" Width="222" Height="18"/>
-        <TextBox x:Name="Textbox_Password"  HorizontalAlignment="Left" Margin="464,150,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="222" RenderTransformOrigin="0.471,-1.223"/>
-        <ComboBox  x:Name="Combobox_Status" HorizontalAlignment="Left" Margin="464,125,0,0" VerticalAlignment="Top" Width="222" Height="18"/>
-        <ComboBox x:Name="Combobox_ScheduleType" HorizontalAlignment="Left" Margin="464,100,0,0" VerticalAlignment="Top" Width="222" Height="18"/>
-        <DatePicker x:Name="DatePicker_EmployedOn" HorizontalAlignment="Left" Margin="464,175,0,0" VerticalAlignment="Top" Width="222"/>
+        <TextBox x:Name="Textbox_LastName"  HorizontalAlignment="Left" Margin="124,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223"/>
+        <TextBox x:Name="Textbox_MiddleName"   HorizontalAlignment="Left" Margin="124,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223"/>
+        <TextBox x:Name="Textbox_FirstName"   HorizontalAlignment="Left" Margin="124,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223"/>
+        <TextBox x:Name="Textbox_Email"   HorizontalAlignment="Left" Margin="124,155,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223"/>
+        <TextBox x:Name="Textbox_Contact"   HorizontalAlignment="Left" Margin="124,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223"/>
+        <DatePicker x:Name="DatePicker_Birthday" HorizontalAlignment="Left" Margin="124,0,0,0" VerticalAlignment="Center" Width="223" Height="25"/>
 
-
-        <Button x:Name="Button_AddEmployee" Background="#FF8B280D" Content="Add Employee" HorizontalAlignment="Center" Margin="0,339,0,0" VerticalAlignment="Top" Height="40"  Width="684" Click="Button_AddEmployee_Click" Foreground="White" BorderBrush="Red"/>
-        <Button x:Name="Button_ReturnMenu" Content="Return" HorizontalAlignment="Left" Height="27" Margin="25,447,0,0" VerticalAlignment="Top" Width="433" Click="Button_ReturnMenu_Click"/>
+        <ComboBox x:Name="Combobox_Department" DisplayMemberPath="Value" HorizontalAlignment="Left" Margin="502,80,0,0" VerticalAlignment="Top" Width="222" Height="18"/>
+        <ComboBox x:Name="Combobox_Position" DisplayMemberPath="Value" HorizontalAlignment="Left" Margin="502,105,0,0" VerticalAlignment="Top" Width="222" Height="18"/>
+        <ComboBox x:Name="Combobox_ScheduleType" HorizontalAlignment="Left" Margin="502,130,0,0" VerticalAlignment="Top" Width="222" Height="18"/>
+        <ComboBox  x:Name="Combobox_Status" HorizontalAlignment="Left" Margin="502,155,0,0" VerticalAlignment="Top" Width="222" Height="18"/>
+        <TextBox x:Name="Textbox_Password"  HorizontalAlignment="Left" Margin="502,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="222" RenderTransformOrigin="0.471,-1.223"/>
+        <DatePicker x:Name="DatePicker_EmployedOn" HorizontalAlignment="Left" Margin="502,0,0,0" VerticalAlignment="Center" Width="222"/>
+        
+        <TextBox x:Name="Textbox_HomeAddress"   HorizontalAlignment="Center" Margin="0,271,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="684" Height="63"/>
+       
+        <Button x:Name="Button_AddEmployee" Background="#FF8B280D" Content="Add Employee" Style="{StaticResource ResourceKey=RoundedButton}" HorizontalAlignment="Left" Margin="484,339,0,0" VerticalAlignment="Top" Height="40"  Width="258" Click="Button_AddEmployee_Click" Foreground="White" BorderBrush="Red"/>
+        <Button x:Name="Button_ReturnMenu" Content="Back" Style="{StaticResource ResourceKey=RoundedButton}" HorizontalAlignment="Left" Height="40" Margin="58,339,0,0" VerticalAlignment="Top" Width="88" Click="Button_ReturnMenu_Click" Background="#FF8B280D" BorderBrush="Red" Foreground="White"/>
     </Grid>
 </Window>

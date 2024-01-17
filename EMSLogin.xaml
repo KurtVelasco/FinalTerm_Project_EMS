@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalTerm_Project_EMS"
         mc:Ignorable="d"
-        Height="450" Width="800" ResizeMode="NoResize" SizeToContent="WidthAndHeight" Title="Northville Public High School - Employee Management System Log In">
+        Height="450" Width="800" ResizeMode="NoResize" SizeToContent="WidthAndHeight" Title="Northville Public High School: Employee Management System - Log In">
     <Window.Resources>
         <Style TargetType="Button" BasedOn="{StaticResource RoundedButton}">
         </Style>
