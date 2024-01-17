@@ -31,6 +31,7 @@ namespace FinalTerm_Project_EMS
         private int Position;
         private int Status;
         private int ScheduleType;
+    
 
         private DateTime? Birthday;
         private DateTime? EmployedOn;
@@ -73,7 +74,6 @@ namespace FinalTerm_Project_EMS
 
             Combobox_Department.ItemsSource = department;
             Combobox_Position.ItemsSource = position;
-            Combobox_Status.ItemsSource = status;
             Combobox_ScheduleType.ItemsSource = schedule;
 
         }
@@ -86,16 +86,17 @@ namespace FinalTerm_Project_EMS
                     if (string.IsNullOrWhiteSpace(textBox.Text))
                     {
                         // TextBox is empty
-                        MessageBox.Show($"Please fill in {textBox.Name}.");
+                        MessageBox.Show("Please input all fields", "Missing field", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                         return;
                     }
                 }
+                
                 else if (control is ComboBox comboBox)
                 {
                     if (comboBox.SelectedIndex == -1)
                     {
                         // ComboBox is not selected
-                        MessageBox.Show($"Please select a value for {comboBox.Name}.");
+                        MessageBox.Show("Please input all fields", "Missing field", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                         return;
                     }
                 }
@@ -104,7 +105,7 @@ namespace FinalTerm_Project_EMS
                     if (!datePicker.SelectedDate.HasValue)
                     {
                         // DatePicker does not have a selected date
-                        MessageBox.Show($"Please select a date for {datePicker.Name}.");
+                        MessageBox.Show("Please input all fields", "Missing field", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                         return;
                     }
                 }
@@ -122,31 +123,29 @@ namespace FinalTerm_Project_EMS
             Email = Textbox_Email.Text;
             HomeAddress = Textbox_HomeAddress.Text;
             Contact = Textbox_Contact.Text;
-            GetEmail = Textbox_GetEmail.Text;
             Password = Textbox_Password.Text;
             MiddleName = Textbox_MiddleName.Text;
 
             Department = ((KeyValuePair<int, string>)Combobox_Department.SelectedItem).Key;
             Position = ((KeyValuePair<int, string>)Combobox_Position.SelectedItem).Key;
-            Status = ((KeyValuePair<int, string>)Combobox_Status.SelectedItem).Key;
             ScheduleType = ((KeyValuePair<int, string>)Combobox_ScheduleType.SelectedItem).Key;
             Birthday = DatePicker_Birthday.SelectedDate;
             EmployedOn = DatePicker_EmployedOn.SelectedDate;
             List<USP_CHECK_DUPLICATE_EMAILSResult> checkEmployee = db.USP_CHECK_DUPLICATE_EMAILS(Textbox_Email.Text).ToList();
-            if(checkEmployee.Count > 0 )
+            if (checkEmployee.Count > 0)
             {
-                MessageBox.Show("Email already exist in the database", "Duplicate", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Email already exist in the database", "Duplicate Email", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             else
             {
-                try
-                {
-                    db.USP_INSERT_EMPLOYEE(FirstName, MiddleName, LastName, Birthday, Contact, GetEmail, HomeAddress, Department, Position, Status, ScheduleType, Password, EmployedOn);
-                    MessageBox.Show("Added Employee with the Email:" + Email, "Added Employee" + LastName +", " + FirstName, MessageBoxButton.OK, MessageBoxImage.Information   );
-                }
-                catch(Exception ex) {
-                }
+                
+                db.USP_INSERT_EMPLOYEE(FirstName, MiddleName, LastName, Birthday, Contact, Email, HomeAddress, Department, Position, 1, ScheduleType, Password, EmployedOn);
+                MessageBox.Show("Added Employee with the Email: " + Email, "Added Employee" + LastName +", " + FirstName, MessageBoxButton.OK, MessageBoxImage.Information   );
+                InsertLogs.AddLogs(LogInCredentials.EMPLOYEE_ID, "User added a new employee to the database: " + Email);
+                AddEmployee am = new AddEmployee();
+                am.Show();
+                this.Close();
             }
         }
 
@@ -156,5 +155,7 @@ namespace FinalTerm_Project_EMS
             am.Show();
             this.Close();   
         }
+
+  
     }
 }

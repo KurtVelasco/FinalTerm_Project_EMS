@@ -79,6 +79,7 @@
     <Compile Include="EMSLogin.xaml.cs">
       <DependentUpon>EMSLogin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InsertLogs.cs" />
     <Compile Include="LeaveRequestForm.xaml.cs">
       <DependentUpon>LeaveRequestForm.xaml</DependentUpon>
     </Compile>
@@ -165,6 +166,13 @@
     <None Include="EmployeeDatabase.dbml.layout">
       <DependentUpon>EmployeeDatabase.dbml</DependentUpon>
     </None>
+    <Resource Include="Fonts\FuturaStd.ttf" />
+    <Resource Include="Fonts\FuturaStd Condensed Light.ttf" />
+    <Resource Include="Fonts\FuturaStd Condensed.ttf" />
+    <Resource Include="Fonts\Munich Regular.ttf" />
+    <Resource Include="Fonts\Sofia Pro Bold.ttf" />
+    <Resource Include="Fonts\Sofia Pro Light.ttf" />
+    <Resource Include="Fonts\Sofia Pro.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -175,6 +183,10 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\Northville Public School %28Icon%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

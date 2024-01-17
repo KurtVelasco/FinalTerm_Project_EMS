@@ -239,13 +239,6 @@ namespace FinalTerm_Project_EMS
 			return ((ISingleResult<USP_CHECK_DUPLICATE_EMAILSResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_INSERT_EMPLOYEE")]
-		public int USP_INSERT_EMPLOYEE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="NVarChar(255)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MiddleName", DbType="NVarChar(255)")] string middleName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(255)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Birthday", DbType="Date")] System.Nullable<System.DateTime> birthday, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneNumber", DbType="NVarChar(11)")] string phoneNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmailAddress", DbType="NVarChar(255)")] string emailAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HomeAddress", DbType="NVarChar(255)")] string homeAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DepartmentID", DbType="Int")] System.Nullable<int> departmentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PositionID", DbType="Int")] System.Nullable<int> positionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StatusID", DbType="Int")] System.Nullable<int> statusID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ScheduleTypeID", DbType="Int")] System.Nullable<int> scheduleTypeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(255)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployedOn", DbType="Date")] System.Nullable<System.DateTime> employedOn)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), firstName, middleName, lastName, birthday, phoneNumber, emailAddress, homeAddress, departmentID, positionID, statusID, scheduleTypeID, password, employedOn);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_LOGIN_EMPLOYEE")]
 		public ISingleResult<USP_LOGIN_EMPLOYEEResult> USP_LOGIN_EMPLOYEE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(255)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Passowrd", DbType="NVarChar(255)")] string passowrd)
 		{
@@ -267,25 +260,39 @@ namespace FinalTerm_Project_EMS
 			return ((ISingleResult<USP_SELECT_ALL_tblPositionsResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_UPDATE_EMPLOYEE_EMPLOYMENT")]
-		public int USP_UPDATE_EMPLOYEE_EMPLOYMENT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmmployeeID", DbType="Int")] System.Nullable<int> emmployeeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DepartmentID", DbType="Int")] System.Nullable<int> departmentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PositionID", DbType="Int")] System.Nullable<int> positionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchedTypeID", DbType="Int")] System.Nullable<int> schedTypeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StatusID", DbType="Int")] System.Nullable<int> statusID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployedON", DbType="Date")] System.Nullable<System.DateTime> employedON, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(255)")] string password)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), emmployeeID, departmentID, positionID, schedTypeID, statusID, employedON, password);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_UPDATE_EMPLOYEE_PERSONAL")]
-		public int USP_UPDATE_EMPLOYEE_PERSONAL([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="NVarChar(255)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MiddleName", DbType="NVarChar(255)")] string middleName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(255)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Birthday", DbType="Date")] System.Nullable<System.DateTime> birthday, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneNumber", DbType="NVarChar(13)")] string phoneNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmailAddress", DbType="NVarChar(255)")] string emailAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HomeAddress", DbType="NVarChar(255)")] string homeAddress)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), firstName, middleName, lastName, birthday, phoneNumber, emailAddress, homeAddress);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Retrieve_EmployeeDetails")]
 		public ISingleResult<Retrieve_EmployeeDetailsResult> Retrieve_EmployeeDetails()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<Retrieve_EmployeeDetailsResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_UPDATE_EMPLOYEE_PERSONAL")]
+		public int USP_UPDATE_EMPLOYEE_PERSONAL([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployeeID", DbType="Int")] System.Nullable<int> employeeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="NVarChar(255)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MiddleName", DbType="NVarChar(255)")] string middleName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(255)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Birthday", DbType="Date")] System.Nullable<System.DateTime> birthday, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneNumber", DbType="NVarChar(13)")] string phoneNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmailAddress", DbType="NVarChar(255)")] string emailAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HomeAddress", DbType="NVarChar(255)")] string homeAddress)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeID, firstName, middleName, lastName, birthday, phoneNumber, emailAddress, homeAddress);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_INSERT_LOGS")]
+		public int USP_INSERT_LOGS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployeeID", DbType="Int")] System.Nullable<int> employeeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LogDesc", DbType="NVarChar(255)")] string logDesc)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeID, logDesc);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_INSERT_EMPLOYEE")]
+		public int USP_INSERT_EMPLOYEE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="NVarChar(255)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MiddleName", DbType="NVarChar(255)")] string middleName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(255)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Birthday", DbType="Date")] System.Nullable<System.DateTime> birthday, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneNumber", DbType="NVarChar(11)")] string phoneNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmailAddress", DbType="NVarChar(255)")] string emailAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HomeAddress", DbType="NVarChar(255)")] string homeAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DepartmentID", DbType="Int")] System.Nullable<int> departmentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PositionID", DbType="Int")] System.Nullable<int> positionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StatusID", DbType="Int")] System.Nullable<int> statusID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ScheduleTypeID", DbType="Int")] System.Nullable<int> scheduleTypeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(255)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployedOn", DbType="Date")] System.Nullable<System.DateTime> employedOn)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), firstName, middleName, lastName, birthday, phoneNumber, emailAddress, homeAddress, departmentID, positionID, statusID, scheduleTypeID, password, employedOn);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_UPDATE_EMPLOYEE_EMPLOYMENT")]
+		public int USP_UPDATE_EMPLOYEE_EMPLOYMENT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmmployeeID", DbType="Int")] System.Nullable<int> emmployeeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DepartmentID", DbType="Int")] System.Nullable<int> departmentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PositionID", DbType="Int")] System.Nullable<int> positionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchedTypeID", DbType="Int")] System.Nullable<int> schedTypeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StatusID", DbType="Int")] System.Nullable<int> statusID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployedON", DbType="Date")] System.Nullable<System.DateTime> employedON, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(255)")] string password)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), emmployeeID, departmentID, positionID, schedTypeID, statusID, employedON, password);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	

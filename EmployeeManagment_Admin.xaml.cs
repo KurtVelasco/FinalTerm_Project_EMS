@@ -22,6 +22,7 @@ namespace FinalTerm_Project_EMS
         public EmployeeManagment_Admin()
         {
             InitializeComponent();
+            tbx_welcomelabel.Content = $"Welcome, {LogInCredentials.EMPLOYEE_NAME}";
         }
         private void Button_AddEmployee_Click(object sender, RoutedEventArgs e)
         {

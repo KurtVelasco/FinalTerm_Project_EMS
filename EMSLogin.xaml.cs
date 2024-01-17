@@ -35,16 +35,16 @@ namespace FinalTerm_Project_EMS
                 {
                     if (accounts[0].PositionName == "Administrator")
                     { 
-                        LogInCredentials.SetData(accounts[0].EmailAddress, accounts[0].Password, accounts[0].LastName,
+                        LogInCredentials.SetData(accounts[0].EmailAddress, accounts[0].EmployeeID, accounts[0].LastName,
                             accounts[0].DepartmentName, accounts[0].PositionName);
-                        MessageBox.Show("Welcome:" + accounts[0].LastName + " " + accounts[0].FirstName, "Successful Login", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Welcome, " + accounts[0].LastName + " " + accounts[0].FirstName, "Successful Login", MessageBoxButton.OK, MessageBoxImage.Information);
                         EmployeeManagment_Admin em = new EmployeeManagment_Admin();
                         em.Show();
                         this.Close();                       
                     }
                     else
                     {
-                        LogInCredentials.SetData(accounts[0].EmailAddress, accounts[0].Password, accounts[0].LastName,
+                        LogInCredentials.SetData(accounts[0].EmailAddress, accounts[0].EmployeeID, accounts[0].LastName,
                            accounts[0].DepartmentName, accounts[0].PositionName);
                         MessageBox.Show("Welcome:" + accounts[0].LastName + " " + accounts[0].FirstName, "Successful Login", MessageBoxButton.OK, MessageBoxImage.Information);
                         EmployeeManagment_Employee ee = new EmployeeManagment_Employee();

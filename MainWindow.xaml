@@ -4,11 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalTerm_Project_EMS"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        mc:Ignorable="d" Height="450" Width="800" ResizeMode="NoResize" SizeToContent="WidthAndHeight" Title="Northville Public High School - Main Menu" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button x:Name="Button_EMS" Content="EMS" HorizontalAlignment="Left" Margin="104,75,0,0" VerticalAlignment="Top" Width="172" Click="Button_EMS_Click" />
-        <Button x:Name="Button_ATM" Content="ATM" HorizontalAlignment="Left" Margin="104,134,0,0" VerticalAlignment="Top" Width="172"/>
+        <Rectangle HorizontalAlignment="Center" Height="434" Stroke="Black" VerticalAlignment="Center" Width="800" Fill="#FF8B280D"/>
+        <Rectangle HorizontalAlignment="Center" Height="363" VerticalAlignment="Center" Width="728" Fill="#FFFBC361"/>
+        <Image HorizontalAlignment="Left" Margin="64,0,0,0" VerticalAlignment="Center" Height="361" Width="364" Source="/Images/Northville Public School (Icon).png"/>
+
+        <Button x:Name="Button_EMS" Style="{StaticResource ResourceKey=RoundedButton}" FontFamily="Fonts/#Munich Regular" Content="Employee Management System" HorizontalAlignment="Left" Margin="465,125,0,0" VerticalAlignment="Top" Height="80" Width="250" Click="Button_EMS_Click" FontWeight="Bold" FontSize="18" Background="#FF8B280D" Foreground="White" BorderBrush="Black" />
+        <Button x:Name="Button_ATM" Style="{StaticResource ResourceKey=RoundedButton}" FontFamily="Fonts/#Munich Regular" Content="Attendance Tracking System" HorizontalAlignment="Left" Margin="465,235,0,0" VerticalAlignment="Top" Height="80" Width="250" FontWeight="Bold" FontSize="18" Background="#FF8B280D" Foreground="White" BorderBrush="Black"/>
 
     </Grid>
 </Window>
