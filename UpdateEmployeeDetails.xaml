@@ -29,7 +29,6 @@
         <Label Content="Status" HorizontalAlignment="Left" Margin="420,0,0,0" VerticalAlignment="Center" Height="26" Width="67"/>
         <Label Content="Employed On" HorizontalAlignment="Left" Margin="420,267,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="-0.049,0.502"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="420,302,0,0" VerticalAlignment="Top" Height="26" Width="77"/>
-        <Label Content="Leave Credits" HorizontalAlignment="Left" Margin="417,337,0,0" VerticalAlignment="Top" Height="26"/>
         <!-- Labels for Fields-->
 
         <TextBox x:Name="Textbox_GetEmail" HorizontalAlignment="Center" Margin="0,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="212"/>
@@ -48,7 +47,6 @@
         <ComboBox  x:Name="Combobox_Status"  DisplayMemberPath="Value" HorizontalAlignment="Left"       Margin="507,0,0,0" VerticalAlignment="Center" Width="237" Background="White" BorderBrush="#FFABADB3"/>
         <DatePicker x:Name="DatePicker_EmployedOn" IsEnabled="False" HorizontalAlignment="Left"         Margin="507,270,0,0" VerticalAlignment="Top" Width="237"/>
         <TextBox x:Name="Textbox_Password"  IsEnabled="False" HorizontalAlignment="Left"                Margin="507,305,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="237" Height="20"/>
-        <TextBox x:Name="Textbox_Credits"  IsEnabled="False" HorizontalAlignment="Left"                 Margin="507,340,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119" Height="20"/>
 
         <Button x:Name="Button_GetEmployee" FontFamily="Fonts/#Munich Regular" Style="{StaticResource ResourceKey=RoundedButton}" Background="#FF8B280D" Content="Search Employee" HorizontalAlignment="Left" Margin="511,84,0,0" VerticalAlignment="Top" Width="93"  Click="Button_GetEmployee_Click" BorderBrush="Black" Foreground="White" FontSize="11" Height="18"/>
         <Button x:Name="Button_Update"  FontFamily="Fonts/#Munich Regular" Style="{StaticResource ResourceKey=RoundedButton}" IsEnabled="False" Content="UPDATE INFORMATION" HorizontalAlignment="Left" Margin="49,388,0,0" VerticalAlignment="Top" Width="320" Height="40" Background="#FF8B280D" Click="Button_Update_Click" BorderBrush="Black" Foreground="White" FontSize="15"/>

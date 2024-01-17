@@ -31,8 +31,7 @@ namespace FinalTerm_Project_EMS
         private int Position;
         private int Status;
         private int ScheduleType;
-
-        private int DEFAULT_ENTITLEMENTS = 10;
+    
 
         private DateTime? Birthday;
         private DateTime? EmployedOn;
@@ -133,15 +132,6 @@ namespace FinalTerm_Project_EMS
             Birthday = DatePicker_Birthday.SelectedDate;
             EmployedOn = DatePicker_EmployedOn.SelectedDate;
             List<USP_CHECK_DUPLICATE_EMAILSResult> checkEmployee = db.USP_CHECK_DUPLICATE_EMAILS(Textbox_Email.Text).ToList();
-
-            if(ScheduleType!= 5)
-            {
-                DEFAULT_ENTITLEMENTS = 0;
-            }
-            else
-            {
-                DEFAULT_ENTITLEMENTS = 10;
-            }
             if (checkEmployee.Count > 0)
             {
                 MessageBox.Show("Email already exist in the database", "Duplicate Email", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -150,8 +140,8 @@ namespace FinalTerm_Project_EMS
             else
             {
                 
-                db.USP_INSERT_EMPLOYEE(FirstName, MiddleName, LastName, Birthday, Contact, Email, HomeAddress, Department, Position, 1, ScheduleType, Password, EmployedOn, DEFAULT_ENTITLEMENTS);
-                MessageBox.Show("Added Employee with the Email:" + Email, "Added Employee" + LastName +", " + FirstName, MessageBoxButton.OK, MessageBoxImage.Information   );
+                db.USP_INSERT_EMPLOYEE(FirstName, MiddleName, LastName, Birthday, Contact, Email, HomeAddress, Department, Position, 1, ScheduleType, Password, EmployedOn);
+                MessageBox.Show("Added Employee with the Email: " + Email, "Added Employee" + LastName +", " + FirstName, MessageBoxButton.OK, MessageBoxImage.Information   );
                 InsertLogs.AddLogs(LogInCredentials.EMPLOYEE_ID, "User added a new employee to the database: " + Email);
                 AddEmployee am = new AddEmployee();
                 am.Show();

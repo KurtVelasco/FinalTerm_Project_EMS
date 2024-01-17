@@ -22,7 +22,7 @@
         <Label Content="Position" FontFamily="Fonts/#Sofia Pro Bold" HorizontalAlignment="Left" Margin="412,105,0,0" VerticalAlignment="Top" Height="26" Width="69" FontWeight="Bold" FontSize="10"/>
         <Label Content="Schedule Type" FontFamily="Fonts/#Sofia Pro Bold" Margin="412,130,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="-0.049,0.502" FontWeight="Bold" FontSize="10" HorizontalAlignment="Left"/>
         <Label Content="Password" FontFamily="Fonts/#Sofia Pro Bold" HorizontalAlignment="Left" Margin="412,155,0,0" VerticalAlignment="Top" Height="26" Width="69" FontWeight="Bold" FontSize="10"/>
-        <Label Content="Employed On" FontFamily="Fonts/#Sofia Pro Bold" HorizontalAlignment="Left" Margin="413,180,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="-0.049,0.502" Width="69" FontWeight="Bold" FontSize="10"/>
+        <Label Content="Employed On" FontFamily="Fonts/#Sofia Pro Bold" HorizontalAlignment="Left" Margin="413,180,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="-0.049,0.502" Width="84" FontWeight="Bold" FontSize="10"/>
         <Label Content="Home Address" FontFamily="Fonts/#Sofia Pro Bold" HorizontalAlignment="Left" Margin="58,244,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="0.496,0.631" FontWeight="Bold" FontSize="14"/>
 
         <TextBox x:Name="Textbox_LastName"  HorizontalAlignment="Left" Margin="142,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223"/>

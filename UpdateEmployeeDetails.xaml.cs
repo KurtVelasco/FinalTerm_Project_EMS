@@ -86,21 +86,14 @@ namespace FinalTerm_Project_EMS
         }
         private void Button_UpdateEmployment_Click(object sender, RoutedEventArgs e)
         {
-            bool validCred = false;
-            int credits = 0;
+
             int departmentID = ((KeyValuePair<int, string>)Combobox_Department.SelectedItem).Key;
             int positionID = ((KeyValuePair<int, string>)Combobox_Department.SelectedItem).Key;
             int statusID = ((KeyValuePair<int, string>)Combobox_Status.SelectedItem).Key;
             int schedTypeID = ((KeyValuePair<int, string>)Combobox_ScheduleType.SelectedItem).Key;
             DateTime? employedON = DatePicker_EmployedOn.SelectedDate;
-            validCred = int.TryParse(Textbox_Credits.Text, out credits);
-            if (!validCred)
-            {
-                MessageBox.Show("Invalid Leave Allowance, must be a number", "Leave Allowance", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
             string password = Textbox_Password.Text;
-            db.USP_UPDATE_EMPLOYEE_EMPLOYMENT(EMPLOYEE_ID, departmentID, positionID, schedTypeID, statusID, employedON, password,credits);
+            db.USP_UPDATE_EMPLOYEE_EMPLOYMENT(EMPLOYEE_ID, departmentID, positionID, schedTypeID, statusID, employedON, password);
             MessageBox.Show("Employee Employment Information has been added", "Update Information", MessageBoxButton.OK, MessageBoxImage.Information);
             InsertLogs.AddLogs(LogInCredentials.EMPLOYEE_ID, "Admin Updated an Employee's Employment Information");
             GetEmployeeDetais();
@@ -131,12 +124,10 @@ namespace FinalTerm_Project_EMS
                 Textbox_Contact.Text = employee.PhoneNumber;
                 DatePicker_Birthday.SelectedDate = employee.Birthday;
                 DatePicker_EmployedOn.SelectedDate = employee.EmployedOn;
-                Textbox_Credits.Text = employee.LeaveEntitlements.ToString();
                 EMPLOYEE_ID = employee.EmployeeID;
 
                 Textbox_Password.IsEnabled = true;
                 Textbox_MiddleName.IsEnabled = true;
-                Textbox_Credits.IsEnabled = true;   
                 Textbox_LastName.IsEnabled = true;
                 Textbox_Email.IsEnabled = true;
                 Textbox_FirstName.IsEnabled = true;
