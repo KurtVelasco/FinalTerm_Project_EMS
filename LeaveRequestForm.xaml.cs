@@ -67,6 +67,13 @@ namespace FinalTerm_Project_EMS
                 return false;
             }
 
+            // End Date
+            if (dpEndDate.SelectedDate == null)
+            {
+                MessageBox.Show("Please select an end date for the leave you're currently filing.");
+                return false;
+            }
+
             // Destination Address
             if (tbxDestination.Text.Length == 0)
             {
@@ -77,10 +84,69 @@ namespace FinalTerm_Project_EMS
             return true;
         }
 
+        private bool ValidateEmployee()
+        {
+            foreach (tblEmployeeDetail employee in DB.tblEmployeeDetails)
+            {
+                if (int.Parse(tbxEmployeeID.Text) == employee.EmployeeID && employee.StatusID != 5)
+                {
+                    MessageBox.Show("Failed to file Leave Request. Only full-time employees are allowed to file leave requests.");
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private bool ValidateLeaveEntitlements()
+        {
+            foreach (tblLeaveEntitlement leaveEntitlement in DB.tblLeaveEntitlements)
+            {
+                if (leaveEntitlement.EmployeeID == int.Parse(tbxEmployeeID.Text))
+                {
+                    // Vacation
+                    if (cbxReason.SelectedValue.ToString().ToUpper() == "VACATION" && 
+                        leaveEntitlement.LeaveTypeID == 1 && 
+                        leaveEntitlement.Entitlements == 0)
+                    {
+                        MessageBoxResult dialogResult = MessageBox.Show("You have no more leave entitlements for vacations. This leave (if accepted) will be unpaid. Would you still like to proceed?", "WARNING", MessageBoxButton.YesNo);
+                        if (dialogResult == MessageBoxResult.Yes)
+                        {
+                            cbxReason.SelectedIndex = 2;
+                            return true;
+                        }
+                        else if (dialogResult == MessageBoxResult.No)
+                        {
+                            return false;
+                        }
+                    }
+                    // Sick
+                    else if (cbxReason.SelectedValue.ToString().ToUpper() == "SICK LEAVE" && 
+                        leaveEntitlement.LeaveTypeID == 2 && 
+                        leaveEntitlement.Entitlements == 0)
+                    {
+                        MessageBoxResult dialogResult = MessageBox.Show("You have no more leave entitlements for sick leaves. This leave (if accepted) will be unpaid. Would you still like to proceed?", "WARNING", MessageBoxButton.YesNo);
+                        if (dialogResult == MessageBoxResult.Yes)
+                        {
+                            cbxReason.SelectedIndex = 2;
+                            return true;
+                        }
+                        else if (dialogResult == MessageBoxResult.No)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+
         private void FillReasonsOptions()
         {
-            cbxReason.Items.Add("Vacation");
-            cbxReason.Items.Add("Sickness");
+            foreach (tblLeaveType leaveType in DB.tblLeaveTypes)
+            {
+                cbxReason.Items.Add(leaveType.LeaveType);
+            }
 
             cbxReason.SelectedIndex = 0;
         }
@@ -90,14 +156,24 @@ namespace FinalTerm_Project_EMS
             if (!ValidateData())
                 return;
 
+            if (!ValidateEmployee())
+                return;
+
+            if (!ValidateLeaveEntitlements())
+                return;
+
             int employeeID = int.Parse(tbxEmployeeID.Text);
-            int duration = int.Parse(tbxDestination.Text);
-            bool isVacation = cbxReason.SelectedValue.ToString().ToUpper() == "VACATION" ? true : false;
+            bool? isVacation = cbxReason.SelectedValue.ToString().ToUpper() == "VACATION" ? true : false;
             string reqNotes = tbxRequestNotes.Text.Length == 0 ? null : tbxRequestNotes.Text;
+
+            if (cbxReason.SelectedValue.ToString().ToUpper() == "UNPAID")
+            {
+                isVacation = null;
+            }
 
             bool? success = false;
 
-            DB.uspFileLeaveRequest(employeeID, dpStartDate.SelectedDate, duration, isVacation, tbxDestination.Text, reqNotes, ref success);
+            DB.uspFileLeaveRequest(employeeID, cbxReason.SelectedIndex + 1, dpStartDate.SelectedDate, dpEndDate.SelectedDate, isVacation, tbxDestination.Text, reqNotes, ref success);
         
             if (!(bool)success)
             {

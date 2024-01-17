@@ -10,23 +10,25 @@
         <Label Content="EmployeeID" HorizontalAlignment="Left" Margin="44,119,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox x:Name="tbxEmployeeID" HorizontalAlignment="Left" Margin="48,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
 
-        <Label Content="Start Date" HorizontalAlignment="Left" Margin="324,121,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <DatePicker x:Name="dpStartDate" HorizontalAlignment="Left" Margin="329,148,0,0" VerticalAlignment="Top" Width="250"/>
+        <Label Content="Start Date" HorizontalAlignment="Left" Margin="43,185,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <DatePicker x:Name="dpStartDate" HorizontalAlignment="Left" Margin="48,212,0,0" VerticalAlignment="Top" Width="250"/>
 
-        <Label Content="Duration (in days)" HorizontalAlignment="Left" Margin="43,187,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="tbxDuration" HorizontalAlignment="Left" Margin="48,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+        <Label Content="Duration (in days)" HorizontalAlignment="Left" Margin="325,120,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbxDuration" HorizontalAlignment="Left" Margin="330,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
 
-        <Label Content="Reason for Leave" HorizontalAlignment="Left" Margin="43,252,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <ComboBox x:Name="cbxReason" HorizontalAlignment="Left" Margin="48,280,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Reason for Leave" HorizontalAlignment="Left" Margin="43,312,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ComboBox x:Name="cbxReason" HorizontalAlignment="Left" Margin="48,340,0,0" VerticalAlignment="Top" Width="120"/>
 
         <Label Content="Destination Address" HorizontalAlignment="Left" Margin="324,189,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox x:Name="tbxDestination" HorizontalAlignment="Left" Margin="330,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="53"/>
 
-        <Label Content="Leave Request Form" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="26,53,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="49" Width="284" FontSize="24"/>
+        <Label Content="LEAVE REQUEST FORM" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="26,53,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="49" Width="284" FontSize="24"/>
 
         <Button x:Name="btnFileRequest" Content="File Request" HorizontalAlignment="Left" Margin="459,417,0,0" VerticalAlignment="Top" Height="34" Width="120" RenderTransformOrigin="2.317,0.325" Click="btnFileRequest_Click"/>
         <Label Content="Request Notes" HorizontalAlignment="Left" Margin="324,284,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox x:Name="tbxRequestNotes" HorizontalAlignment="Left" Margin="330,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="53"/>
+        <Label Content="End Date" HorizontalAlignment="Left" Margin="43,246,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <DatePicker x:Name="dpEndDate" HorizontalAlignment="Left" Margin="48,273,0,0" VerticalAlignment="Top" Width="250"/>
 
 
     </Grid>

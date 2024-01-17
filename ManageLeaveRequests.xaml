@@ -1,0 +1,31 @@
+﻿<Window x:Class="FinalTerm_Project_EMS.ManageLeaveRequests"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinalTerm_Project_EMS"
+        mc:Ignorable="d"
+        Title="ManageLeaveRequests" Height="480" Width="800">
+    <Grid>
+        <Label Content="MANAGE LEAVE REQUESTS" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="49" Width="322" FontSize="24"/>
+        <TextBox x:Name="tbxSearchBar" Text="Search by EmployeeID or Email..." HorizontalAlignment="Left" Margin="29,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="476" Height="21" GotFocus="tbxSearchBar_GotFocus" LostFocus="tbxSearchBar_LostFocus"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="734,71,0,0" VerticalAlignment="Top" Height="22" Click="btnSearch_Click"/>
+        <ComboBox x:Name="cbxFilters" HorizontalAlignment="Left" Margin="523,70,0,0" VerticalAlignment="Top" Width="120"/>
+        <ListView x:Name="lvLeaveRequests" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="29,107,27,54" SelectionChanged="lvLeaveRequests_SelectionChanged">
+            <ListView.View>
+                <GridView x:Name="gvLeaveRequests">
+                    <GridViewColumn Header="Date Filed" DisplayMemberBinding="{Binding DateFiled}" Width="120" />
+                    <GridViewColumn Header="Employee ID" DisplayMemberBinding="{Binding EmployeeID}" Width="120" />
+                    <GridViewColumn Header="Start Date" DisplayMemberBinding="{Binding StartDate}" Width="120" />
+                    <GridViewColumn Header="End Date" DisplayMemberBinding="{Binding EndDate}" Width="120" />
+                    <GridViewColumn Header="Type of Leave" DisplayMemberBinding="{Binding LeaveType}" Width="120" />
+                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}" Width="120" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btnViewAll" Content="View All" HorizontalAlignment="Left" Margin="710,425,0,0" VerticalAlignment="Top" Width="63" Click="btnViewAll_Click"/>
+        <Button x:Name="btnViewDescending" Content="View Descending" HorizontalAlignment="Left" Margin="596,425,0,0" VerticalAlignment="Top" Width="95" Click="btnViewDescending_Click"/>
+        <Button x:Name="btnViewAscending" Content="View Ascending" HorizontalAlignment="Left" Margin="482,425,0,0" VerticalAlignment="Top" Width="95" Click="btnViewAscending_Click"/>
+        <CheckBox Content="Pending" HorizontalAlignment="Left" Margin="659,73,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
