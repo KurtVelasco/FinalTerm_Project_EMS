@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Security;
@@ -15,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
 using System.Windows.Shapes;
+using static FinalTerm_Project_EMS.SearchEmployee;
 
 namespace FinalTerm_Project_EMS
 {
@@ -142,17 +144,14 @@ namespace FinalTerm_Project_EMS
             {
                 try
                 {
-                    // Create an instance of StreamReader to read from a file.
-                    // The using statement also closes the StreamReader.
                     using (StreamReader sr = new StreamReader("attendance.csv"))
                     {
                         Dictionary<int, string[]> errRowsDict = new Dictionary<int, string[]>();
+                        List<int> employeesInAttendance = new List<int>();
                         string line;
                         int rowNum = -1;
                         int errCounter = 0;
 
-                        // Read and display lines from the file until the end of
-                        // the file is reached.
                         while ((line = sr.ReadLine()) != null)
                         {
                             // ID, TimeIn, TimeOut
@@ -166,20 +165,32 @@ namespace FinalTerm_Project_EMS
 
                             // If all cols can be parsed by its data type, upload data
                             // Note: this assumes no time-ins/time-outs are invalid 
-                            if 
+                            if
                             (
                                 int.TryParse(id, out int employeeID) &&
                                 DateTime.TryParse(strTimeIn, out DateTime timeIn) &&
                                 DateTime.TryParse(strTimeOut, out DateTime timeOut)
                             )
                             {
-                                DB.uspUploadAttendanceData(timeIn, timeOut, employeeID);
+                                bool isLate = false;
+
+                                // Check for late
+                                isLate = CheckForLate(timeIn, employeeID);
+
+                                DB.uspUploadAttendanceData(employeeID, timeIn, timeOut, isLate);
+
+                                // Add to Employees in attendance
+                                employeesInAttendance.Add(employeeID);
                             }
                             else
                             {
-                                // Save Errors
+                                // Save Errors (TODO: Output errors)
+
                                 errRowsDict.Add(rowNum, new string[] { id, strTimeIn, strTimeOut });
                             }
+
+                            // Check for absences
+                            RecordAbsences(employeesInAttendance);
                         }
                     }
                 }
@@ -190,6 +201,53 @@ namespace FinalTerm_Project_EMS
                     Console.WriteLine(ex.Message);
                 }
             }
+        }
+
+        private void RecordAbsences(List<int> employeesInAttendance)
+        {
+            foreach (tblEmployee employee in DB.tblEmployees)
+            {
+                if (!employeesInAttendance.Contains(employee.EmployeeID)) 
+                {
+                    DB.uspRecordAbsences(employee.EmployeeID);
+                }
+            }
+        }
+
+        private bool CheckForLate(DateTime timeIn, int employeeID)
+        {
+
+            // Check for late
+            if ((timeIn.Hour == 7 && timeIn.Minute > 0) || timeIn.Hour > 7)
+            {
+                foreach (tblEmployeeDetail employee in DB.tblEmployeeDetails)
+                {
+                    // Check AM part-timers
+                    if (employee.EmployeeID == employeeID && employee.ScheduleTypeID == 2)
+                    {
+                        return true;
+                    }
+
+                    // Check full-time employees
+                    if (employee.EmployeeID == employeeID && employee.ScheduleTypeID == 5)
+                    {
+                        return true;
+                    }
+                }
+            }
+            // Check PM Part-timers
+            else if ((timeIn.Hour == 12 && timeIn.Minute > 0) || timeIn.Hour > 12)
+            {
+                foreach (tblEmployeeDetail employee in DB.tblEmployeeDetails)
+                { 
+                    if (employee.EmployeeID == employeeID && employee.ScheduleTypeID == 4)
+                    {
+                        return true;
+                    }
+                }
+                   
+            }
+            return false;
         }
     }
 }
