@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalTerm_Project_EMS"
         mc:Ignorable="d"
-        Title="UpdateEmployeeDetails" Height="471" Width="791">
+        Title="UpdateEmployeeDetails" Height="493" Width="797">
     <Grid>
         <GroupBox Header="Personal Details" Margin="8,58,0,0" Height="371" VerticalAlignment="Top" HorizontalAlignment="Left" Width="380"/>
 
-        <TextBox x:Name="Textbox_LastName" IsEnabled="False"  HorizontalAlignment="Left" Margin="93,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="276"/>
+        <TextBox x:Name="Textbox_LastName"  IsEnabled="False"  HorizontalAlignment="Left" Margin="93,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="276"/>
         <TextBox x:Name="Textbox_FirstName"  IsEnabled="False" HorizontalAlignment="Left" Margin="92,139,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="276"/>
         <TextBox x:Name="Textbox_Email"  IsEnabled="False" HorizontalAlignment="Left" Margin="92,167,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="276"/>
         <Button x:Name="Button_Update"  IsEnabled="False" Content="UPDATE INFORMATION" HorizontalAlignment="Left" Margin="28,396,0,0" VerticalAlignment="Top" Width="340" Height="22" Background="#FFFFB0B0" Click="Button_Update_Click"/>
@@ -34,24 +34,22 @@
         <GroupBox Header="Employee Details" Margin="398,58,0,0" Height="344" VerticalAlignment="Top" HorizontalAlignment="Left" Width="380"/>
         <Button x:Name="Button_UpdateEmployment"  IsEnabled="False" Content="UPDATE INFORMATION" HorizontalAlignment="Left" Margin="420,368,0,0" VerticalAlignment="Top" Width="339" Height="22" Background="#FFFFB0B0" Click="Button_UpdateEmployment_Click"/>
         <Label Content="Department" HorizontalAlignment="Left" Margin="412,77,0,0" VerticalAlignment="Top" Height="26"/>
-        <Label Content="Password" HorizontalAlignment="Left" Margin="426,252,0,0" VerticalAlignment="Top" Height="26"/>
-        <ComboBox x:Name="Combobox_Department" DisplayMemberPath="Value" HorizontalAlignment="Left" Margin="623,80,0,0" VerticalAlignment="Top" Width="136"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="426,298,0,0" VerticalAlignment="Top" Height="26"/>
+        <ComboBox x:Name="Combobox_Department" DisplayMemberPath="Value" HorizontalAlignment="Left" Margin="493,80,0,0" VerticalAlignment="Top" Width="266"/>
         <Label Content="Position" HorizontalAlignment="Left" Margin="429,110,0,0" VerticalAlignment="Top" Height="26"/>
-        <ComboBox x:Name="Combobox_Position" DisplayMemberPath="Value" HorizontalAlignment="Left" Margin="623,113,0,0" VerticalAlignment="Top" Width="136"/>
-        <TextBox x:Name="Textbox_Password"  IsEnabled="False" HorizontalAlignment="Left" Margin="493,256,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="208"/>
+        <ComboBox x:Name="Combobox_Position" DisplayMemberPath="Value" HorizontalAlignment="Left" Margin="493,113,0,0" VerticalAlignment="Top" Width="266"/>
+        <TextBox x:Name="Textbox_Password"  IsEnabled="False" HorizontalAlignment="Left" Margin="493,302,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="208"/>
         <Label Content="Status" HorizontalAlignment="Left" Margin="429,179,0,0" VerticalAlignment="Top" Height="26"/>
-        <ComboBox  x:Name="Combobox_Status" HorizontalAlignment="Left" Margin="623,179,0,0" VerticalAlignment="Top" Width="136"/>
-        <Label Content="Employed On" HorizontalAlignment="Left" Margin="404,220,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="-0.049,0.502"/>
-        <ComboBox x:Name="Combobox_ScheduleType" HorizontalAlignment="Left" Margin="623,146,0,0" VerticalAlignment="Top" Width="136"/>
+        <ComboBox  x:Name="Combobox_Status"  DisplayMemberPath="Value" HorizontalAlignment="Left" Margin="493,179,0,0" VerticalAlignment="Top" Width="266"/>
+        <Label Content="Employed On" HorizontalAlignment="Left" Margin="404,267,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="-0.049,0.502"/>
+        <ComboBox x:Name="Combobox_ScheduleType" DisplayMemberPath="Value" HorizontalAlignment="Left" Margin="493,146,0,0" VerticalAlignment="Top" Width="266"/>
         <Label Content="Schedule Type" HorizontalAlignment="Left" Margin="404,142,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="-0.049,0.502"/>
-        <DatePicker x:Name="DatePicker_EmployedOn" IsEnabled="False" HorizontalAlignment="Left" Margin="493,220,0,0" VerticalAlignment="Top" Width="266"/>
-        <TextBox x:Name="Textbox_CurrentDepartment" IsEnabled="False"  HorizontalAlignment="Left" Margin="493,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
-        <TextBox x:Name="Textbox_CurrentPosition" IsEnabled="False"  HorizontalAlignment="Left" Margin="493,114,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
-        <TextBox x:Name="Textbox_CurrentScheduleType" IsEnabled="False"  HorizontalAlignment="Left" Margin="493,149,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
-        <TextBox x:Name="Textbox_CurrentStatus" IsEnabled="False"  HorizontalAlignment="Left" Margin="493,181,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+        <DatePicker x:Name="DatePicker_EmployedOn" IsEnabled="False" HorizontalAlignment="Left" Margin="493,267,0,0" VerticalAlignment="Top" Width="266"/>
         <TextBox x:Name="Textbox_MiddleName" IsEnabled="False"  HorizontalAlignment="Left" Margin="109,109,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="260"/>
         <Label Content="Middle Name" HorizontalAlignment="Left" Margin="22,106,0,0" VerticalAlignment="Top" Height="26"/>
         <Button x:Name="Button_ReturnMenu" Content="Return" HorizontalAlignment="Left" Margin="398,409,0,0" VerticalAlignment="Top" Width="380" Click="Button_ReturnMenu_Click"/>
+        <Label Content="Leave Credits" HorizontalAlignment="Left" Margin="405,326,0,0" VerticalAlignment="Top" Height="26"/>
+        <TextBox x:Name="Textbox_Credits"  IsEnabled="False" HorizontalAlignment="Left" Margin="493,330,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="164"/>
 
     </Grid>
 </Window>

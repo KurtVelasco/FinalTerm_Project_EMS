@@ -5,28 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalTerm_Project_EMS"
         mc:Ignorable="d"
-        Title="AddEmployee" Height="500" Width="812">
+        Title="AddEmployee" Height="517" Width="812">
     <Grid x:Name="mainGrid">
+
         <GroupBox Header="Personal Details" Margin="8,10,0,0" Height="428" VerticalAlignment="Top" HorizontalAlignment="Left" Width="744"/>
 
-        <TextBox x:Name="Textbox_LastName"  HorizontalAlignment="Left" Margin="93,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="276" Grid.Row="1"/>
+        <TextBox x:Name="Textbox_LastName"  HorizontalAlignment="Left" Margin="93,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="276" Grid.Row="1" />
         <TextBox x:Name="Textbox_FirstName"   HorizontalAlignment="Left" Margin="92,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="276" Grid.Row="1"/>
         <TextBox x:Name="Textbox_Email"   HorizontalAlignment="Left" Margin="92,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="276" Grid.Row="1"/>
         <TextBox x:Name="Textbox_HomeAddress"   HorizontalAlignment="Left" Margin="28,271,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="683" Height="93"/>
         <TextBox x:Name="Textbox_Contact"   HorizontalAlignment="Left" Margin="92,185,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="276" Grid.Row="1"/>
-        <TextBox x:Name="Textbox_GetEmail" HorizontalAlignment="Left" Margin="92,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="276" Grid.Row="1"/>
 
 
 
-        <Label Content="Last Name&#xD;&#xA;" HorizontalAlignment="Left" Margin="22,64,0,0" VerticalAlignment="Top" Height="26" Grid.Row="1"/>
+        <Label Content="Last Name&#xA;" HorizontalAlignment="Left" Margin="22,64,0,0" VerticalAlignment="Top" Height="26" Grid.Row="1"/>
 
-        <Label Content="First Name&#xD;&#xA;" HorizontalAlignment="Left" Margin="20,123,0,0" VerticalAlignment="Top" Height="28" Grid.Row="1"/>
-        <Label Content="BirthDay&#xD;&#xA;" HorizontalAlignment="Left" Margin="22,213,0,0" VerticalAlignment="Top" Height="26" Grid.Row="1"/>
-        <Label Content="HomeAddress&#xD;&#xA;" HorizontalAlignment="Left" Margin="22,244,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="0.496,0.631" Grid.Row="1"/>
+        <Label Content="First Name&#xA;" HorizontalAlignment="Left" Margin="20,123,0,0" VerticalAlignment="Top" Height="28" Grid.Row="1"/>
+        <Label Content="BirthDay&#xA;" HorizontalAlignment="Left" Margin="22,213,0,0" VerticalAlignment="Top" Height="26" Grid.Row="1"/>
+        <Label Content="HomeAddress&#xA;" HorizontalAlignment="Left" Margin="22,244,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="0.496,0.631" Grid.Row="1"/>
         <DatePicker x:Name="DatePicker_Birthday" HorizontalAlignment="Left" Margin="92,213,0,0" VerticalAlignment="Top" Width="150" Grid.Row="1"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="20,151,0,0" VerticalAlignment="Top" Height="26" Grid.Row="1"/>
         <Label Content="Contact#" HorizontalAlignment="Left" Margin="20,182,0,0" VerticalAlignment="Top" Height="28" Grid.Row="1"/>
-        <Label Content="Email" HorizontalAlignment="Left" Margin="25,34,0,0" VerticalAlignment="Top" Height="26" Grid.Row="1"/>
 
 
         <Button x:Name="Button_AddEmployee" Background="LightPink" Content="Add Employee" HorizontalAlignment="Left" Margin="28,387,0,0" VerticalAlignment="Top" Width="683" Click="Button_AddEmployee_Click"/>
@@ -36,8 +35,6 @@
         <Label Content="Position" HorizontalAlignment="Left" Margin="400,68,0,0" VerticalAlignment="Top" Height="26" Grid.Row="1"/>
         <ComboBox x:Name="Combobox_Position" DisplayMemberPath="Value" HorizontalAlignment="Left" Margin="490,70,0,0" VerticalAlignment="Top" Width="221" Grid.Row="1"/>
         <TextBox x:Name="Textbox_Password"  HorizontalAlignment="Left" Margin="490,228,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="221" RenderTransformOrigin="0.471,-1.223"/>
-        <Label Content="Status" HorizontalAlignment="Left" Margin="400,139,0,0" VerticalAlignment="Top" Height="26" Grid.Row="1" RenderTransformOrigin="-0.38,-1.037"/>
-        <ComboBox  x:Name="Combobox_Status" HorizontalAlignment="Left" Margin="490,141,0,0" VerticalAlignment="Top" Width="221" Grid.Row="1"/>
         <Label Content="Employed On" HorizontalAlignment="Left" Margin="400,178,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="-0.049,0.502" Grid.Row="1"/>
         <ComboBox x:Name="Combobox_ScheduleType" HorizontalAlignment="Left" Margin="490,106,0,0" VerticalAlignment="Top" Width="221" Grid.Row="1"/>
         <Label Content="Schedule Type" Margin="400,104,314,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="-0.049,0.502" Grid.Row="1"/>

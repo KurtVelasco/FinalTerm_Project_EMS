@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Xml.Linq;
 
 namespace FinalTerm_Project_EMS
 {
@@ -20,6 +21,14 @@ namespace FinalTerm_Project_EMS
             EMPLOYEE_NAME = name;
             EMPLOYEE_DEPARTMENT = department;
             EMPLOYEE_POSITION = position;
+        }
+        public void ResetData()
+        {
+            EMPLOYEE_EMAIL = string.Empty;
+            EMPLOYEE_ID = string.Empty;
+            EMPLOYEE_NAME = string.Empty;
+            EMPLOYEE_DEPARTMENT = string.Empty;
+            EMPLOYEE_POSITION = string.Empty;
         }
         public static void GiveData()
         {

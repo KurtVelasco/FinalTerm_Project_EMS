@@ -174,22 +174,6 @@
       <Column Name="HomeAddress" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.USP_INSERT_EMPLOYEE" Method="USP_INSERT_EMPLOYEE">
-    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="NVarChar(255)" />
-    <Parameter Name="MiddleName" Parameter="middleName" Type="System.String" DbType="NVarChar(255)" />
-    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="NVarChar(255)" />
-    <Parameter Name="Birthday" Parameter="birthday" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="PhoneNumber" Parameter="phoneNumber" Type="System.String" DbType="NVarChar(11)" />
-    <Parameter Name="EmailAddress" Parameter="emailAddress" Type="System.String" DbType="NVarChar(255)" />
-    <Parameter Name="HomeAddress" Parameter="homeAddress" Type="System.String" DbType="NVarChar(255)" />
-    <Parameter Name="DepartmentID" Parameter="departmentID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="PositionID" Parameter="positionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="StatusID" Parameter="statusID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="ScheduleTypeID" Parameter="scheduleTypeID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(255)" />
-    <Parameter Name="EmployedOn" Parameter="employedOn" Type="System.DateTime" DbType="Date" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.USP_LOGIN_EMPLOYEE" Method="USP_LOGIN_EMPLOYEE">
     <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(255)" />
     <Parameter Name="Passowrd" Parameter="passowrd" Type="System.String" DbType="NVarChar(255)" />
@@ -253,26 +237,6 @@
       <Column Name="PositionName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.USP_UPDATE_EMPLOYEE_EMPLOYMENT" Method="USP_UPDATE_EMPLOYEE_EMPLOYMENT">
-    <Parameter Name="EmmployeeID" Parameter="emmployeeID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="DepartmentID" Parameter="departmentID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="PositionID" Parameter="positionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="SchedTypeID" Parameter="schedTypeID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="StatusID" Parameter="statusID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="EmployedON" Parameter="employedON" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(255)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.USP_UPDATE_EMPLOYEE_PERSONAL" Method="USP_UPDATE_EMPLOYEE_PERSONAL">
-    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="NVarChar(255)" />
-    <Parameter Name="MiddleName" Parameter="middleName" Type="System.String" DbType="NVarChar(255)" />
-    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="NVarChar(255)" />
-    <Parameter Name="Birthday" Parameter="birthday" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="PhoneNumber" Parameter="phoneNumber" Type="System.String" DbType="NVarChar(13)" />
-    <Parameter Name="EmailAddress" Parameter="emailAddress" Type="System.String" DbType="NVarChar(255)" />
-    <Parameter Name="HomeAddress" Parameter="homeAddress" Type="System.String" DbType="NVarChar(255)" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.Retrieve_EmployeeDetails" Method="Retrieve_EmployeeDetails">
     <ElementType Name="Retrieve_EmployeeDetailsResult">
       <Column Name="FirstName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
@@ -282,5 +246,44 @@
       <Column Name="PositionName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="StatusName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.USP_INSERT_EMPLOYEE" Method="USP_INSERT_EMPLOYEE">
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="MiddleName" Parameter="middleName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Birthday" Parameter="birthday" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="PhoneNumber" Parameter="phoneNumber" Type="System.String" DbType="NVarChar(11)" />
+    <Parameter Name="EmailAddress" Parameter="emailAddress" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="HomeAddress" Parameter="homeAddress" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="DepartmentID" Parameter="departmentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PositionID" Parameter="positionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StatusID" Parameter="statusID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ScheduleTypeID" Parameter="scheduleTypeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="EmployedOn" Parameter="employedOn" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="LeaveEntitlements" Parameter="leaveEntitlements" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.USP_UPDATE_EMPLOYEE_EMPLOYMENT" Method="USP_UPDATE_EMPLOYEE_EMPLOYMENT">
+    <Parameter Name="EmmployeeID" Parameter="emmployeeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DepartmentID" Parameter="departmentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PositionID" Parameter="positionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SchedTypeID" Parameter="schedTypeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StatusID" Parameter="statusID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="EmployedON" Parameter="employedON" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="LeaveAllowance" Parameter="leaveAllowance" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.USP_UPDATE_EMPLOYEE_PERSONAL" Method="USP_UPDATE_EMPLOYEE_PERSONAL">
+    <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="MiddleName" Parameter="middleName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Birthday" Parameter="birthday" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="PhoneNumber" Parameter="phoneNumber" Type="System.String" DbType="NVarChar(13)" />
+    <Parameter Name="EmailAddress" Parameter="emailAddress" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="HomeAddress" Parameter="homeAddress" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>
