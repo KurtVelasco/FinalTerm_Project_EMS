@@ -135,11 +135,11 @@ namespace FinalTerm_Project_EMS
         private void SearchByName(string firstName, string lastName)
         {
             //PlaceHolder
-            lv_employeedata.ItemsSource = null;
+            lv_employeedata.Items.Clear();
             foreach (string item in employeeData)
             {
                 string[] split = item.Split(',');
-                if (firstName == split[0] && lastName == split[1])
+                if (firstName == split[0] && lastName == split[2])
                 {
                     lv_employeedata.Items.Add(new Employee
                     {
