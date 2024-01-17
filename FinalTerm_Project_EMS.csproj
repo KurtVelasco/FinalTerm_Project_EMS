@@ -84,6 +84,12 @@
       <DependentUpon>LeaveRequestForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="LogInCredentials.cs" />
+    <Compile Include="ManageEmployeeRequest.xaml.cs">
+      <DependentUpon>ManageEmployeeRequest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ManageLeaveRequests.xaml.cs">
+      <DependentUpon>ManageLeaveRequests.xaml</DependentUpon>
+    </Compile>
     <Compile Include="README.cs" />
     <Compile Include="SearchEmployee.xaml.cs">
       <DependentUpon>SearchEmployee.xaml</DependentUpon>
@@ -131,6 +137,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ManageEmployeeRequest.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ManageLeaveRequests.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="SearchEmployee.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
