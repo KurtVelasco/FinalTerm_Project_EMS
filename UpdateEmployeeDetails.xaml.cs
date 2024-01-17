@@ -80,6 +80,8 @@ namespace FinalTerm_Project_EMS
             DateTime? birthday = DatePicker_Birthday.SelectedDate;
             db.USP_UPDATE_EMPLOYEE_PERSONAL(EMPLOYEE_ID, firstName,middleName,lastName, birthday, contact, email, address);
             MessageBox.Show("Employee Personal Information has been added", "Update Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            InsertLogs.AddLogs(LogInCredentials.EMPLOYEE_ID, "Admin Updated an Employee's Personal Information");
+
             GetEmployeeDetais();
         }
         private void Button_UpdateEmployment_Click(object sender, RoutedEventArgs e)
@@ -100,6 +102,7 @@ namespace FinalTerm_Project_EMS
             string password = Textbox_Password.Text;
             db.USP_UPDATE_EMPLOYEE_EMPLOYMENT(EMPLOYEE_ID, departmentID, positionID, schedTypeID, statusID, employedON, password,credits);
             MessageBox.Show("Employee Employment Information has been added", "Update Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            InsertLogs.AddLogs(LogInCredentials.EMPLOYEE_ID, "Admin Updated an Employee's Employment Information");
             GetEmployeeDetais();
         }
 
@@ -131,6 +134,7 @@ namespace FinalTerm_Project_EMS
                 Textbox_Credits.Text = employee.LeaveEntitlements.ToString();
                 EMPLOYEE_ID = employee.EmployeeID;
 
+                Textbox_Password.IsEnabled = true;
                 Textbox_MiddleName.IsEnabled = true;
                 Textbox_Credits.IsEnabled = true;   
                 Textbox_LastName.IsEnabled = true;

@@ -81,7 +81,7 @@
         <classShapeMoniker Id="63fbe588-2d18-45c9-8d2d-33934fef6670" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 3.47199625651042); (6.88541416666667 : 3.47199625651042 : JumpStart); (7.05208083333333 : 3.47199625651042 : JumpEnd); (7.5 : 3.47199625651042); (7.5 : 5.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.75 : 3.47199625651042); (7.5 : 3.47199625651042); (7.5 : 5.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/EmployeeDatabaseDataContext/tblDepartment/tblDepartment_tblEmployeeDetail" />
       <nodes>
         <classShapeMoniker Id="72b1b1b0-af32-4be2-9542-7567b6502e0c" />

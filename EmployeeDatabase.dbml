@@ -286,4 +286,9 @@
     <Parameter Name="HomeAddress" Parameter="homeAddress" Type="System.String" DbType="NVarChar(255)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.USP_INSERT_LOGS" Method="USP_INSERT_LOGS">
+    <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LogDesc" Parameter="logDesc" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

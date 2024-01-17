@@ -79,6 +79,7 @@
     <Compile Include="EMSLogin.xaml.cs">
       <DependentUpon>EMSLogin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InsertLogs.cs" />
     <Compile Include="LeaveRequestForm.xaml.cs">
       <DependentUpon>LeaveRequestForm.xaml</DependentUpon>
     </Compile>
