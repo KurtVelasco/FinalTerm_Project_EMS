@@ -11,8 +11,8 @@ namespace FinalTerm_Project_EMS
     {
         public static void AddLogs(int employeeID, string logs)
         {
-           EmployeeDatabaseDataContext db = new EmployeeDatabaseDataContext(Properties.Settings.Default.MockEMSDatabaseConnectionString);
-            db.USP_INSERT_LOGS(employeeID, logs);
+           //EmployeeDatabaseDataContext db = new EmployeeDatabaseDataContext(Properties.Settings.Default.MockEMSDatabaseConnectionString);
+           // db.USP_INSERT_LOGS(employeeID, logs);
         }
     }
 }

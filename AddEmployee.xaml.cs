@@ -142,7 +142,7 @@ namespace FinalTerm_Project_EMS
                 
                 db.USP_INSERT_EMPLOYEE(FirstName, MiddleName, LastName, Birthday, Contact, Email, HomeAddress, Department, Position, 1, ScheduleType, Password, EmployedOn);
                 MessageBox.Show("Added Employee with the Email: " + Email, "Added Employee" + LastName +", " + FirstName, MessageBoxButton.OK, MessageBoxImage.Information   );
-                InsertLogs.AddLogs(LogInCredentials.EMPLOYEE_ID, "User added a new employee to the database: " + Email);
+                // InsertLogs.AddLogs(LogInCredentials.EMPLOYEE_ID, "User added a new employee to the database: " + Email);
                 AddEmployee am = new AddEmployee();
                 am.Show();
                 this.Close();
