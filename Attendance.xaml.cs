@@ -36,13 +36,21 @@ namespace FinalTerm_Project_EMS
         {
             if (!ValidateFields()) 
                 return;
+
             int employeeID = -1;
+
             foreach (tblEmployee employee in DB.tblEmployees)
             {
                 if (employee.EmailAddress == tbxEmail.Text)
                 {
                     employeeID = employee.EmployeeID;
                 }
+            }
+
+            if (employeeID == -1)
+            {
+                MessageBox.Show($"No employee with the email of {tbxEmail.Text} was found.");
+                return;
             }
 
             int hour, minute;
@@ -81,6 +89,12 @@ namespace FinalTerm_Project_EMS
             if (tbxEmail.Text.Length < 1)
             {
                 MessageBox.Show("Please fill out the Employee Email field.");
+                return false;
+            }
+            // Invalid Email
+            if (!tbxEmail.Text.Contains('@') || !tbxEmail.Text.Contains('.'))
+            {
+                MessageBox.Show("Please enter a valid email.");
                 return false;
             }
             // No hour selected
@@ -245,7 +259,6 @@ namespace FinalTerm_Project_EMS
                         return true;
                     }
                 }
-                   
             }
             return false;
         }
