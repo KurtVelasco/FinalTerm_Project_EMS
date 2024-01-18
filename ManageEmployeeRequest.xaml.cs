@@ -28,6 +28,7 @@ namespace FinalTerm_Project_EMS
             InitializeComponent();
 
             this.LeaveRequest = leaveRequest;
+            LoadData();
         }
 
         public void LoadData()
@@ -93,14 +94,14 @@ namespace FinalTerm_Project_EMS
 
         private void btnApprove_Click(object sender, RoutedEventArgs e)
         {
-            DB.uspRespondToLeaveRequest(LeaveRequest.LeaveRequestID, true, tbxRemarks.Text);
+            DB.uspRespondToLeaveRequest(LeaveRequest.EmployeeID, LeaveRequest.LeaveRequestID, true, tbxRemarks.Text);
             MessageBox.Show("Leave Request has been approved. Window will now close.");
             this.Close();
         }
 
         private void btnDeny_Click(object sender, RoutedEventArgs e)
         {
-            DB.uspRespondToLeaveRequest(LeaveRequest.LeaveRequestID, false, tbxRemarks.Text);
+            DB.uspRespondToLeaveRequest(LeaveRequest.EmployeeID, LeaveRequest.LeaveRequestID, false, tbxRemarks.Text);
             MessageBox.Show("Leave Request has been denied. Window will now close.");
             this.Close();
         }

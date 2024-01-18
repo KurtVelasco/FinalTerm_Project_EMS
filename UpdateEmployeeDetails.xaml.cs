@@ -71,6 +71,37 @@ namespace FinalTerm_Project_EMS
         }
         private void Button_Update_Click(object sender, RoutedEventArgs e)
         {
+            foreach (var control in mainGrid.Children)
+            {
+                if (control is TextBox textBox)
+                {
+                    if (string.IsNullOrWhiteSpace(textBox.Text))
+                    {
+                        // TextBox is empty
+                        MessageBox.Show("Please input all fields", "Missing field", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        return;
+                    }
+                }
+
+                else if (control is ComboBox comboBox)
+                {
+                    if (comboBox.SelectedIndex == -1)
+                    {
+                        // ComboBox is not selected
+                        MessageBox.Show("Please input all fields", "Missing field", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        return;
+                    }
+                }
+                else if (control is DatePicker datePicker)
+                {
+                    if (!datePicker.SelectedDate.HasValue)
+                    {
+                        // DatePicker does not have a selected date
+                        MessageBox.Show("Please input all fields", "Missing field", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        return;
+                    }
+                }
+            }
             string firstName = Textbox_FirstName.Text;  
             string middleName = Textbox_MiddleName.Text;
             string lastName = Textbox_LastName.Text;
@@ -86,7 +117,37 @@ namespace FinalTerm_Project_EMS
         }
         private void Button_UpdateEmployment_Click(object sender, RoutedEventArgs e)
         {
+            foreach (var control in mainGrid.Children)
+            {
+                if (control is TextBox textBox)
+                {
+                    if (string.IsNullOrWhiteSpace(textBox.Text))
+                    {
+                        // TextBox is empty
+                        MessageBox.Show("Please input all fields", "Missing field", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        return;
+                    }
+                }
 
+                else if (control is ComboBox comboBox)
+                {
+                    if (comboBox.SelectedIndex == -1)
+                    {
+                        // ComboBox is not selected
+                        MessageBox.Show("Please input all fields", "Missing field", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        return;
+                    }
+                }
+                else if (control is DatePicker datePicker)
+                {
+                    if (!datePicker.SelectedDate.HasValue)
+                    {
+                        // DatePicker does not have a selected date
+                        MessageBox.Show("Please input all fields", "Missing field", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        return;
+                    }
+                }
+            }
             int departmentID = ((KeyValuePair<int, string>)Combobox_Department.SelectedItem).Key;
             int positionID = ((KeyValuePair<int, string>)Combobox_Department.SelectedItem).Key;
             int statusID = ((KeyValuePair<int, string>)Combobox_Status.SelectedItem).Key;
@@ -122,6 +183,7 @@ namespace FinalTerm_Project_EMS
                 Textbox_Email.Text = employee.EmailAddress;
                 Textbox_HomeAddress.Text = employee.HomeAddress;
                 Textbox_Contact.Text = employee.PhoneNumber;
+                Textbox_Password.Text = employee.Password;  
                 DatePicker_Birthday.SelectedDate = employee.Birthday;
                 DatePicker_EmployedOn.SelectedDate = employee.EmployedOn;
                 EMPLOYEE_ID = employee.EmployeeID;

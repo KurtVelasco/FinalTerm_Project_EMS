@@ -26,6 +26,6 @@
         <Button x:Name="btnViewAll" Content="View All" HorizontalAlignment="Left" Margin="710,425,0,0" VerticalAlignment="Top" Width="63" Click="btnViewAll_Click"/>
         <Button x:Name="btnViewDescending" Content="View Descending" HorizontalAlignment="Left" Margin="596,425,0,0" VerticalAlignment="Top" Width="95" Click="btnViewDescending_Click"/>
         <Button x:Name="btnViewAscending" Content="View Ascending" HorizontalAlignment="Left" Margin="482,425,0,0" VerticalAlignment="Top" Width="95" Click="btnViewAscending_Click"/>
-        <CheckBox Content="Pending" HorizontalAlignment="Left" Margin="659,73,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chkbxPending" Content="Pending" HorizontalAlignment="Left" Margin="659,73,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

@@ -41,18 +41,6 @@ namespace FinalTerm_Project_EMS
                 return false;
             }
 
-            // Duration
-            if (tbxDuration.Text.Length == 0)
-            {
-                MessageBox.Show("Please fill out the Duration field.");
-                return false;
-            }
-            else if (!int.TryParse(tbxDuration.Text, out int employeeID))
-            {
-                MessageBox.Show("Please enter a valid integer for the Duration field.");
-                return false;
-            }
-
             // Reason for leave
             if (cbxReason.SelectedIndex  == -1)
             {
@@ -88,7 +76,7 @@ namespace FinalTerm_Project_EMS
         {
             foreach (tblEmployeeDetail employee in DB.tblEmployeeDetails)
             {
-                if (int.Parse(tbxEmployeeID.Text) == employee.EmployeeID && employee.StatusID != 5)
+                if (int.Parse(tbxEmployeeID.Text) == employee.EmployeeID && employee.ScheduleTypeID != 5)
                 {
                     MessageBox.Show("Failed to file Leave Request. Only full-time employees are allowed to file leave requests.");
                     return false;
