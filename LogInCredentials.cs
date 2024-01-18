@@ -7,13 +7,15 @@ using System.Xml.Linq;
 
 namespace FinalTerm_Project_EMS
 {
-    internal class LogInCredentials 
+    internal static class LogInCredentials 
     {
         public static string EMPLOYEE_EMAIL = string.Empty;
         public static int EMPLOYEE_ID = -1;
         public static string EMPLOYEE_NAME = string.Empty;
         public static string EMPLOYEE_DEPARTMENT = string.Empty;
         public static string EMPLOYEE_POSITION = string.Empty;
+        public static bool ATTENDANCE { get; set; } = false;
+
         public static void SetData(string email, int id, string name, string department, string position)
         {
             EMPLOYEE_EMAIL = email;
@@ -22,7 +24,7 @@ namespace FinalTerm_Project_EMS
             EMPLOYEE_DEPARTMENT = department;
             EMPLOYEE_POSITION = position;
         }
-        public void ResetData()
+        public static void ResetData()
         {
             EMPLOYEE_EMAIL = string.Empty;
             EMPLOYEE_ID = -1;
