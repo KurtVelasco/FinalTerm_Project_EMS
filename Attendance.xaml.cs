@@ -30,6 +30,20 @@ namespace FinalTerm_Project_EMS
         public Attendance()
         {
             InitializeComponent();
+
+            LoadComboBoxes();
+        }
+
+        private void LoadComboBoxes()
+        {
+            for (int i = 0; i < 24; i++)
+            {
+                cbxHour.Items.Add(i.ToString());
+            }
+            for (int i = 0; i < 60; i++)
+            {
+                cbxMinute.Items.Add(i.ToString());
+            }
         }
 
         private void btnTimeIn_Click(object sender, RoutedEventArgs e)
@@ -205,14 +219,16 @@ namespace FinalTerm_Project_EMS
 
                             // Check for absences
                             RecordAbsences(employeesInAttendance);
+
+                            MessageBox.Show("Attendance data successfully stored in the database.");
                         }
                     }
                 }
                 catch (Exception ex)
                 {
                     // Let the user know what went wrong.
-                    Console.WriteLine("The attendance file could not be read");
-                    Console.WriteLine(ex.Message);
+                    MessageBox.Show("The attendance file could not be read");
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
