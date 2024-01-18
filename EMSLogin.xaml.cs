@@ -33,7 +33,7 @@ namespace FinalTerm_Project_EMS
             {              
                 if(accounts[0].DepartmentName == "Human Resources")
                 {
-                    if (accounts[0].PositionName == "Administrator")
+                    if (accounts[0].PositionName == "Administrator" && !LogInCredentials.ATTENDANCE)
                     { 
                         LogInCredentials.SetData(accounts[0].EmailAddress, accounts[0].EmployeeID, accounts[0].LastName,
                             accounts[0].DepartmentName, accounts[0].PositionName);
@@ -41,6 +41,14 @@ namespace FinalTerm_Project_EMS
                         EmployeeManagment_Admin em = new EmployeeManagment_Admin();
                         em.Show();
                         this.Close();                       
+                    }
+                    else if (accounts[0].PositionName == "Administrator" && LogInCredentials.ATTENDANCE)
+                    {
+                        LogInCredentials.SetData(accounts[0].EmailAddress, accounts[0].EmployeeID, accounts[0].LastName,
+                            accounts[0].DepartmentName, accounts[0].PositionName);
+                        MessageBox.Show("Welcome, " + accounts[0].LastName + " " + accounts[0].FirstName, "Successful Login", MessageBoxButton.OK, MessageBoxImage.Information);
+                        new Attendance().Show();
+                        this.Close();
                     }
                     else
                     {

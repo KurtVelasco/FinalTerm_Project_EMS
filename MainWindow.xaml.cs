@@ -27,6 +27,15 @@ namespace FinalTerm_Project_EMS
 
         private void Button_EMS_Click(object sender, RoutedEventArgs e)
         {
+            LogInCredentials.ATTENDANCE = false;
+            EMSLogin ems = new EMSLogin();
+            ems.Show();
+            this.Close();
+        }
+
+        private void Button_ATM_Click(object sender, RoutedEventArgs e)
+        {
+            LogInCredentials.ATTENDANCE = true;
             EMSLogin ems = new EMSLogin();
             ems.Show();
             this.Close();
