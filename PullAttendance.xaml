@@ -1,0 +1,15 @@
+﻿<Window x:Class="FinalTerm_Project_EMS.PullAttendance"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinalTerm_Project_EMS"
+        mc:Ignorable="d"
+        Title="PullAttendance" Height="400" Width="350">
+    <Grid>
+        <Button x:Name="btnPullData" Content="Pull Data" HorizontalAlignment="Center" Margin="0,319,0,0" VerticalAlignment="Top" Width="232" Click="btnPullData_Click"/>
+        <TextBlock x:Name="tblkLogs" HorizontalAlignment="Center" Margin="0,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="210" Width="232" Background="#FFF1F1F1"/>
+        <Label Content="PULL ATTENDANCE" HorizontalAlignment="Left" Margin="68,29,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22"/>
+
+    </Grid>
+</Window>

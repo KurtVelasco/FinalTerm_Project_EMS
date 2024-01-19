@@ -62,8 +62,8 @@
     <Compile Include="AddingEmployee.xaml.cs">
       <DependentUpon>AddingEmployee.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Attendance.xaml.cs">
-      <DependentUpon>Attendance.xaml</DependentUpon>
+    <Compile Include="ManualAttendance.xaml.cs">
+      <DependentUpon>ManualAttendance.xaml</DependentUpon>
     </Compile>
     <Compile Include="EmployeeDatabase.designer.cs">
       <AutoGen>True</AutoGen>
@@ -93,6 +93,9 @@
     <Compile Include="ManageLeaveRequests.xaml.cs">
       <DependentUpon>ManageLeaveRequests.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PullAttendance.xaml.cs">
+      <DependentUpon>PullAttendance.xaml</DependentUpon>
+    </Compile>
     <Compile Include="README.cs" />
     <Compile Include="SearchEmployee.xaml.cs">
       <DependentUpon>SearchEmployee.xaml</DependentUpon>
@@ -108,7 +111,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Attendance.xaml">
+    <Page Include="ManualAttendance.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -151,6 +154,10 @@
     <Page Include="ManageLeaveRequests.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PullAttendance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SearchEmployee.xaml">
       <SubType>Designer</SubType>
