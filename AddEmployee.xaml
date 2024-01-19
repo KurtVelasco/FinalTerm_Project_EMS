@@ -25,11 +25,11 @@
         <Label Content="Employed On" FontFamily="Fonts/#Sofia Pro Bold" HorizontalAlignment="Left" Margin="413,180,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="-0.049,0.502" Width="84" FontWeight="Bold" FontSize="10"/>
         <Label Content="Home Address" FontFamily="Fonts/#Sofia Pro Bold" HorizontalAlignment="Left" Margin="58,244,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="0.496,0.631" FontWeight="Bold" FontSize="14"/>
 
-        <TextBox x:Name="Textbox_LastName"  HorizontalAlignment="Left" Margin="142,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223"/>
-        <TextBox x:Name="Textbox_MiddleName"   HorizontalAlignment="Left" Margin="142,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223"/>
-        <TextBox x:Name="Textbox_FirstName"   HorizontalAlignment="Left" Margin="142,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223"/>
-        <TextBox x:Name="Textbox_Email"   HorizontalAlignment="Left" Margin="142,155,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223"/>
-        <TextBox x:Name="Textbox_Contact"   HorizontalAlignment="Left" Margin="142,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223"/>
+        <TextBox x:Name="Textbox_LastName"  MaxLength="255"  HorizontalAlignment="Left" Margin="142,80,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="223"/>
+        <TextBox x:Name="Textbox_MiddleName" MaxLength="255"  HorizontalAlignment="Left" Margin="142,105,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="223"/>
+        <TextBox x:Name="Textbox_FirstName" MaxLength="255"  HorizontalAlignment="Left" Margin="142,130,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="223"/>
+        <TextBox x:Name="Textbox_Email"  MaxLength="255" HorizontalAlignment="Left" Margin="142,155,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="223"/>
+        <TextBox x:Name="Textbox_Contact"  MaxLength="255" HorizontalAlignment="Left" Margin="142,180,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="223"/>
         <DatePicker x:Name="DatePicker_Birthday" HorizontalAlignment="Left" Margin="142,0,0,0" VerticalAlignment="Center" Width="223" Height="25"/>
 
         <ComboBox x:Name="Combobox_Department" DisplayMemberPath="Value" HorizontalAlignment="Left" Margin="502,80,0,0" VerticalAlignment="Top" Width="222" Height="18" Background="White" BorderBrush="#FFABADB3"/>
@@ -38,7 +38,7 @@
         <TextBox x:Name="Textbox_Password"  HorizontalAlignment="Left" Margin="502,155,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="222" RenderTransformOrigin="0.471,-1.223"/>
         <DatePicker x:Name="DatePicker_EmployedOn" HorizontalAlignment="Left" Margin="502,180,0,0" VerticalAlignment="Top" Width="222"/>
 
-        <TextBox x:Name="Textbox_HomeAddress"   HorizontalAlignment="Center" Margin="0,271,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="684" Height="63"/>
+        <TextBox x:Name="Textbox_HomeAddress"  MaxLength="255"  HorizontalAlignment="Center" Margin="0,271,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="684" Height="63"/>
 
         <Button x:Name="Button_AddEmployee" FontFamily="Fonts/#Munich Regular" Background="#FF8B280D" Content="Add Employee" Style="{StaticResource ResourceKey=RoundedButton}" HorizontalAlignment="Left" Margin="484,339,0,0" VerticalAlignment="Top" Height="40"  Width="258" Click="Button_AddEmployee_Click" Foreground="White" BorderBrush="Red" FontSize="15"/>
         <Button x:Name="Button_ReturnMenu" FontFamily="Fonts/#Munich Regular" Content="Back" Style="{StaticResource ResourceKey=RoundedButton}" HorizontalAlignment="Left" Height="40" Margin="58,339,0,0" VerticalAlignment="Top" Width="88" Click="Button_ReturnMenu_Click" Background="#FF8B280D" BorderBrush="Red" Foreground="White" FontSize="15"/>

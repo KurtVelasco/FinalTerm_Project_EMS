@@ -81,6 +81,10 @@ namespace FinalTerm_Project_EMS
         private void Button_AddEmployee_Click(object sender, RoutedEventArgs e)
         {
             bool isEmailValid = true;
+            if (Textbox_MiddleName.Text.Length < 1)
+            {
+                Textbox_MiddleName.Text = "N/A";
+            }
             foreach (var control in mainGrid.Children)
             {
                 if (control is TextBox textBox)
@@ -111,13 +115,17 @@ namespace FinalTerm_Project_EMS
                     }
                 }
             }
-            isEmailValid = IsValidEmail(Textbox_Email.Text);
-
-            if (!isEmailValid)
+            if (Email.Length > 255 || !Email.Contains('@') || Email.Count(c => c == '.') < 1)
             {
-                MessageBox.Show("Please enter a valid email", "Invalid Email", MessageBoxButton.YesNo, MessageBoxImage.Error);
+                MessageBox.Show("Email is invalid, Please enter a valid email", "Invalid Email", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            if (Contact.Length > 11 || !int.TryParse(Contact, out _))
+            {
+                MessageBox.Show("Contact Number is Invalid, Please type a valid Cellphone Number", "Invalid Cellphone Number", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             MessageBoxResult ms = MessageBox.Show("Add Employee to the Database?", "Add Employee?", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if(ms == MessageBoxResult.Yes) {
                 AddEmployeeDatabase();
@@ -133,12 +141,24 @@ namespace FinalTerm_Project_EMS
             Contact = Textbox_Contact.Text;
             Password = Textbox_Password.Text;
             MiddleName = Textbox_MiddleName.Text;
-
             Department = ((KeyValuePair<int, string>)Combobox_Department.SelectedItem).Key;
             Position = ((KeyValuePair<int, string>)Combobox_Position.SelectedItem).Key;
             ScheduleType = ((KeyValuePair<int, string>)Combobox_ScheduleType.SelectedItem).Key;
             Birthday = DatePicker_Birthday.SelectedDate;
             EmployedOn = DatePicker_EmployedOn.SelectedDate;
+
+
+            if (Email.Length > 255 || !Email.Contains('@') || Email.Count(c => c == '.') < 1)
+            {
+                MessageBox.Show("Email is invalid, Please enter a valid email", "Invalid Email", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (Contact.Length > 11 || !int.TryParse(Contact, out _))
+            {
+                MessageBox.Show("Contact Number is Invalid, Please type a valid Cellphone Number", "Invalid Cellphone Number", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             List<USP_CHECK_DUPLICATE_EMAILSResult> checkEmployee = db.USP_CHECK_DUPLICATE_EMAILS(Textbox_Email.Text).ToList();
             if (checkEmployee.Count > 0)
             {
@@ -162,10 +182,6 @@ namespace FinalTerm_Project_EMS
             EmployeeManagment_Admin am = new EmployeeManagment_Admin();
             am.Show();
             this.Close();   
-        }
-        static bool IsValidEmail(string email)
-        {
-            return email.Contains(".") && email.Contains("@");
         }
 
 
