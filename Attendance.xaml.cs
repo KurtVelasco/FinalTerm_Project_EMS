@@ -174,22 +174,44 @@ namespace FinalTerm_Project_EMS
                 {
                     using (StreamReader sr = new StreamReader("attendance.csv"))
                     {
-                        Dictionary<int, string[]> errRowsDict = new Dictionary<int, string[]>();
+                        Dictionary<int, string> errRowsDict = new Dictionary<int, string>();
                         List<int> employeesInAttendance = new List<int>();
                         string line;
-                        int rowNum = -1;
-                        int errCounter = 0;
+                        int rowNum = 0;
 
                         while ((line = sr.ReadLine()) != null)
                         {
                             // ID, TimeIn, TimeOut
                             string[] cols = line.Split(',');
+
+                            // Missing columns
+                            if (cols.Length < 3 )
+                            {
+                                errRowsDict.Add(rowNum, $"One or more columns were missing.");
+                                continue;
+                            }
+
                             string id = cols[0];
                             string strTimeIn = cols[1];
                             string strTimeOut = cols[2];
 
-                            // Log row number
-                            rowNum++;
+                            // Empty columns
+                            if (id == string.Empty)
+                            {
+                                errRowsDict.Add(rowNum, $"Empty column for Employee ID: {id}, {strTimeIn}, {strTimeOut}");
+                                continue;
+                            }
+                            else if (strTimeIn == string.Empty)
+                            {
+                                errRowsDict.Add(rowNum, $"Empty column for Time-in: {id}, {strTimeIn}, {strTimeOut}");
+                                continue;
+                            }
+                            else if (strTimeOut == string.Empty)
+                            {
+                                errRowsDict.Add(rowNum, $"Empty column for Time-out: {id}, {strTimeIn}, {strTimeOut}");
+                                continue;
+                            }
+
 
                             // If all cols can be parsed by its data type, upload data
                             // Note: this assumes no time-ins/time-outs are invalid 
@@ -209,18 +231,34 @@ namespace FinalTerm_Project_EMS
 
                                 // Add to Employees in attendance
                                 employeesInAttendance.Add(employeeID);
+
+                                // Log row number
+                                rowNum++;
                             }
                             else
                             {
-                                // Save Errors (TODO: Output errors)
-
-                                errRowsDict.Add(rowNum, new string[] { id, strTimeIn, strTimeOut });
+                                errRowsDict.Add(rowNum, $"Could not parse columns as values: {id}, {strTimeIn}, {strTimeOut}");
+                                continue;
                             }
+                        }
 
-                            // Check for absences
-                            RecordAbsences(employeesInAttendance);
+                        // Check for absences
+                        RecordAbsences(employeesInAttendance);
 
-                            MessageBox.Show("Attendance data successfully stored in the database.");
+                        MessageBox.Show("Attendance data successfully stored in the database.");
+
+                        if (errRowsDict.Count == 0)
+                        {
+                            tblkLogs.Text = "No erroneous rows were encountered while pulling the data.";
+                        }
+                        else
+                        {
+                            string message = $"{errRowsDict.Count} error/s were found while pulling the data.\n";
+
+                            foreach (KeyValuePair<int, string> error in errRowsDict)
+                            {
+                                message += $"Row #{error.Key}: {error.Value}\n";
+                            }
                         }
                     }
                 }
