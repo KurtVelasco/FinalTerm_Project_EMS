@@ -84,6 +84,9 @@
       <DependentUpon>LeaveRequestForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="LogInCredentials.cs" />
+    <Compile Include="Logs.xaml.cs">
+      <DependentUpon>Logs.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ManageEmployeeRequest.xaml.cs">
       <DependentUpon>ManageEmployeeRequest.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LeaveRequestForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Logs.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -198,7 +205,9 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="History.txt" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Northville Public School %28Icon%29.png" />
   </ItemGroup>

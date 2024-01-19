@@ -10,7 +10,6 @@
         <Button x:Name="Button_AddEmployee" Content="Send Leave Request" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Width="233" Height="32" />
         <Button x:Name="Button_UpdateEmployee" Content="PLACEHOLDER" HorizontalAlignment="Left" Margin="0,150,0,0" VerticalAlignment="Top" Width="233" Height="32"/>
         <Button x:Name="Button_ViewLogs" Content="PLACEHOLDER" HorizontalAlignment="Left" Margin="0,200,0,0" VerticalAlignment="Top" Width="233" Height="32" />
-        <Button  x:Name="Button_Placeholder" Content="PLACEHOLDER" HorizontalAlignment="Left" Margin="0,250,0,0" VerticalAlignment="Top" Width="233" Height="32" />
         <Button  x:Name="Button_LogOut" Content="Log Out" HorizontalAlignment="Left" Margin="0,350,0,0" VerticalAlignment="Top" Width="233" Height="32" />
 
     </Grid>

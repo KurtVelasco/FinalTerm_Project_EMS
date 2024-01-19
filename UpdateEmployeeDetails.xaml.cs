@@ -71,13 +71,17 @@ namespace FinalTerm_Project_EMS
         }
         private void Button_Update_Click(object sender, RoutedEventArgs e)
         {
+            if (Textbox_MiddleName.Text.Length < 1)
+            {
+                Textbox_MiddleName.Text = "N/A";
+            }
             foreach (var control in mainGrid.Children)
             {
                 if (control is TextBox textBox)
                 {
                     if (string.IsNullOrWhiteSpace(textBox.Text))
                     {
-                        // TextBox is empty
+               
                         MessageBox.Show("Please input all fields", "Missing field", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                         return;
                     }
@@ -102,6 +106,17 @@ namespace FinalTerm_Project_EMS
                     }
                 }
             }
+            if (Textbox_Email.Text.Length > 255 || !Textbox_Email.Text.Contains('@') || Textbox_Email.Text.Count(c => c == '.') < 1)
+            {
+                MessageBox.Show("Email is invalid, Please enter a valid email", "Invalid Email", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (Textbox_Contact.Text.Length > 11 || !int.TryParse(Textbox_Contact.Text, out _))
+            {
+                MessageBox.Show("Contact Number is Invalid, Please type a valid Cellphone Number", "Invalid Cellphone Number", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             string firstName = Textbox_FirstName.Text;  
             string middleName = Textbox_MiddleName.Text;
             string lastName = Textbox_LastName.Text;
@@ -147,12 +162,6 @@ namespace FinalTerm_Project_EMS
                         return;
                     }
                 }
-            }
-            bool isEmailValid = true;
-            if (!isEmailValid)
-            {
-                MessageBox.Show("Please enter a valid email", "Invalid Email", MessageBoxButton.YesNo, MessageBoxImage.Error);
-                return;
             }
 
             int departmentID = ((KeyValuePair<int, string>)Combobox_Department.SelectedItem).Key;

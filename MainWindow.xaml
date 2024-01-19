@@ -12,6 +12,7 @@
 
         <Button x:Name="Button_EMS" Style="{StaticResource ResourceKey=RoundedButton}" FontFamily="Fonts/#Munich Regular" Content="Employee Management System" HorizontalAlignment="Left" Margin="465,125,0,0" VerticalAlignment="Top" Height="80" Width="250" Click="Button_EMS_Click" FontWeight="Bold" FontSize="18" Background="#FF8B280D" Foreground="White" BorderBrush="Black" />
         <Button x:Name="Button_ATM" Style="{StaticResource ResourceKey=RoundedButton}" FontFamily="Fonts/#Munich Regular" Content="Attendance Tracking System" HorizontalAlignment="Left" Margin="465,235,0,0" VerticalAlignment="Top" Height="80" Width="250" FontWeight="Bold" FontSize="18" Background="#FF8B280D" Foreground="White" BorderBrush="Black" Click="Button_ATM_Click"/>
+        <Button x:Name="Button_Logout" Style="{StaticResource ResourceKey=RoundedButton}" FontFamily="Fonts/#Munich Regular" Content="LOG OUT" HorizontalAlignment="Left" Margin="465,344,0,0" VerticalAlignment="Top" Height="36" Width="250" FontWeight="Bold" FontSize="18" Background="#FF8B280D" Foreground="White" BorderBrush="Black" Click="Button_Logout_Click" />
 
     </Grid>
 </Window>

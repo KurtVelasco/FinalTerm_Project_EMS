@@ -30,41 +30,12 @@ namespace FinalTerm_Project_EMS
             List<USP_LOGIN_EMPLOYEEResult> accounts = new List<USP_LOGIN_EMPLOYEEResult>();
             accounts = db.USP_LOGIN_EMPLOYEE(email, password).ToList();
             if (accounts.Count == 1)
-            {              
-                if(accounts[0].DepartmentName == "Human Resources")
-                {
-                    if (accounts[0].PositionName == "Administrator" && !LogInCredentials.ATTENDANCE)
-                    { 
-                        LogInCredentials.SetData(accounts[0].EmailAddress, accounts[0].EmployeeID, accounts[0].LastName,
-                            accounts[0].DepartmentName, accounts[0].PositionName);
-                        MessageBox.Show("Welcome, " + accounts[0].LastName + " " + accounts[0].FirstName, "Successful Login", MessageBoxButton.OK, MessageBoxImage.Information);
-                        EmployeeManagment_Admin em = new EmployeeManagment_Admin();
-                        em.Show();
-                        this.Close();                       
-                    }
-                    else if (accounts[0].PositionName == "Administrator" && LogInCredentials.ATTENDANCE)
-                    {
-                        LogInCredentials.SetData(accounts[0].EmailAddress, accounts[0].EmployeeID, accounts[0].LastName,
-                            accounts[0].DepartmentName, accounts[0].PositionName);
-                        MessageBox.Show("Welcome, " + accounts[0].LastName + " " + accounts[0].FirstName, "Successful Login", MessageBoxButton.OK, MessageBoxImage.Information);
-                        new Attendance().Show();
-                        this.Close();
-                    }
-                    else
-                    {
-                        LogInCredentials.SetData(accounts[0].EmailAddress, accounts[0].EmployeeID, accounts[0].LastName,
-                           accounts[0].DepartmentName, accounts[0].PositionName);
-                        MessageBox.Show("Welcome:" + accounts[0].LastName + " " + accounts[0].FirstName, "Successful Login", MessageBoxButton.OK, MessageBoxImage.Information);
-                        EmployeeManagment_Employee ee = new EmployeeManagment_Employee();
-                        ee.Show();
-                        this.Close();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Incorrect Email/Password", "Wrong Login", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                
+            {                            
+                LogInCredentials.SetData(accounts[0].EmailAddress, accounts[0].EmployeeID, accounts[0].LastName,
+                accounts[0].DepartmentName, accounts[0].PositionName);
+                MessageBox.Show("Welcome, " + accounts[0].LastName + " " + accounts[0].FirstName, "Successful Login", MessageBoxButton.OK, MessageBoxImage.Information);
+                MainWindow mw = new MainWindow(); mw.Show();
+                this.Close();                                                                       
             } 
             else
             {

@@ -27,16 +27,39 @@ namespace FinalTerm_Project_EMS
 
         private void Button_EMS_Click(object sender, RoutedEventArgs e)
         {
-            EMSLogin ems = new EMSLogin();
-            ems.Show();
-            this.Close();
+            if(LogInCredentials.EMPLOYEE_POSITION == "Administrator")
+            {
+                EmployeeManagment_Admin ea = new EmployeeManagment_Admin();
+                ea.Show();
+                this.Close();
+            }
+            else
+            {
+                EmployeeManagment_Employee ee = new EmployeeManagment_Employee();
+                ee.Show();
+                this.Close();   
+            }
         }
 
         private void Button_ATM_Click(object sender, RoutedEventArgs e)
         {
-            EMSLogin ems = new EMSLogin();
-            ems.Show();
-            this.Close();
+            if (LogInCredentials.EMPLOYEE_POSITION == "Administrator")
+            {
+               //atm moments
+            }
+        }
+
+        private void Button_Logout_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult res = MessageBox.Show("Log out to the System?", "Log Out",MessageBoxButton.OKCancel, MessageBoxImage.Information);
+            if (res == MessageBoxResult.Yes)
+            {
+                EMSLogin em = new EMSLogin();
+                LogInCredentials.ResetData();
+                em.Show();
+                this.Close();
+            }
+
         }
     }
 }
