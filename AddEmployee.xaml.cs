@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -79,13 +80,13 @@ namespace FinalTerm_Project_EMS
         }
         private void Button_AddEmployee_Click(object sender, RoutedEventArgs e)
         {
+            bool isEmailValid = true;
             foreach (var control in mainGrid.Children)
             {
                 if (control is TextBox textBox)
                 {
                     if (string.IsNullOrWhiteSpace(textBox.Text))
                     {
-                        // TextBox is empty
                         MessageBox.Show("Please input all fields", "Missing field", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                         return;
                     }
@@ -109,6 +110,13 @@ namespace FinalTerm_Project_EMS
                         return;
                     }
                 }
+            }
+            isEmailValid = IsValidEmail(Textbox_Email.Text);
+
+            if (!isEmailValid)
+            {
+                MessageBox.Show("Please enter a valid email", "Invalid Email", MessageBoxButton.YesNo, MessageBoxImage.Error);
+                return;
             }
             MessageBoxResult ms = MessageBox.Show("Add Employee to the Database?", "Add Employee?", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if(ms == MessageBoxResult.Yes) {
@@ -155,7 +163,11 @@ namespace FinalTerm_Project_EMS
             am.Show();
             this.Close();   
         }
+        static bool IsValidEmail(string email)
+        {
+            return email.Contains(".") && email.Contains("@");
+        }
 
-  
+
     }
 }

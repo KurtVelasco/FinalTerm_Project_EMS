@@ -148,6 +148,13 @@ namespace FinalTerm_Project_EMS
                     }
                 }
             }
+            bool isEmailValid = true;
+            if (!isEmailValid)
+            {
+                MessageBox.Show("Please enter a valid email", "Invalid Email", MessageBoxButton.YesNo, MessageBoxImage.Error);
+                return;
+            }
+
             int departmentID = ((KeyValuePair<int, string>)Combobox_Department.SelectedItem).Key;
             int positionID = ((KeyValuePair<int, string>)Combobox_Department.SelectedItem).Key;
             int statusID = ((KeyValuePair<int, string>)Combobox_Status.SelectedItem).Key;
@@ -155,7 +162,7 @@ namespace FinalTerm_Project_EMS
             DateTime? employedON = DatePicker_EmployedOn.SelectedDate;
             string password = Textbox_Password.Text;
             db.USP_UPDATE_EMPLOYEE_EMPLOYMENT(EMPLOYEE_ID, departmentID, positionID, schedTypeID, statusID, employedON, password);
-            MessageBox.Show("Employee Employment Information has been added", "Update Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Employee Employment Information has been Updated", "Update Information", MessageBoxButton.OK, MessageBoxImage.Information);
             InsertLogs.AddLogs(LogInCredentials.EMPLOYEE_ID, "Admin Updated an Employee's Employment Information");
             GetEmployeeDetais();
         }
@@ -207,9 +214,6 @@ namespace FinalTerm_Project_EMS
                 return;
             }
         }
-        private void RefreshStatus()
-        {
-
-        }
+      
     }
 }
