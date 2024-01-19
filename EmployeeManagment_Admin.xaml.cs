@@ -51,5 +51,13 @@ namespace FinalTerm_Project_EMS
             mw.Show();
             this.Close();
         }
+
+        private void Button_Placeholder_Click(object sender, RoutedEventArgs e)
+        {
+            Logs l = new Logs();
+            l.Show();
+            this.Close();
+           
+        }
     }
 }

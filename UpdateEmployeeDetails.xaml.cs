@@ -75,37 +75,13 @@ namespace FinalTerm_Project_EMS
             {
                 Textbox_MiddleName.Text = "N/A";
             }
-            foreach (var control in mainGrid.Children)
+            if(Textbox_FirstName.Text.Length < 1 || Textbox_LastName.Text.Length < 1 || Textbox_Email.Text.Length < 1  
+              || Textbox_Contact.Text.Length < 1 || Textbox_Contact.Text.Length < 1 || Textbox_HomeAddress.Text.Length < 1 || DatePicker_Birthday.SelectedDate == null)
             {
-                if (control is TextBox textBox)
-                {
-                    if (string.IsNullOrWhiteSpace(textBox.Text))
-                    {
-               
-                        MessageBox.Show("Please input all fields", "Missing field", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                        return;
-                    }
-                }
-
-                else if (control is ComboBox comboBox)
-                {
-                    if (comboBox.SelectedIndex == -1)
-                    {
-                        // ComboBox is not selected
-                        MessageBox.Show("Please input all fields", "Missing field", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                        return;
-                    }
-                }
-                else if (control is DatePicker datePicker)
-                {
-                    if (!datePicker.SelectedDate.HasValue)
-                    {
-                        // DatePicker does not have a selected date
-                        MessageBox.Show("Please input all fields", "Missing field", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                        return;
-                    }
-                }
+                MessageBox.Show("Please input all fields", "Missing field", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
             }
+
             if (Textbox_Email.Text.Length > 255 || !Textbox_Email.Text.Contains('@') || Textbox_Email.Text.Count(c => c == '.') < 1)
             {
                 MessageBox.Show("Email is invalid, Please enter a valid email", "Invalid Email", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -132,40 +108,30 @@ namespace FinalTerm_Project_EMS
         }
         private void Button_UpdateEmployment_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var control in mainGrid.Children)
-            {
-                if (control is TextBox textBox)
-                {
-                    if (string.IsNullOrWhiteSpace(textBox.Text))
-                    {
-                        // TextBox is empty
-                        MessageBox.Show("Please input all fields", "Missing field", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                        return;
-                    }
-                }
 
-                else if (control is ComboBox comboBox)
-                {
-                    if (comboBox.SelectedIndex == -1)
-                    {
-                        // ComboBox is not selected
-                        MessageBox.Show("Please input all fields", "Missing field", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                        return;
-                    }
-                }
-                else if (control is DatePicker datePicker)
-                {
-                    if (!datePicker.SelectedDate.HasValue)
-                    {
-                        // DatePicker does not have a selected date
-                        MessageBox.Show("Please input all fields", "Missing field", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                        return;
-                    }
-                }
+            if (Combobox_Department.SelectedIndex == -1 ||
+                Combobox_Position.SelectedIndex == -1 ||
+                Combobox_Status.SelectedIndex == -1 ||
+                Combobox_ScheduleType.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select values for all ComboBoxes", "Missing selection", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
+            if (!DatePicker_EmployedOn.SelectedDate.HasValue)
+            {
+                MessageBox.Show("Please select a date for Employment Date", "Missing date", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
+
+            // Check Password TextBox
+            if (string.IsNullOrWhiteSpace(Textbox_Password.Text))
+            {
+                MessageBox.Show("Please enter a password", "Missing password", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
             }
 
             int departmentID = ((KeyValuePair<int, string>)Combobox_Department.SelectedItem).Key;
-            int positionID = ((KeyValuePair<int, string>)Combobox_Department.SelectedItem).Key;
+            int positionID = ((KeyValuePair<int, string>)Combobox_Position.SelectedItem).Key;
             int statusID = ((KeyValuePair<int, string>)Combobox_Status.SelectedItem).Key;
             int schedTypeID = ((KeyValuePair<int, string>)Combobox_ScheduleType.SelectedItem).Key;
             DateTime? employedON = DatePicker_EmployedOn.SelectedDate;
