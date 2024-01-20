@@ -33,12 +33,6 @@ namespace FinalTerm_Project_EMS
     partial void InserttblAttendance(tblAttendance instance);
     partial void UpdatetblAttendance(tblAttendance instance);
     partial void DeletetblAttendance(tblAttendance instance);
-    partial void InserttblClass(tblClass instance);
-    partial void UpdatetblClass(tblClass instance);
-    partial void DeletetblClass(tblClass instance);
-    partial void InserttblClassSchedule(tblClassSchedule instance);
-    partial void UpdatetblClassSchedule(tblClassSchedule instance);
-    partial void DeletetblClassSchedule(tblClassSchedule instance);
     partial void InserttblDepartment(tblDepartment instance);
     partial void UpdatetblDepartment(tblDepartment instance);
     partial void DeletetblDepartment(tblDepartment instance);
@@ -60,9 +54,9 @@ namespace FinalTerm_Project_EMS
     partial void InserttblLog(tblLog instance);
     partial void UpdatetblLog(tblLog instance);
     partial void DeletetblLog(tblLog instance);
-    partial void InserttblNTESchedule(tblNTESchedule instance);
-    partial void UpdatetblNTESchedule(tblNTESchedule instance);
-    partial void DeletetblNTESchedule(tblNTESchedule instance);
+    partial void InserttblLogType(tblLogType instance);
+    partial void UpdatetblLogType(tblLogType instance);
+    partial void DeletetblLogType(tblLogType instance);
     partial void InserttblPosition(tblPosition instance);
     partial void UpdatetblPosition(tblPosition instance);
     partial void DeletetblPosition(tblPosition instance);
@@ -75,7 +69,7 @@ namespace FinalTerm_Project_EMS
     #endregion
 		
 		public EmployeeDatabaseDataContext() : 
-				base(global::FinalTerm_Project_EMS.Properties.Settings.Default.MockEMSDatabaseConnectionString, mappingSource)
+				base(global::FinalTerm_Project_EMS.Properties.Settings.Default.MockEMSDatabaseConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -109,22 +103,6 @@ namespace FinalTerm_Project_EMS
 			get
 			{
 				return this.GetTable<tblAttendance>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tblClass> tblClasses
-		{
-			get
-			{
-				return this.GetTable<tblClass>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tblClassSchedule> tblClassSchedules
-		{
-			get
-			{
-				return this.GetTable<tblClassSchedule>();
 			}
 		}
 		
@@ -184,11 +162,11 @@ namespace FinalTerm_Project_EMS
 			}
 		}
 		
-		public System.Data.Linq.Table<tblNTESchedule> tblNTESchedules
+		public System.Data.Linq.Table<tblLogType> tblLogTypes
 		{
 			get
 			{
-				return this.GetTable<tblNTESchedule>();
+				return this.GetTable<tblLogType>();
 			}
 		}
 		
@@ -258,13 +236,6 @@ namespace FinalTerm_Project_EMS
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_INSERT_LOGS")]
-		public int USP_INSERT_LOGS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployeeID", DbType="Int")] System.Nullable<int> employeeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LogDesc", DbType="NVarChar(255)")] string logDesc)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeID, logDesc);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_UPDATE_EMPLOYEE_EMPLOYMENT")]
 		public int USP_UPDATE_EMPLOYEE_EMPLOYMENT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmmployeeID", DbType="Int")] System.Nullable<int> emmployeeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DepartmentID", DbType="Int")] System.Nullable<int> departmentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PositionID", DbType="Int")] System.Nullable<int> positionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchedTypeID", DbType="Int")] System.Nullable<int> schedTypeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StatusID", DbType="Int")] System.Nullable<int> statusID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployedON", DbType="Date")] System.Nullable<System.DateTime> employedON, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(255)")] string password)
 		{
@@ -322,6 +293,13 @@ namespace FinalTerm_Project_EMS
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeId, leaveRequestId, isApproved, approvalRemarks);
 			return ((ISingleResult<uspRespondToLeaveRequestResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_INSERT_LOGS")]
+		public int USP_INSERT_LOGS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployeeID", DbType="Int")] System.Nullable<int> employeeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LogDesc", DbType="NVarChar(255)")] string logDesc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LogType", DbType="Int")] System.Nullable<int> logType)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeID, logDesc, logType);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -468,360 +446,6 @@ namespace FinalTerm_Project_EMS
 					if ((value != null))
 					{
 						value.tblAttendances.Add(this);
-						this._EmployeeID = value.EmployeeID;
-					}
-					else
-					{
-						this._EmployeeID = default(int);
-					}
-					this.SendPropertyChanged("tblEmployee");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblClasses")]
-	public partial class tblClass : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ClassID;
-		
-		private string _Class;
-		
-		private System.TimeSpan _StartTime;
-		
-		private System.TimeSpan _EndTime;
-		
-		private EntitySet<tblClassSchedule> _tblClassSchedules;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnClassIDChanging(int value);
-    partial void OnClassIDChanged();
-    partial void OnClassChanging(string value);
-    partial void OnClassChanged();
-    partial void OnStartTimeChanging(System.TimeSpan value);
-    partial void OnStartTimeChanged();
-    partial void OnEndTimeChanging(System.TimeSpan value);
-    partial void OnEndTimeChanged();
-    #endregion
-		
-		public tblClass()
-		{
-			this._tblClassSchedules = new EntitySet<tblClassSchedule>(new Action<tblClassSchedule>(this.attach_tblClassSchedules), new Action<tblClassSchedule>(this.detach_tblClassSchedules));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClassID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ClassID
-		{
-			get
-			{
-				return this._ClassID;
-			}
-			set
-			{
-				if ((this._ClassID != value))
-				{
-					this.OnClassIDChanging(value);
-					this.SendPropertyChanging();
-					this._ClassID = value;
-					this.SendPropertyChanged("ClassID");
-					this.OnClassIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Class", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Class
-		{
-			get
-			{
-				return this._Class;
-			}
-			set
-			{
-				if ((this._Class != value))
-				{
-					this.OnClassChanging(value);
-					this.SendPropertyChanging();
-					this._Class = value;
-					this.SendPropertyChanged("Class");
-					this.OnClassChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartTime", DbType="Time NOT NULL")]
-		public System.TimeSpan StartTime
-		{
-			get
-			{
-				return this._StartTime;
-			}
-			set
-			{
-				if ((this._StartTime != value))
-				{
-					this.OnStartTimeChanging(value);
-					this.SendPropertyChanging();
-					this._StartTime = value;
-					this.SendPropertyChanged("StartTime");
-					this.OnStartTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndTime", DbType="Time NOT NULL")]
-		public System.TimeSpan EndTime
-		{
-			get
-			{
-				return this._EndTime;
-			}
-			set
-			{
-				if ((this._EndTime != value))
-				{
-					this.OnEndTimeChanging(value);
-					this.SendPropertyChanging();
-					this._EndTime = value;
-					this.SendPropertyChanged("EndTime");
-					this.OnEndTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblClass_tblClassSchedule", Storage="_tblClassSchedules", ThisKey="ClassID", OtherKey="ClassID")]
-		public EntitySet<tblClassSchedule> tblClassSchedules
-		{
-			get
-			{
-				return this._tblClassSchedules;
-			}
-			set
-			{
-				this._tblClassSchedules.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_tblClassSchedules(tblClassSchedule entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblClass = this;
-		}
-		
-		private void detach_tblClassSchedules(tblClassSchedule entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblClass = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblClassSchedules")]
-	public partial class tblClassSchedule : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ClassScheduleID;
-		
-		private int _EmployeeID;
-		
-		private int _ClassID;
-		
-		private EntityRef<tblClass> _tblClass;
-		
-		private EntityRef<tblEmployee> _tblEmployee;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnClassScheduleIDChanging(int value);
-    partial void OnClassScheduleIDChanged();
-    partial void OnEmployeeIDChanging(int value);
-    partial void OnEmployeeIDChanged();
-    partial void OnClassIDChanging(int value);
-    partial void OnClassIDChanged();
-    #endregion
-		
-		public tblClassSchedule()
-		{
-			this._tblClass = default(EntityRef<tblClass>);
-			this._tblEmployee = default(EntityRef<tblEmployee>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClassScheduleID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ClassScheduleID
-		{
-			get
-			{
-				return this._ClassScheduleID;
-			}
-			set
-			{
-				if ((this._ClassScheduleID != value))
-				{
-					this.OnClassScheduleIDChanging(value);
-					this.SendPropertyChanging();
-					this._ClassScheduleID = value;
-					this.SendPropertyChanged("ClassScheduleID");
-					this.OnClassScheduleIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int NOT NULL")]
-		public int EmployeeID
-		{
-			get
-			{
-				return this._EmployeeID;
-			}
-			set
-			{
-				if ((this._EmployeeID != value))
-				{
-					if (this._tblEmployee.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnEmployeeIDChanging(value);
-					this.SendPropertyChanging();
-					this._EmployeeID = value;
-					this.SendPropertyChanged("EmployeeID");
-					this.OnEmployeeIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClassID", DbType="Int NOT NULL")]
-		public int ClassID
-		{
-			get
-			{
-				return this._ClassID;
-			}
-			set
-			{
-				if ((this._ClassID != value))
-				{
-					if (this._tblClass.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnClassIDChanging(value);
-					this.SendPropertyChanging();
-					this._ClassID = value;
-					this.SendPropertyChanged("ClassID");
-					this.OnClassIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblClass_tblClassSchedule", Storage="_tblClass", ThisKey="ClassID", OtherKey="ClassID", IsForeignKey=true)]
-		public tblClass tblClass
-		{
-			get
-			{
-				return this._tblClass.Entity;
-			}
-			set
-			{
-				tblClass previousValue = this._tblClass.Entity;
-				if (((previousValue != value) 
-							|| (this._tblClass.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tblClass.Entity = null;
-						previousValue.tblClassSchedules.Remove(this);
-					}
-					this._tblClass.Entity = value;
-					if ((value != null))
-					{
-						value.tblClassSchedules.Add(this);
-						this._ClassID = value.ClassID;
-					}
-					else
-					{
-						this._ClassID = default(int);
-					}
-					this.SendPropertyChanged("tblClass");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblEmployee_tblClassSchedule", Storage="_tblEmployee", ThisKey="EmployeeID", OtherKey="EmployeeID", IsForeignKey=true)]
-		public tblEmployee tblEmployee
-		{
-			get
-			{
-				return this._tblEmployee.Entity;
-			}
-			set
-			{
-				tblEmployee previousValue = this._tblEmployee.Entity;
-				if (((previousValue != value) 
-							|| (this._tblEmployee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tblEmployee.Entity = null;
-						previousValue.tblClassSchedules.Remove(this);
-					}
-					this._tblEmployee.Entity = value;
-					if ((value != null))
-					{
-						value.tblClassSchedules.Add(this);
 						this._EmployeeID = value.EmployeeID;
 					}
 					else
@@ -1499,8 +1123,6 @@ namespace FinalTerm_Project_EMS
 		
 		private EntitySet<tblAttendance> _tblAttendances;
 		
-		private EntitySet<tblClassSchedule> _tblClassSchedules;
-		
 		private EntitySet<tblEmployeeDetail> _tblEmployeeDetails;
 		
 		private EntitySet<tblLeaveEntitlement> _tblLeaveEntitlements;
@@ -1510,8 +1132,6 @@ namespace FinalTerm_Project_EMS
 		private EntitySet<tblLeaveRequest> _tblLeaveRequests1;
 		
 		private EntitySet<tblLog> _tblLogs;
-		
-		private EntitySet<tblNTESchedule> _tblNTESchedules;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1538,13 +1158,11 @@ namespace FinalTerm_Project_EMS
 		public tblEmployee()
 		{
 			this._tblAttendances = new EntitySet<tblAttendance>(new Action<tblAttendance>(this.attach_tblAttendances), new Action<tblAttendance>(this.detach_tblAttendances));
-			this._tblClassSchedules = new EntitySet<tblClassSchedule>(new Action<tblClassSchedule>(this.attach_tblClassSchedules), new Action<tblClassSchedule>(this.detach_tblClassSchedules));
 			this._tblEmployeeDetails = new EntitySet<tblEmployeeDetail>(new Action<tblEmployeeDetail>(this.attach_tblEmployeeDetails), new Action<tblEmployeeDetail>(this.detach_tblEmployeeDetails));
 			this._tblLeaveEntitlements = new EntitySet<tblLeaveEntitlement>(new Action<tblLeaveEntitlement>(this.attach_tblLeaveEntitlements), new Action<tblLeaveEntitlement>(this.detach_tblLeaveEntitlements));
 			this._tblLeaveRequests = new EntitySet<tblLeaveRequest>(new Action<tblLeaveRequest>(this.attach_tblLeaveRequests), new Action<tblLeaveRequest>(this.detach_tblLeaveRequests));
 			this._tblLeaveRequests1 = new EntitySet<tblLeaveRequest>(new Action<tblLeaveRequest>(this.attach_tblLeaveRequests1), new Action<tblLeaveRequest>(this.detach_tblLeaveRequests1));
 			this._tblLogs = new EntitySet<tblLog>(new Action<tblLog>(this.attach_tblLogs), new Action<tblLog>(this.detach_tblLogs));
-			this._tblNTESchedules = new EntitySet<tblNTESchedule>(new Action<tblNTESchedule>(this.attach_tblNTESchedules), new Action<tblNTESchedule>(this.detach_tblNTESchedules));
 			OnCreated();
 		}
 		
@@ -1721,19 +1339,6 @@ namespace FinalTerm_Project_EMS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblEmployee_tblClassSchedule", Storage="_tblClassSchedules", ThisKey="EmployeeID", OtherKey="EmployeeID")]
-		public EntitySet<tblClassSchedule> tblClassSchedules
-		{
-			get
-			{
-				return this._tblClassSchedules;
-			}
-			set
-			{
-				this._tblClassSchedules.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblEmployee_tblEmployeeDetail", Storage="_tblEmployeeDetails", ThisKey="EmployeeID", OtherKey="EmployeeID")]
 		public EntitySet<tblEmployeeDetail> tblEmployeeDetails
 		{
@@ -1799,19 +1404,6 @@ namespace FinalTerm_Project_EMS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblEmployee_tblNTESchedule", Storage="_tblNTESchedules", ThisKey="EmployeeID", OtherKey="EmployeeID")]
-		public EntitySet<tblNTESchedule> tblNTESchedules
-		{
-			get
-			{
-				return this._tblNTESchedules;
-			}
-			set
-			{
-				this._tblNTESchedules.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1839,18 +1431,6 @@ namespace FinalTerm_Project_EMS
 		}
 		
 		private void detach_tblAttendances(tblAttendance entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblEmployee = null;
-		}
-		
-		private void attach_tblClassSchedules(tblClassSchedule entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblEmployee = this;
-		}
-		
-		private void detach_tblClassSchedules(tblClassSchedule entity)
 		{
 			this.SendPropertyChanging();
 			entity.tblEmployee = null;
@@ -1911,18 +1491,6 @@ namespace FinalTerm_Project_EMS
 		}
 		
 		private void detach_tblLogs(tblLog entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblEmployee = null;
-		}
-		
-		private void attach_tblNTESchedules(tblNTESchedule entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblEmployee = this;
-		}
-		
-		private void detach_tblNTESchedules(tblNTESchedule entity)
 		{
 			this.SendPropertyChanging();
 			entity.tblEmployee = null;
@@ -2657,7 +2225,11 @@ namespace FinalTerm_Project_EMS
 		
 		private System.DateTime _LogDate;
 		
+		private int _LogTypeID;
+		
 		private EntityRef<tblEmployee> _tblEmployee;
+		
+		private EntityRef<tblLogType> _tblLogType;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2671,11 +2243,14 @@ namespace FinalTerm_Project_EMS
     partial void OnLogDescriptionChanged();
     partial void OnLogDateChanging(System.DateTime value);
     partial void OnLogDateChanged();
+    partial void OnLogTypeIDChanging(int value);
+    partial void OnLogTypeIDChanged();
     #endregion
 		
 		public tblLog()
 		{
 			this._tblEmployee = default(EntityRef<tblEmployee>);
+			this._tblLogType = default(EntityRef<tblLogType>);
 			OnCreated();
 		}
 		
@@ -2763,6 +2338,30 @@ namespace FinalTerm_Project_EMS
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LogTypeID", DbType="Int NOT NULL")]
+		public int LogTypeID
+		{
+			get
+			{
+				return this._LogTypeID;
+			}
+			set
+			{
+				if ((this._LogTypeID != value))
+				{
+					if (this._tblLogType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnLogTypeIDChanging(value);
+					this.SendPropertyChanging();
+					this._LogTypeID = value;
+					this.SendPropertyChanged("LogTypeID");
+					this.OnLogTypeIDChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblEmployee_tblLog", Storage="_tblEmployee", ThisKey="EmployeeID", OtherKey="EmployeeID", IsForeignKey=true)]
 		public tblEmployee tblEmployee
 		{
@@ -2797,6 +2396,40 @@ namespace FinalTerm_Project_EMS
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblLogType_tblLog", Storage="_tblLogType", ThisKey="LogTypeID", OtherKey="LogTypeID", IsForeignKey=true)]
+		public tblLogType tblLogType
+		{
+			get
+			{
+				return this._tblLogType.Entity;
+			}
+			set
+			{
+				tblLogType previousValue = this._tblLogType.Entity;
+				if (((previousValue != value) 
+							|| (this._tblLogType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblLogType.Entity = null;
+						previousValue.tblLogs.Remove(this);
+					}
+					this._tblLogType.Entity = value;
+					if ((value != null))
+					{
+						value.tblLogs.Add(this);
+						this._LogTypeID = value.LogTypeID;
+					}
+					else
+					{
+						this._LogTypeID = default(int);
+					}
+					this.SendPropertyChanged("tblLogType");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2818,157 +2451,84 @@ namespace FinalTerm_Project_EMS
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblNTESchedules")]
-	public partial class tblNTESchedule : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblLogType")]
+	public partial class tblLogType : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _NTEScheduleID;
+		private int _LogTypeID;
 		
-		private int _EmployeeID;
+		private string _LogType;
 		
-		private System.TimeSpan _StartTime;
-		
-		private System.TimeSpan _EndTime;
-		
-		private EntityRef<tblEmployee> _tblEmployee;
+		private EntitySet<tblLog> _tblLogs;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnNTEScheduleIDChanging(int value);
-    partial void OnNTEScheduleIDChanged();
-    partial void OnEmployeeIDChanging(int value);
-    partial void OnEmployeeIDChanged();
-    partial void OnStartTimeChanging(System.TimeSpan value);
-    partial void OnStartTimeChanged();
-    partial void OnEndTimeChanging(System.TimeSpan value);
-    partial void OnEndTimeChanged();
+    partial void OnLogTypeIDChanging(int value);
+    partial void OnLogTypeIDChanged();
+    partial void OnLogTypeChanging(string value);
+    partial void OnLogTypeChanged();
     #endregion
 		
-		public tblNTESchedule()
+		public tblLogType()
 		{
-			this._tblEmployee = default(EntityRef<tblEmployee>);
+			this._tblLogs = new EntitySet<tblLog>(new Action<tblLog>(this.attach_tblLogs), new Action<tblLog>(this.detach_tblLogs));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NTEScheduleID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int NTEScheduleID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LogTypeID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int LogTypeID
 		{
 			get
 			{
-				return this._NTEScheduleID;
+				return this._LogTypeID;
 			}
 			set
 			{
-				if ((this._NTEScheduleID != value))
+				if ((this._LogTypeID != value))
 				{
-					this.OnNTEScheduleIDChanging(value);
+					this.OnLogTypeIDChanging(value);
 					this.SendPropertyChanging();
-					this._NTEScheduleID = value;
-					this.SendPropertyChanged("NTEScheduleID");
-					this.OnNTEScheduleIDChanged();
+					this._LogTypeID = value;
+					this.SendPropertyChanged("LogTypeID");
+					this.OnLogTypeIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int NOT NULL")]
-		public int EmployeeID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LogType", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string LogType
 		{
 			get
 			{
-				return this._EmployeeID;
+				return this._LogType;
 			}
 			set
 			{
-				if ((this._EmployeeID != value))
+				if ((this._LogType != value))
 				{
-					if (this._tblEmployee.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnEmployeeIDChanging(value);
+					this.OnLogTypeChanging(value);
 					this.SendPropertyChanging();
-					this._EmployeeID = value;
-					this.SendPropertyChanged("EmployeeID");
-					this.OnEmployeeIDChanged();
+					this._LogType = value;
+					this.SendPropertyChanged("LogType");
+					this.OnLogTypeChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartTime", DbType="Time NOT NULL")]
-		public System.TimeSpan StartTime
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblLogType_tblLog", Storage="_tblLogs", ThisKey="LogTypeID", OtherKey="LogTypeID")]
+		public EntitySet<tblLog> tblLogs
 		{
 			get
 			{
-				return this._StartTime;
+				return this._tblLogs;
 			}
 			set
 			{
-				if ((this._StartTime != value))
-				{
-					this.OnStartTimeChanging(value);
-					this.SendPropertyChanging();
-					this._StartTime = value;
-					this.SendPropertyChanged("StartTime");
-					this.OnStartTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndTime", DbType="Time NOT NULL")]
-		public System.TimeSpan EndTime
-		{
-			get
-			{
-				return this._EndTime;
-			}
-			set
-			{
-				if ((this._EndTime != value))
-				{
-					this.OnEndTimeChanging(value);
-					this.SendPropertyChanging();
-					this._EndTime = value;
-					this.SendPropertyChanged("EndTime");
-					this.OnEndTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblEmployee_tblNTESchedule", Storage="_tblEmployee", ThisKey="EmployeeID", OtherKey="EmployeeID", IsForeignKey=true)]
-		public tblEmployee tblEmployee
-		{
-			get
-			{
-				return this._tblEmployee.Entity;
-			}
-			set
-			{
-				tblEmployee previousValue = this._tblEmployee.Entity;
-				if (((previousValue != value) 
-							|| (this._tblEmployee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tblEmployee.Entity = null;
-						previousValue.tblNTESchedules.Remove(this);
-					}
-					this._tblEmployee.Entity = value;
-					if ((value != null))
-					{
-						value.tblNTESchedules.Add(this);
-						this._EmployeeID = value.EmployeeID;
-					}
-					else
-					{
-						this._EmployeeID = default(int);
-					}
-					this.SendPropertyChanged("tblEmployee");
-				}
+				this._tblLogs.Assign(value);
 			}
 		}
 		
@@ -2990,6 +2550,18 @@ namespace FinalTerm_Project_EMS
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_tblLogs(tblLog entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblLogType = this;
+		}
+		
+		private void detach_tblLogs(tblLog entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblLogType = null;
 		}
 	}
 	

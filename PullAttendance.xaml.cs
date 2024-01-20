@@ -123,6 +123,8 @@ namespace FinalTerm_Project_EMS
                             foreach (KeyValuePair<int, string> error in errRowsDict)
                             {
                                 message += $"Row #{error.Key}: {error.Value}\n";
+
+                                DB.USP_INSERT_LOGS(LogInCredentials.EMPLOYEE_ID, $"Row #{error.Key}: {error.Value}", 8);
                             }
                         }
                     }
