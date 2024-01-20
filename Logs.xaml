@@ -5,18 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalTerm_Project_EMS"
         mc:Ignorable="d"
-        Title="Logs" Height="450" Width="800">
+        Title="Logs" Height="492" Width="800">
     <Grid>
-        <ListView x:Name="ListView_Logs" Margin="130,10,0,0" Height="363" VerticalAlignment="Top" HorizontalAlignment="Left" Width="670">
+        <ListView x:Name="ListView_Logs" Margin="77,0,53,0" Height="272" VerticalAlignment="Center">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Employee ID" DisplayMemberBinding="{Binding EmployeeID}" Width="80" />
-                    <GridViewColumn Header="Log Description" DisplayMemberBinding="{Binding LogDescription}" Width="400" />
+                    <GridViewColumn Header="Log Description" DisplayMemberBinding="{Binding LogDescription}" Width="300" />
+                    <GridViewColumn Header="Log Type" DisplayMemberBinding="{Binding LogType}" Width="100" />
                     <GridViewColumn Header="Log Date" DisplayMemberBinding="{Binding Datetime}" Width="180" />
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="Return_Button" Content="Return" HorizontalAlignment="Left" Margin="450,388,0,0" VerticalAlignment="Top" Width="225" Click="Return_Button_Click"/>
+        <Button x:Name="Return_Button" Content="Return" HorizontalAlignment="Left" Margin="77,412,0,0" VerticalAlignment="Top" Width="225" Click="Return_Button_Click"/>
+        <Label Content="Employee ID" HorizontalAlignment="Left" Margin="77,61,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.048,-2.254"/>
+        <TextBox x:Name="TextBox_EmployeeID" MaxLines="999" TextWrapping="NoWrap" HorizontalAlignment="Left" Height="26" Margin="159,61,0,0"  Text="" VerticalAlignment="Top" Width="80"/>
+        <ComboBox x:Name="ComboBox_LogType" DisplayMemberPath="Value" HorizontalAlignment="Left" Margin="467,65,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="LogType" HorizontalAlignment="Left" Margin="385,61,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.048,-2.254"/>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="596,67,0,0" VerticalAlignment="Top" Width="151" Click="Button_Click"/>
+        <Button x:Name="Button_SearchEmployee" Content="Search Employee"  HorizontalAlignment="Left" Margin="244,67,0,0" VerticalAlignment="Top" Width="111" Click="Button_SearchEmployee_Click"/>
 
     </Grid>
 </Window>

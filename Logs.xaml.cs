@@ -24,9 +24,17 @@ namespace FinalTerm_Project_EMS
         public Logs()
         {
             InitializeComponent();
-            GetLogs();
+            FillComboBoxes();
         }
-
+        public void FillComboBoxes()
+        {
+            Dictionary<int,string> logType = new Dictionary<int,string>();   
+            foreach(tblLogType type in DB.tblLogTypes)
+            {
+                logType[type.LogTypeID] = type.LogType;
+            }
+            ComboBox_LogType.ItemsSource = logType;
+        }
         public void GetLogs()
         {
             foreach (tblLog logs in DB.tblLogs)
@@ -34,8 +42,9 @@ namespace FinalTerm_Project_EMS
                 ListView_Logs.Items.Add(new DataLogs
                 {
                     EmployeeID = logs.EmployeeID,
-                    LogDescription = logs.LogDescription, // Add this line to set LogDescription
-                    Datetime = logs.LogDate.ToString() // Assuming LogDateTime is a DateTime property
+                    LogDescription = logs.LogDescription, 
+                    Logtype = logs.LogTypeID,
+                    Datetime = logs.LogDate.ToString() 
                 });
             }
         }
@@ -44,6 +53,7 @@ namespace FinalTerm_Project_EMS
         {
             public int EmployeeID { get; set; }
             public string LogDescription { get; set; }
+            public int Logtype { get; set; } 
             public string Datetime { get; set; }
         }
 
@@ -52,6 +62,53 @@ namespace FinalTerm_Project_EMS
             EmployeeManagment_Admin ea = new EmployeeManagment_Admin();
             ea.Show();
             this.Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ListView_Logs.ItemsSource = null;
+            ListView_Logs.Items.Clear();
+            int typeID = ((KeyValuePair<int,string>)ComboBox_LogType.SelectedItem).Key;
+            foreach (tblLog logs in DB.tblLogs)
+            {
+                if(logs.LogTypeID == typeID)
+                {
+                    ListView_Logs.Items.Add(new DataLogs
+                    {
+                        EmployeeID = logs.EmployeeID,
+                        LogDescription = logs.LogDescription,
+                        Logtype = logs.LogTypeID,
+                        Datetime = logs.LogDate.ToString()
+                    });
+                }
+            }
+
+        }
+
+        private void Button_SearchEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            int employeeID = -1;
+            if(!int.TryParse(TextBox_EmployeeID.Text, out employeeID))
+            {
+                MessageBox.Show("Please Enter a valid EMployee ID", "Invalid EMployee ID", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
+            ListView_Logs.ItemsSource = null;
+            ListView_Logs.Items.Clear();
+           
+            foreach (tblLog logs in DB.tblLogs)
+            {
+                if (logs.EmployeeID == employeeID)
+                {
+                    ListView_Logs.Items.Add(new DataLogs
+                    {
+                        EmployeeID = logs.EmployeeID,
+                        LogDescription = logs.LogDescription,
+                        Logtype = logs.LogTypeID,
+                        Datetime = logs.LogDate.ToString()
+                    });
+                }
+            }
         }
     }
 }

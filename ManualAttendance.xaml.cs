@@ -87,6 +87,7 @@ namespace FinalTerm_Project_EMS
                 else
                 {
                     MessageBox.Show("Time-in successful");
+                    InsertLogs.AddLogs(LogInCredentials.EMPLOYEE_ID, "Admin Manually Timed-In EmployeeOD: " + employeeID , 2);
                 }
             }
             else
@@ -159,7 +160,7 @@ namespace FinalTerm_Project_EMS
 
                 string status = "";
                 DB.uspTimeOut(employeeID, DateTime.Now, timeOut, ref status);
-
+                InsertLogs.AddLogs(LogInCredentials.EMPLOYEE_ID, "Admin Manually Timed-Out EmployeeID: " + employeeID, 2);
                 MessageBox.Show(status);
             }
         }

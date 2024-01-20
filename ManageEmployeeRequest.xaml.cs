@@ -96,6 +96,7 @@ namespace FinalTerm_Project_EMS
         {
             DB.uspRespondToLeaveRequest(LeaveRequest.EmployeeID, LeaveRequest.LeaveRequestID, true, tbxRemarks.Text);
             MessageBox.Show("Leave Request has been approved. Window will now close.");
+            InsertLogs.AddLogs(LogInCredentials.EMPLOYEE_ID, "User has denied a leave Request with an ID:"   + LeaveRequest.EmployeeID, 6);
             this.Close();
         }
 
@@ -103,6 +104,7 @@ namespace FinalTerm_Project_EMS
         {
             DB.uspRespondToLeaveRequest(LeaveRequest.EmployeeID, LeaveRequest.LeaveRequestID, false, tbxRemarks.Text);
             MessageBox.Show("Leave Request has been denied. Window will now close.");
+            InsertLogs.AddLogs(LogInCredentials.EMPLOYEE_ID, "User has denied a leave Request with an ID:" + LeaveRequest.EmployeeID, 6);
             this.Close();
         }
     }

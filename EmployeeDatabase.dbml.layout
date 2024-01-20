@@ -2,160 +2,160 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 19.75" name="EmployeeDatabase">
   <DataContextMoniker Name="/EmployeeDatabaseDataContext" />
   <nestedChildShapes>
-    <classShape Id="bbc5139a-0222-49bd-82b4-0baa9d67628a" absoluteBounds="3.5, 5.75, 2, 1.5785953776041666">
+    <classShape Id="dc7ea44a-fff3-4e14-ac23-1a7fe8b90121" absoluteBounds="3.5, 5.75, 2, 1.5785953776041666">
       <DataClassMoniker Name="/EmployeeDatabaseDataContext/tblAttendance" />
       <nestedChildShapes>
-        <elementListCompartment Id="4916d7ff-55c1-42fc-b5ec-7e0e8fb0b508" absoluteBounds="3.515, 6.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="47e7bcbf-4cf9-45f8-bbb6-b89c99087d30" absoluteBounds="3.515, 6.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="fefc3cbd-a02d-44e4-9b11-1dd307a47a5c" absoluteBounds="0.75, 4.75, 2, 1.1939925130208344">
+    <classShape Id="1289f8ee-56c6-4673-bc94-630437b17b70" absoluteBounds="0.75, 4.75, 2, 1.1939925130208344">
       <DataClassMoniker Name="/EmployeeDatabaseDataContext/tblDepartment" />
       <nestedChildShapes>
-        <elementListCompartment Id="f1b7d6dd-c798-456e-8751-c97a39e4a251" absoluteBounds="0.765, 5.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="7ea298a4-4791-47bc-902f-319613e4a365" absoluteBounds="0.765, 5.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="528ab60f-0052-4e3c-8e9d-11cdcce02b60" absoluteBounds="3.5, 11, 2, 2.9247054036458309">
+    <classShape Id="589f258e-d60c-465a-a7bb-78544b9e4e6e" absoluteBounds="3.5, 11, 2, 2.9247054036458309">
       <DataClassMoniker Name="/EmployeeDatabaseDataContext/tblEmployeeDetail" />
       <nestedChildShapes>
-        <elementListCompartment Id="a13e8619-af7f-4576-85f3-da44bd532653" absoluteBounds="3.515, 11.46, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d6a10010-5b80-4b2d-9aea-80e4870c3c23" absoluteBounds="3.515, 11.46, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="b2f43d1e-d713-4d86-b633-42a0f04618ba" absoluteBounds="0.75, 7.25, 2, 2.3478011067708344">
+    <classShape Id="c1ebce0b-8c8e-4019-bead-a30c6c82dba9" absoluteBounds="0.75, 7.25, 2, 2.3478011067708344">
       <DataClassMoniker Name="/EmployeeDatabaseDataContext/tblEmployee" />
       <nestedChildShapes>
-        <elementListCompartment Id="d7bc9ef7-fbef-4214-9334-31e924750ead" absoluteBounds="0.765, 7.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="8776bfee-8dcb-4887-976c-e818c2b93aea" absoluteBounds="0.765, 7.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="965987f5-742a-4f5b-85d8-d2da1523ea51" absoluteBounds="3.5, 8.625, 2, 1.5785953776041666">
+    <classShape Id="2fa8b181-cbec-419c-862e-86c927a427da" absoluteBounds="3.5, 8.625, 2, 1.5785953776041666">
       <DataClassMoniker Name="/EmployeeDatabaseDataContext/tblLeaveEntitlement" />
       <nestedChildShapes>
-        <elementListCompartment Id="f7211519-de4a-4c5d-a941-36044c9f9a55" absoluteBounds="3.515, 9.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="946da36c-8b98-41f6-82b1-af98f176c432" absoluteBounds="3.515, 9.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="09c0f851-08d0-42e8-8046-84f18a452115" absoluteBounds="3.5, 16.625, 2, 2.9247054036458309">
+    <classShape Id="2ead89b0-1506-499f-b95e-5a77cf97f582" absoluteBounds="3.5, 16.625, 2, 2.9247054036458309">
       <DataClassMoniker Name="/EmployeeDatabaseDataContext/tblLeaveRequest" />
       <nestedChildShapes>
-        <elementListCompartment Id="0eff9507-95fe-40d6-b2db-ab6365ae519f" absoluteBounds="3.515, 17.085, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d96fb73d-4bf5-4830-90be-8a52a9d103a9" absoluteBounds="3.515, 17.085, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="39fa0f4e-f03d-4694-9c24-8765f956ce90" absoluteBounds="0.75, 10.75, 2, 1.1939925130208344">
+    <classShape Id="d7012c48-28b8-4795-ae4d-3711275ca96e" absoluteBounds="0.75, 10.75, 2, 1.1939925130208344">
       <DataClassMoniker Name="/EmployeeDatabaseDataContext/tblLeaveType" />
       <nestedChildShapes>
-        <elementListCompartment Id="761c7ba0-3a1e-4760-aa0c-6b14c38428e9" absoluteBounds="0.765, 11.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="a2445745-5fdc-4751-9823-c9fb6b363da5" absoluteBounds="0.765, 11.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="560adda6-2f51-4947-af2a-24b3ef62db36" absoluteBounds="6.5, 7.5, 2, 1.7708968098958335">
+    <classShape Id="1ca7c841-efb2-4a6e-9edd-1768c1ca3749" absoluteBounds="6.5, 7.5, 2, 1.7708968098958335">
       <DataClassMoniker Name="/EmployeeDatabaseDataContext/tblLog" />
       <nestedChildShapes>
-        <elementListCompartment Id="10e6a55c-3b64-4e60-88b5-5899d5cc69ce" absoluteBounds="6.515, 7.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="58742d97-e979-439f-9b28-cea2642712dd" absoluteBounds="6.515, 7.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="5625b365-fc2e-4e92-ae46-9805d76d7cd1" absoluteBounds="3.75, 3.75, 2, 1.193992513020834">
+    <classShape Id="6c05d40b-d7de-4048-997b-938dff093d8c" absoluteBounds="3.75, 3.75, 2, 1.193992513020834">
       <DataClassMoniker Name="/EmployeeDatabaseDataContext/tblLogType" />
       <nestedChildShapes>
-        <elementListCompartment Id="74394898-7704-4813-987c-27941ee403c2" absoluteBounds="3.765, 4.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="386f5e43-75c5-41de-a65b-8fb83b0b0716" absoluteBounds="3.765, 4.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="04dedce7-10da-4f87-8b39-9e83de328539" absoluteBounds="0.75, 13.625, 2, 1.1939925130208344">
+    <classShape Id="8c5d6e4c-8205-4001-a8a5-5159f5642e95" absoluteBounds="0.75, 13.625, 2, 1.1939925130208344">
       <DataClassMoniker Name="/EmployeeDatabaseDataContext/tblPosition" />
       <nestedChildShapes>
-        <elementListCompartment Id="a0335d13-1714-4ef2-a750-9165f77b887b" absoluteBounds="0.765, 14.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="00d75440-3857-4102-92d5-20cf03d44c9f" absoluteBounds="0.765, 14.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="2f240fb0-6bf4-4563-b7b2-9a2ba0c3327a" absoluteBounds="0.75, 17.5, 2, 1.5785953776041666">
+    <classShape Id="34997dd2-9997-46ba-a0ad-9652fca913ea" absoluteBounds="0.75, 17.5, 2, 1.5785953776041666">
       <DataClassMoniker Name="/EmployeeDatabaseDataContext/tblScheduleType" />
       <nestedChildShapes>
-        <elementListCompartment Id="a652bcfd-4ec2-4df3-ba17-06f80e2e74c8" absoluteBounds="0.765, 17.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="0e1f8644-49c9-47b3-9fa1-96de409b2379" absoluteBounds="0.765, 17.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="1601461d-2661-4dcb-8deb-8c16eefb6d18" absoluteBounds="0.75, 15.625, 2, 1.1939925130208326">
+    <classShape Id="5297bb87-1bc5-4ccf-9ca5-6a31f31eee1e" absoluteBounds="0.75, 15.625, 2, 1.1939925130208326">
       <DataClassMoniker Name="/EmployeeDatabaseDataContext/tblStatuse" />
       <nestedChildShapes>
-        <elementListCompartment Id="8b7b1221-4b7b-4e2b-b1a8-b19f06d795a7" absoluteBounds="0.765, 16.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="07dd57db-f9c9-4eef-a1a5-b40a6b90e4ba" absoluteBounds="0.765, 16.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(2.75 : 5.94399251302083); (3.125 : 6.31899251302083); (3.125 : 12.4623527018229); (3.13541666666667 : 12.4623527018229 : JumpStart); (3.39583333333333 : 12.4623527018229 : JumpEnd); (3.5 : 12.4623527018229)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/EmployeeDatabaseDataContext/tblDepartment/tblDepartment_tblEmployeeDetail" />
       <nodes>
-        <classShapeMoniker Id="fefc3cbd-a02d-44e4-9b11-1dd307a47a5c" />
-        <classShapeMoniker Id="528ab60f-0052-4e3c-8e9d-11cdcce02b60" />
+        <classShapeMoniker Id="1289f8ee-56c6-4673-bc94-630437b17b70" />
+        <classShapeMoniker Id="589f258e-d60c-465a-a7bb-78544b9e4e6e" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 7.31307592307692); (3.06607443490112 : 6.9970014881758 : JumpStart); (3.18392556509888 : 6.87915035797804 : JumpEnd); (3.3125 : 6.75057592307692); (3.3125 : 7.51730868174078); (3.50121330413662 : 7.32859537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/EmployeeDatabaseDataContext/tblEmployee/tblEmployee_tblAttendance" />
       <nodes>
-        <classShapeMoniker Id="b2f43d1e-d713-4d86-b633-42a0f04618ba" />
-        <classShapeMoniker Id="bbc5139a-0222-49bd-82b4-0baa9d67628a" />
+        <classShapeMoniker Id="c1ebce0b-8c8e-4019-bead-a30c6c82dba9" />
+        <classShapeMoniker Id="dc7ea44a-fff3-4e14-ac23-1a7fe8b90121" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 9.54856933754007); (3.06607443490112 : 9.86464377244119 : JumpStart); (3.18392556509888 : 9.98249490263894 : JumpEnd); (3.375 : 10.1735693375401); (3.375 : 11.6999243509115); (3.5 : 11.6999243509115)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/EmployeeDatabaseDataContext/tblEmployee/tblEmployee_tblEmployeeDetail" />
       <nodes>
-        <classShapeMoniker Id="b2f43d1e-d713-4d86-b633-42a0f04618ba" />
-        <classShapeMoniker Id="528ab60f-0052-4e3c-8e9d-11cdcce02b60" />
+        <classShapeMoniker Id="c1ebce0b-8c8e-4019-bead-a30c6c82dba9" />
+        <classShapeMoniker Id="589f258e-d60c-465a-a7bb-78544b9e4e6e" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 9.04937832261619); (3.04166666666667 : 9.04937832261619 : JumpStart); (3.20833333333333 : 9.04937832261619 : JumpEnd); (3.5 : 9.04937832261619)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/EmployeeDatabaseDataContext/tblEmployee/tblEmployee_tblLeaveEntitlement" />
       <nodes>
-        <classShapeMoniker Id="b2f43d1e-d713-4d86-b633-42a0f04618ba" />
-        <classShapeMoniker Id="965987f5-742a-4f5b-85d8-d2da1523ea51" />
+        <classShapeMoniker Id="c1ebce0b-8c8e-4019-bead-a30c6c82dba9" />
+        <classShapeMoniker Id="2fa8b181-cbec-419c-862e-86c927a427da" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.70076923076923 : 9.59780110677083); (3.06607443490112 : 9.96310631090272 : JumpStart); (3.18392556509888 : 10.0809574411005 : JumpEnd); (3.3125 : 10.2095318760016); (3.3125 : 18.0873527018229); (3.5 : 18.0873527018229)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/EmployeeDatabaseDataContext/tblEmployee/tblEmployee_tblLeaveRequest" />
       <nodes>
-        <classShapeMoniker Id="b2f43d1e-d713-4d86-b633-42a0f04618ba" />
-        <classShapeMoniker Id="09c0f851-08d0-42e8-8046-84f18a452115" />
+        <classShapeMoniker Id="c1ebce0b-8c8e-4019-bead-a30c6c82dba9" />
+        <classShapeMoniker Id="2ead89b0-1506-499f-b95e-5a77cf97f582" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 9.5670308760016); (3.06607443490112 : 9.88310531090272 : JumpStart); (3.18392556509888 : 10.0009564411005 : JumpEnd); (3.21875 : 10.0357808760016); (3.21875 : 18.0873527018229); (3.5 : 18.0873527018229)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/EmployeeDatabaseDataContext/tblEmployee/tblEmployee_tblLeaveRequest1" />
       <nodes>
-        <classShapeMoniker Id="b2f43d1e-d713-4d86-b633-42a0f04618ba" />
-        <classShapeMoniker Id="09c0f851-08d0-42e8-8046-84f18a452115" />
+        <classShapeMoniker Id="c1ebce0b-8c8e-4019-bead-a30c6c82dba9" />
+        <classShapeMoniker Id="2ead89b0-1506-499f-b95e-5a77cf97f582" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 10.7812264964944); (2.90625 : 10.375); (2.90625 : 10.7985586817408); (3.06607443490112 : 10.6387342468397 : JumpStart); (3.43392556509888 : 10.2708831166419 : JumpEnd); (3.50121330413662 : 10.2035953776042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/EmployeeDatabaseDataContext/tblLeaveType/tblLeaveType_tblLeaveEntitlement" />
       <nodes>
-        <classShapeMoniker Id="39fa0f4e-f03d-4694-9c24-8765f956ce90" />
-        <classShapeMoniker Id="965987f5-742a-4f5b-85d8-d2da1523ea51" />
+        <classShapeMoniker Id="d7012c48-28b8-4795-ae4d-3711275ca96e" />
+        <classShapeMoniker Id="2fa8b181-cbec-419c-862e-86c927a427da" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 8.03125); (3.04166666666667 : 8.03125 : JumpStart); (3.20833333333333 : 8.03125 : JumpEnd); (6.5 : 8.03125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/EmployeeDatabaseDataContext/tblEmployee/tblEmployee_tblLog" />
       <nodes>
-        <classShapeMoniker Id="b2f43d1e-d713-4d86-b633-42a0f04618ba" />
-        <classShapeMoniker Id="560adda6-2f51-4947-af2a-24b3ef62db36" />
+        <classShapeMoniker Id="c1ebce0b-8c8e-4019-bead-a30c6c82dba9" />
+        <classShapeMoniker Id="1ca7c841-efb2-4a6e-9edd-1768c1ca3749" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(5.65625 : 4.94399251302083); (5.65625 : 7.7343725); (6.5 : 7.7343725)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/EmployeeDatabaseDataContext/tblLogType/tblLogType_tblLog" />
       <nodes>
-        <classShapeMoniker Id="5625b365-fc2e-4e92-ae46-9805d76d7cd1" />
-        <classShapeMoniker Id="560adda6-2f51-4947-af2a-24b3ef62db36" />
+        <classShapeMoniker Id="6c05d40b-d7de-4048-997b-938dff093d8c" />
+        <classShapeMoniker Id="1ca7c841-efb2-4a6e-9edd-1768c1ca3749" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 14.3718494583333); (3.07291666666667 : 14.3718494583333 : JumpStart); (3.45833333333333 : 14.3718494583333 : JumpEnd); (4.5 : 14.3718494583333); (4.5 : 13.9247054036458)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/EmployeeDatabaseDataContext/tblPosition/tblPosition_tblEmployeeDetail" />
       <nodes>
-        <classShapeMoniker Id="04dedce7-10da-4f87-8b39-9e83de328539" />
-        <classShapeMoniker Id="528ab60f-0052-4e3c-8e9d-11cdcce02b60" />
+        <classShapeMoniker Id="8c5d6e4c-8205-4001-a8a5-5159f5642e95" />
+        <classShapeMoniker Id="589f258e-d60c-465a-a7bb-78544b9e4e6e" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 17.5315709075521); (3.15625 : 17.1253209075521); (3.15625 : 13.2247810527344); (3.22916666666667 : 13.2247810527344 : JumpStart); (3.39583333333333 : 13.2247810527344 : JumpEnd); (3.5 : 13.2247810527344)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/EmployeeDatabaseDataContext/tblScheduleType/tblScheduleType_tblEmployeeDetail" />
       <nodes>
-        <classShapeMoniker Id="2f240fb0-6bf4-4563-b7b2-9a2ba0c3327a" />
-        <classShapeMoniker Id="528ab60f-0052-4e3c-8e9d-11cdcce02b60" />
+        <classShapeMoniker Id="34997dd2-9997-46ba-a0ad-9652fca913ea" />
+        <classShapeMoniker Id="589f258e-d60c-465a-a7bb-78544b9e4e6e" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 15.6837801698718); (3.09732443490112 : 15.3364557349707 : JumpStart); (3.37142556509888 : 15.0623546047729 : JumpEnd); (3.375 : 15.0587801698718); (3.375 : 13.6059952281901); (3.5 : 13.6059952281901)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/EmployeeDatabaseDataContext/tblStatuse/tblStatuse_tblEmployeeDetail" />
       <nodes>
-        <classShapeMoniker Id="1601461d-2661-4dcb-8deb-8c16eefb6d18" />
-        <classShapeMoniker Id="528ab60f-0052-4e3c-8e9d-11cdcce02b60" />
+        <classShapeMoniker Id="5297bb87-1bc5-4ccf-9ca5-6a31f31eee1e" />
+        <classShapeMoniker Id="589f258e-d60c-465a-a7bb-78544b9e4e6e" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

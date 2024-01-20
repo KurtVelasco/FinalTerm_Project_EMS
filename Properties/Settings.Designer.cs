@@ -33,5 +33,16 @@ namespace FinalTerm_Project_EMS.Properties {
                 return ((string)(this["MockEMSDatabaseConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CC1006-148\\SQLEXPRESS;Initial Catalog=MockEMSDatabase;Integrated Secu" +
+            "rity=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True")]
+        public string MockEMSDatabaseConnectionString1 {
+            get {
+                return ((string)(this["MockEMSDatabaseConnectionString1"]));
+            }
+        }
     }
 }

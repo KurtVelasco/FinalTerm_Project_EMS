@@ -170,6 +170,7 @@ namespace FinalTerm_Project_EMS
             else
             {
                 MessageBox.Show("Leave Request successfully filed.");
+                InsertLogs.AddLogs(LogInCredentials.EMPLOYEE_ID, "Employee has filed a leave request", 5);
             }
         }
     }

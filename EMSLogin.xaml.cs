@@ -32,8 +32,10 @@ namespace FinalTerm_Project_EMS
             if (accounts.Count == 1)
             {                            
                 LogInCredentials.SetData(accounts[0].EmailAddress, accounts[0].EmployeeID, accounts[0].LastName,
+
                 accounts[0].DepartmentName, accounts[0].PositionName);
                 MessageBox.Show("Welcome, " + accounts[0].LastName + " " + accounts[0].FirstName, "Successful Login", MessageBoxButton.OK, MessageBoxImage.Information);
+                InsertLogs.AddLogs(LogInCredentials.EMPLOYEE_ID, "User has logged into the system", 1);
                 MainWindow mw = new MainWindow(); mw.Show();
                 this.Close();                                                                       
             } 

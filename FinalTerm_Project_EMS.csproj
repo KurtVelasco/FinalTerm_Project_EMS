@@ -62,13 +62,13 @@
     <Compile Include="AddingEmployee.xaml.cs">
       <DependentUpon>AddingEmployee.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ManualAttendance.xaml.cs">
-      <DependentUpon>ManualAttendance.xaml</DependentUpon>
-    </Compile>
     <Compile Include="EmployeeDatabase.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EmployeeDatabase.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="ManualAttendance.xaml.cs">
+      <DependentUpon>ManualAttendance.xaml</DependentUpon>
     </Compile>
     <Compile Include="EmployeeManagment_Admin.xaml.cs">
       <DependentUpon>EmployeeManagment_Admin.xaml</DependentUpon>
@@ -193,6 +193,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\FuturaStd.ttf" />
+    <Resource Include="Fonts\FuturaStd Condensed Light.ttf" />
+    <Resource Include="Fonts\FuturaStd Condensed.ttf" />
+    <Resource Include="Fonts\Munich Regular.ttf" />
+    <Resource Include="Fonts\Sofia Pro Bold.ttf" />
+    <Resource Include="Fonts\Sofia Pro Light.ttf" />
+    <Resource Include="Fonts\Sofia Pro.ttf" />
     <None Include="EmployeeDatabase.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>EmployeeDatabase.designer.cs</LastGenOutput>
@@ -201,13 +208,6 @@
     <None Include="EmployeeDatabase.dbml.layout">
       <DependentUpon>EmployeeDatabase.dbml</DependentUpon>
     </None>
-    <Resource Include="Fonts\FuturaStd.ttf" />
-    <Resource Include="Fonts\FuturaStd Condensed Light.ttf" />
-    <Resource Include="Fonts\FuturaStd Condensed.ttf" />
-    <Resource Include="Fonts\Munich Regular.ttf" />
-    <Resource Include="Fonts\Sofia Pro Bold.ttf" />
-    <Resource Include="Fonts\Sofia Pro Light.ttf" />
-    <Resource Include="Fonts\Sofia Pro.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

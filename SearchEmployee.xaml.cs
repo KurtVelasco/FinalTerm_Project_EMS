@@ -130,6 +130,7 @@ namespace FinalTerm_Project_EMS
                     SearchByComboBoxes(cbxStsSearch.SelectedItem.ToString());
                 }
             }
+            InsertLogs.AddLogs(LogInCredentials.EMPLOYEE_ID, "Employee Used The Searched System", 4);
         }
 
         private void SearchByName(string firstName, string lastName)
