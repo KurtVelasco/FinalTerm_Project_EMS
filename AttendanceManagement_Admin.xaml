@@ -1,0 +1,21 @@
+﻿<Window x:Class="FinalTerm_Project_EMS.AttendanceManagement_Admin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinalTerm_Project_EMS"
+        mc:Ignorable="d"
+            Title="Attendance Management Menu" Height="450" Width="800" ResizeMode="NoResize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Rectangle HorizontalAlignment="Center" Height="434" Stroke="Black" VerticalAlignment="Center" Width="800" Fill="#FF8B280D"/>
+        <Rectangle HorizontalAlignment="Center" Height="363" VerticalAlignment="Center" Width="728" Fill="#FFFBC361"/>
+        <Image HorizontalAlignment="Left" Margin="64,0,0,0" VerticalAlignment="Center" Height="361" Width="364" Source="/Images/Northville Public School (Icon).png"/>
+        <Label x:Name="tbx_welcomelabel" Content="" FontFamily="Fonts/#Sofia Pro Bold" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="310" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF8B280D" Margin="440,50,0,0"/>
+
+        <Button x:Name="Button_ManageLeaveRequests" Style="{StaticResource ResourceKey=RoundedButton}" FontFamily="Fonts/#Munich Regular" Content="Manage Leave Requests" HorizontalAlignment="Left" Margin="495,97,0,0" VerticalAlignment="Top" Width="200" Height="40" Background="#FF8B280D" Foreground="White" BorderBrush="Black" FontSize="15" Click="Button_ManageLeaveRequests_Click"/>
+        <Button x:Name="Button_PullAttendance" Style="{StaticResource ResourceKey=RoundedButton}" FontFamily="Fonts/#Munich Regular" Content="Pull Attendance Data" HorizontalAlignment="Left" Margin="495,146,0,0" VerticalAlignment="Top" Width="200" Height="40" Background="#FF8B280D" Foreground="White" BorderBrush="Black" FontSize="15" Click="Button_PullAttendance_Click"/>
+        <Button x:Name="Button_ManualAttendance" Style="{StaticResource ResourceKey=RoundedButton}" FontFamily="Fonts/#Munich Regular" Content="Manual Attendance" HorizontalAlignment="Left" Margin="495,0,0,0" VerticalAlignment="Center" Width="200" Height="40" Background="#FF8B280D" Foreground="White" BorderBrush="Black" FontSize="15" Click="Button_ManualAttendance_Click"/>
+        <Button x:Name="Button_LogOut" Style="{StaticResource ResourceKey=RoundedButton}" FontFamily="Fonts/#Munich Regular" Content="Log Out" HorizontalAlignment="Left" Margin="495,322,0,0" VerticalAlignment="Top" Width="200" Height="40" Click="Button_LogOut_Click" Background="#FF8B280D" Foreground="White" BorderBrush="Red" FontSize="15"/>
+
+    </Grid>
+</Window>

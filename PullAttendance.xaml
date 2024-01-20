@@ -5,11 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalTerm_Project_EMS"
         mc:Ignorable="d"
-        Title="PullAttendance" Height="400" Width="350">
+        Title="Pull Attendance" Height="300" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
     <Grid>
-        <Button x:Name="btnPullData" Content="Pull Data" HorizontalAlignment="Center" Margin="0,319,0,0" VerticalAlignment="Top" Width="232" Click="btnPullData_Click"/>
-        <TextBlock x:Name="tblkLogs" HorizontalAlignment="Center" Margin="0,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="210" Width="232" Background="#FFF1F1F1"/>
-        <Label Content="PULL ATTENDANCE" HorizontalAlignment="Left" Margin="68,29,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22"/>
+        <Rectangle HorizontalAlignment="Center" Height="284" Stroke="Black" VerticalAlignment="Center" Width="300" Fill="#FF8B280D"/>
+        <Rectangle HorizontalAlignment="Center" Height="264" VerticalAlignment="Center" Width="280" Fill="#FFFBC361"/>
+        <Image HorizontalAlignment="Center" VerticalAlignment="Center" Height="264" Width="280" Source="/Images/Northville Public School (Icon).png" Opacity="0.25"/>
+
+        <Button x:Name="btnPullData" Content="Pull Data" HorizontalAlignment="Center" FontFamily="Fonts/#Munich Regular" Style="{StaticResource ResourceKey=RoundedButton}" Margin="0,222,0,0" VerticalAlignment="Top" Width="232" Click="btnPullData_Click" Height="40" Background="#FF8B280D" BorderBrush="Black" Foreground="White"/>
+        <TextBlock x:Name="tblkLogs" HorizontalAlignment="Center" Margin="0,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="162" Width="232" Background="#FF8B280D" Opacity="0.61"/>
+        <Label Content="Pull Attendance" HorizontalContentAlignment="Center" FontFamily="Fonts/#Sofia Pro Bold" HorizontalAlignment="Center" Height="33" Margin="0,22,0,0" VerticalAlignment="Top" Width="264" FontSize="20" Foreground="#FF8B280D"/>
+        <Button x:Name="btnBack" Content="←" Style="{StaticResource ResourceKey=RoundedButton}" HorizontalAlignment="Left" Margin="14,15,0,0" Height="20" VerticalAlignment="Top" Width="20" Click="btnBack_Click" Background="#FF8B280D" BorderBrush="Black" Foreground="White"/>
 
     </Grid>
 </Window>

@@ -5,23 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalTerm_Project_EMS"
         mc:Ignorable="d"
-        Title="Manual Attendance" Height="400" Width="300">
+        Title="Manual Attendance" Height="300" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
     <Grid>
-        <Label Content="MANUAL ATTENDANCE" HorizontalAlignment="Left" Margin="17,16,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22"/>
+        <Rectangle HorizontalAlignment="Center" Height="284" Stroke="Black" VerticalAlignment="Center" Width="300" Fill="#FF8B280D"/>
+        <Rectangle HorizontalAlignment="Center" Height="264" VerticalAlignment="Center" Width="280" Fill="#FFFBC361"/>
+        <Image HorizontalAlignment="Center" VerticalAlignment="Center" Height="264" Width="280" Source="/Images/Northville Public School (Icon).png" Opacity="0.25"/>
+        <Label Content="Manual Attendance" HorizontalContentAlignment="Center" FontFamily="Fonts/#Sofia Pro Bold" HorizontalAlignment="Center" Height="33" Margin="0,22,0,0" VerticalAlignment="Top" Width="265" FontSize="20" Foreground="#FF8B280D"/>
 
-        <Label Content="Employee Email" HorizontalAlignment="Left" Margin="27,69,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="tbxEmail" HorizontalAlignment="Left" Margin="24,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
+        <Label Content="Employee Email" HorizontalAlignment="Left" Margin="31,53,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbxEmail" HorizontalAlignment="Center" Margin="0,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" Height="23"/>
 
-        <Label Content="Hour" HorizontalAlignment="Left" Margin="26,132,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Minute" HorizontalAlignment="Left" Margin="183,132,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <ComboBox x:Name="cbxHour" HorizontalAlignment="Left" Margin="31,156,0,0" VerticalAlignment="Top" Width="152"/>
-        <ComboBox x:Name="cbxMinute" HorizontalAlignment="Left" Margin="188,156,0,0" VerticalAlignment="Top" Width="78"/>
+        <Label Content="Hour" HorizontalAlignment="Left" Margin="31,102,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Minute" HorizontalAlignment="Left" Margin="187,102,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ComboBox x:Name="cbxHour" HorizontalAlignment="Left" Margin="31,126,0,0" VerticalAlignment="Top" Width="152" Background="White"/>
+        <ComboBox x:Name="cbxMinute" HorizontalAlignment="Left" Margin="188,126,0,0" VerticalAlignment="Top" Width="81" Foreground="Black" Background="White"/>
 
-        <Label Content="Date" HorizontalAlignment="Left" Margin="27,199,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <DatePicker x:Name="dpDate" HorizontalAlignment="Left" Margin="33,223,0,0" VerticalAlignment="Top" Width="234"/>
+        <Label Content="Date" HorizontalAlignment="Left" Margin="31,153,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <DatePicker x:Name="dpDate" HorizontalAlignment="Center" Margin="0,179,0,0" VerticalAlignment="Top" Width="238"/>
 
-        <Button x:Name="btnTimeIn" Content="Time In" HorizontalAlignment="Left" Margin="34,299,0,0" VerticalAlignment="Top" Width="108" Click="btnTimeIn_Click"/>
-        <Button x:Name="btnTimeOut" Content="Time Out" HorizontalAlignment="Left" Margin="158,299,0,0" VerticalAlignment="Top" Width="108" Click="btnTimeOut_Click"/>
+        <Button x:Name="btnTimeIn" Content="Time In" Style="{StaticResource ResourceKey=RoundedButton}" HorizontalAlignment="Left" Margin="34,221,0,0" Height="40" VerticalAlignment="Top" Width="108" Click="btnTimeIn_Click" Background="#FF8B280D" BorderBrush="Black" Foreground="White"/>
+        <Button x:Name="btnTimeOut" Content="Time Out" Style="{StaticResource ResourceKey=RoundedButton}" HorizontalAlignment="Left" Margin="158,221,0,0" Height="40" VerticalAlignment="Top" Width="108" Click="btnTimeOut_Click" Background="#FF8B280D" BorderBrush="Black" Foreground="White"/>
+        <Button x:Name="btnBack" Content="←" Style="{StaticResource ResourceKey=RoundedButton}" HorizontalAlignment="Left" Margin="14,15,0,0" Height="20" VerticalAlignment="Top" Width="20" Click="btnBack_Click" Background="#FF8B280D" BorderBrush="Black" Foreground="White"/>
 
     </Grid>
 </Window>

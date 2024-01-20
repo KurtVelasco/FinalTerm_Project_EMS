@@ -5,38 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalTerm_Project_EMS"
         mc:Ignorable="d"
-        Title="ManageEmployeeRequest" Height="550" Width="600">
+        Title="ManageEmployeeRequest" Height="600" Width="600" ResizeMode="NoResize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label Content="MANAGE REQUEST" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="49" Width="322" FontSize="24"/>
+        <Rectangle HorizontalAlignment="Center" Height="584" Stroke="Black" VerticalAlignment="Center" Width="600" Fill="#FF8B280D"/>
+        <Rectangle HorizontalAlignment="Center" Height="495" VerticalAlignment="Center" Width="504" Fill="#FFFBC361"/>
+        <Image HorizontalAlignment="Left" Margin="38,0,0,0" VerticalAlignment="Center" Height="524" Width="510" Source="/Images/Northville Public School (Icon).png" Stretch="UniformToFill" Opacity="0.25"/>
+        <Label Content="Manage Employee Requests" HorizontalContentAlignment="Center" FontFamily="Fonts/#Sofia Pro Bold" HorizontalAlignment="Center" Height="33" Margin="0,59,0,0" VerticalAlignment="Top" Width="504" FontSize="20" Foreground="#FF8B280D"/>
 
-        <Label Content="Filed By" HorizontalAlignment="Left" Margin="43,83,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="tbxFiledBy" HorizontalAlignment="Left" Margin="47,106,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Filed By" HorizontalAlignment="Left" Margin="66,99,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbxFiledBy" HorizontalAlignment="Left" Margin="70,122,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
-        <Label Content="LeaveType" HorizontalAlignment="Left" Margin="236,83,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="tbxLeaveType" HorizontalAlignment="Center" Margin="0,106,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="LeaveType" HorizontalAlignment="Left" Margin="236,99,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbxLeaveType" HorizontalAlignment="Center" Margin="0,122,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
-        <Label Content="Start Date" HorizontalAlignment="Left" Margin="428,83,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="tbxStartDate" HorizontalAlignment="Left" Margin="432,106,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Start Date" HorizontalAlignment="Left" Margin="407,99,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbxStartDate" HorizontalAlignment="Left" Margin="414,122,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
-        <Label Content="Entitlements" HorizontalAlignment="Left" Margin="43,149,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="tbxEntitlements" HorizontalAlignment="Left" Margin="47,172,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Entitlements" HorizontalAlignment="Left" Margin="63,149,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbxEntitlements" HorizontalAlignment="Left" Margin="67,172,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
         <Label Content="Date Filed" HorizontalAlignment="Left" Margin="236,149,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox x:Name="tbxDateFiled" HorizontalAlignment="Center" Margin="0,172,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
-        <Label Content="End Date" HorizontalAlignment="Left" Margin="428,149,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="tbxEndDate" HorizontalAlignment="Left" Margin="432,172,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="End Date" HorizontalAlignment="Left" Margin="410,149,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbxEndDate" HorizontalAlignment="Left" Margin="414,172,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
-        <Label Content="Destination Address" HorizontalAlignment="Left" Margin="43,214,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="tbxDestinationAddress" HorizontalAlignment="Center" Margin="0,237,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="505" Height="58"/>
+        <Label Content="Destination Address" HorizontalAlignment="Left" Margin="63,198,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbxDestinationAddress" HorizontalAlignment="Center" Margin="0,224,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="469" Height="58"/>
 
-        <Label Content="Request Notes" HorizontalAlignment="Left" Margin="43,303,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="tbxRequestNotes" HorizontalAlignment="Center" Margin="0,326,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="505" Height="58"/>
+        <Label Content="Request Notes" HorizontalAlignment="Left" Margin="63,287,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbxRequestNotes" HorizontalAlignment="Center" Margin="0,313,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="468" Height="58"/>
 
-        <Button x:Name="btnApprove" Content="Approve" HorizontalAlignment="Left" Margin="432,402,0,0" VerticalAlignment="Top" Height="44" Width="120" Click="btnApprove_Click"/>
-        <Button x:Name="btnDeny" Content="Deny" HorizontalAlignment="Left" Margin="432,453,0,0" VerticalAlignment="Top" Height="44" Width="120" Click="btnDeny_Click"/>
+        <Button x:Name="btnApprove" Content="Approve" Style="{StaticResource ResourceKey=RoundedButton}" FontFamily="Fonts/#Munich Regular"  HorizontalAlignment="Left" Margin="438,480,0,0" VerticalAlignment="Top" Height="40" Width="96" Click="btnApprove_Click" Background="#FF8B280D" BorderBrush="Black" Foreground="White" FontSize="15"/>
+        <Button x:Name="btnDeny" Content="Deny" Style="{StaticResource ResourceKey=RoundedButton}" FontFamily="Fonts/#Munich Regular" HorizontalAlignment="Left" Margin="67,480,0,0" VerticalAlignment="Top" Height="40" Width="96" Click="btnDeny_Click" BorderBrush="Black" Background="#FF8B280D" FontSize="15" Foreground="White"/>
 
-        <Label Content="Review Remarks" HorizontalAlignment="Left" Margin="43,398,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="tbxRemarks" HorizontalAlignment="Left" Margin="47,421,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="58"/>
+        <Label Content="Review Remarks" HorizontalAlignment="Left" Margin="67,377,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbxRemarks" HorizontalAlignment="Center" Margin="0,403,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="467" Height="58"/>
     </Grid>
 </Window>
