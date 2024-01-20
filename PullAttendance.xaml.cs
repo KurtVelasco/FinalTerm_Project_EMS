@@ -181,5 +181,12 @@ namespace FinalTerm_Project_EMS
             }
             return false;
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            AttendanceManagement_Admin ama = new AttendanceManagement_Admin();
+            ama.Show();
+            this.Close();
+        }
     }
 }
