@@ -45,7 +45,13 @@ namespace FinalTerm_Project_EMS
         {
             if (LogInCredentials.EMPLOYEE_POSITION == "Administrator")
             {
-               //atm moments
+                AttendanceManagement_Admin ama = new AttendanceManagement_Admin();
+                ama.Show();
+                this.Close();
+            }
+            else
+            {
+
             }
         }
 

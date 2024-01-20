@@ -398,7 +398,6 @@ namespace FinalTerm_Project_EMS
                     });
                 }
             }
-
             DisplaySearchResults(results);
         }
 
@@ -414,6 +413,13 @@ namespace FinalTerm_Project_EMS
                 else if (!chkbxPending.IsChecked == false && leaveRequest.isApproved != null)
                     lvLeaveRequests.Items.Add(leaveRequest);
             }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            AttendanceManagement_Admin ama = new AttendanceManagement_Admin();
+            ama.Show();
+            this.Close();
         }
     }
 }
