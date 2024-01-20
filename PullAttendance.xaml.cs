@@ -28,6 +28,23 @@ namespace FinalTerm_Project_EMS
             InitializeComponent();
         }
 
+        private bool ValidateEmployee(int employeeID)
+        {
+            // Inactive employee 
+            foreach (tblEmployeeDetail employeeDetail in DB.tblEmployeeDetails)
+            {
+                if (employeeDetail.EmployeeID == employeeID)
+                {
+                    if (employeeDetail.StatusID != 1)
+                    {
+                        MessageBox.Show("Employee is either inactive or tagged as AWOL");
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
 
         private void btnPullData_Click(object sender, RoutedEventArgs e)
         {
@@ -87,6 +104,10 @@ namespace FinalTerm_Project_EMS
                                 DateTime.TryParse(strTimeOut, out DateTime timeOut)
                             )
                             {
+                                // Check for inactive employee
+                                if (!ValidateEmployee(employeeID))
+                                    continue;
+
                                 bool isLate = false;
 
                                 // Check for late

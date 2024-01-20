@@ -51,21 +51,10 @@ namespace FinalTerm_Project_EMS
             if (!ValidateFields()) 
                 return;
 
-            int employeeID = -1;
+            int employeeID;
 
-            foreach (tblEmployee employee in DB.tblEmployees)
-            {
-                if (employee.EmailAddress == tbxEmail.Text)
-                {
-                    employeeID = employee.EmployeeID;
-                }
-            }
-
-            if (employeeID == -1)
-            {
-                MessageBox.Show($"No employee with the email of {tbxEmail.Text} was found.");
+            if ((employeeID = ValidateEmployee()) == -1)
                 return;
-            }
 
             int hour, minute;
 
@@ -134,11 +123,8 @@ namespace FinalTerm_Project_EMS
             return true;
         }
 
-        private void btnTimeOut_Click(object sender, RoutedEventArgs e)
+        private int ValidateEmployee()
         {
-            if (!ValidateFields())
-                return;
-
             int employeeID = -1;
 
             foreach (tblEmployee employee in DB.tblEmployees)
@@ -148,6 +134,39 @@ namespace FinalTerm_Project_EMS
                     employeeID = employee.EmployeeID;
                 }
             }
+
+            // Invalid employee email
+            if (employeeID == -1)
+            {
+                MessageBox.Show($"No employee with the email of {tbxEmail.Text} was found.");
+                return -1;
+            }
+
+            // Inactive employee 
+            foreach (tblEmployeeDetail employeeDetail in DB.tblEmployeeDetails)
+            {
+                if (employeeDetail.EmployeeID == employeeID)
+                {
+                    if (employeeDetail.StatusID != 1)
+                    {
+                        MessageBox.Show("Employee is either inactive or tagged as AWOL");
+                        return -1;
+                    }
+                }
+            }
+
+            return employeeID;
+        }
+
+        private void btnTimeOut_Click(object sender, RoutedEventArgs e)
+        {
+            if (!ValidateFields())
+                return;
+
+            int employeeID;
+
+            if ((employeeID = ValidateEmployee()) == -1)
+                return;
 
             int hour, minute;
 

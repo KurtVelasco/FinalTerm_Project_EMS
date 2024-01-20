@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static FinalTerm_Project_EMS.SearchEmployee;
 
 namespace FinalTerm_Project_EMS
 {
@@ -74,12 +75,26 @@ namespace FinalTerm_Project_EMS
 
         private bool ValidateEmployee()
         {
+            // Non-full-time employee
             foreach (tblEmployeeDetail employee in DB.tblEmployeeDetails)
             {
                 if (int.Parse(tbxEmployeeID.Text) == employee.EmployeeID && employee.ScheduleTypeID != 5)
                 {
                     MessageBox.Show("Failed to file Leave Request. Only full-time employees are allowed to file leave requests.");
                     return false;
+                }
+            }
+
+            // Inactive employee 
+            foreach (tblEmployeeDetail employeeDetail in DB.tblEmployeeDetails)
+            {
+                if (employeeDetail.EmployeeID == int.Parse(tbxEmployeeID.Text))
+                {
+                    if (employeeDetail.StatusID != 1)
+                    {
+                        MessageBox.Show("Employee is either inactive or tagged as AWOL");
+                        return false;
+                    }
                 }
             }
 
