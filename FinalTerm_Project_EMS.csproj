@@ -103,6 +103,9 @@
     <Compile Include="UpdateEmployeeDetails.xaml.cs">
       <DependentUpon>UpdateEmployeeDetails.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AttendanceManagement_Admin.xaml.cs">
+      <DependentUpon>AttendanceManagement_Admin.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddEmployee.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -166,6 +169,10 @@
     <Page Include="UpdateEmployeeDetails.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AttendanceManagement_Admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
