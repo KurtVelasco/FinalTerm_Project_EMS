@@ -176,7 +176,7 @@ namespace FinalTerm_Project_EMS
 
             bool? success = false;
 
-            DB.uspFileLeaveRequest(employeeID, cbxReason.SelectedIndex + 1, dpStartDate.SelectedDate, dpEndDate.SelectedDate, isVacation, tbxDestination.Text, reqNotes, ref success);
+            DB.uspFileLeaveRequest(employeeID, cbxReason.SelectedIndex + 1, dpStartDate.SelectedDate, dpEndDate.SelectedDate, tbxDestination.Text, reqNotes, ref success);
         
             if (!(bool)success)
             {
