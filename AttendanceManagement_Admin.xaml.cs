@@ -22,6 +22,7 @@ namespace FinalTerm_Project_EMS
         public AttendanceManagement_Admin()
         {
             InitializeComponent();
+            tbx_welcomelabel.Content = $"Welcome, {LogInCredentials.EMPLOYEE_NAME}";
         }
 
         private void Button_ManageLeaveRequests_Click(object sender, RoutedEventArgs e)
@@ -47,8 +48,8 @@ namespace FinalTerm_Project_EMS
 
         private void Button_LogOut_Click(object sender, RoutedEventArgs e)
         {
-            EMSLogin el = new EMSLogin();
-            el.Show();
+            MainWindow mw = new MainWindow();
+            mw.Show();
             this.Close();
         }
 

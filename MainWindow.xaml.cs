@@ -35,9 +35,7 @@ namespace FinalTerm_Project_EMS
             }
             else
             {
-                EmployeeManagment_Employee ee = new EmployeeManagment_Employee();
-                ee.Show();
-                this.Close();   
+                MessageBoxResult res = MessageBox.Show("Your account does not meet the Access Level for EMS System.", "Access Level Information", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
