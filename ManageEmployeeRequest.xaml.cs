@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,14 +21,22 @@ namespace FinalTerm_Project_EMS
     /// </summary>
     public partial class ManageEmployeeRequest : Window
     {
+        public SmtpClient Gmail { get; set; }
         public tblLeaveRequest LeaveRequest { get; set; }
         public string Remarks { get; set; }
+        
         public EmployeeDatabaseDataContext DB { get; set; } = new EmployeeDatabaseDataContext();
 
         public ManageEmployeeRequest(tblLeaveRequest leaveRequest)
         {
             InitializeComponent();
 
+            Gmail = new SmtpClient("smtp.gmail.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential("northville.internals@gmail.com", "mlqe tbyo zljl ervy"),
+                EnableSsl = true,
+            };
             this.LeaveRequest = leaveRequest;
             LoadData();
         }
@@ -96,7 +106,32 @@ namespace FinalTerm_Project_EMS
         {
             DB.uspRespondToLeaveRequest(LeaveRequest.EmployeeID, LeaveRequest.LeaveRequestID, true, tbxRemarks.Text);
             MessageBox.Show("Leave Request has been approved. Window will now close.");
-            InsertLogs.AddLogs(LogInCredentials.EMPLOYEE_ID, "User has denied a leave Request with an ID:"   + LeaveRequest.EmployeeID, 6);
+
+            tblEmployee reviewingEmployee = null;
+            tblEmployee requestingEmployee = null;
+
+            foreach (tblEmployee employee in DB.tblEmployees)
+            {
+                if (employee.EmployeeID == LeaveRequest.ReviewingEmployeeID)
+                {
+                    reviewingEmployee = employee;
+                }
+                else if (employee.EmployeeID == LeaveRequest.EmployeeID)
+                {
+                    requestingEmployee = employee;
+                }
+            }
+
+            MailMessage mailMessage = new MailMessage
+            {
+                From = new MailAddress("northville.internals@gmail.com"),
+                Subject = "Re: Your Recent Leave Request",
+                Body = $"Good News! Your leave request (#{LeaveRequest.LeaveRequestID}) has been approved by {reviewingEmployee.FirstName} {reviewingEmployee.LastName}. {(LeaveRequest.ApprovalRemarks.Length > 0 ? $"Additional remarks about its approval may be found below:\n {LeaveRequest.ApprovalRemarks}" : $"No additional remarks found. Enjoy your leave! For inquiries, you may contact {reviewingEmployee.EmailAddress} or {reviewingEmployee.PhoneNumber}.")}",
+            };
+            mailMessage.To.Add(requestingEmployee.EmailAddress);
+            Gmail.Send(mailMessage);
+
+            InsertLogs.AddLogs(LogInCredentials.EMPLOYEE_ID, "User has approved a leave Request with the ID:"   + LeaveRequest.LeaveRequestID, 6);
             this.Close();
         }
 
@@ -104,7 +139,33 @@ namespace FinalTerm_Project_EMS
         {
             DB.uspRespondToLeaveRequest(LeaveRequest.EmployeeID, LeaveRequest.LeaveRequestID, false, tbxRemarks.Text);
             MessageBox.Show("Leave Request has been denied. Window will now close.");
-            InsertLogs.AddLogs(LogInCredentials.EMPLOYEE_ID, "User has denied a leave Request with an ID:" + LeaveRequest.EmployeeID, 6);
+
+
+            tblEmployee reviewingEmployee = null;
+            tblEmployee requestingEmployee = null;
+
+            foreach (tblEmployee employee in DB.tblEmployees)
+            {
+                if (employee.EmployeeID == LeaveRequest.ReviewingEmployeeID)
+                {
+                    reviewingEmployee = employee;
+                }
+                else if (employee.EmployeeID == LeaveRequest.EmployeeID)
+                {
+                    requestingEmployee = employee;
+                }
+            }
+
+            MailMessage mailMessage = new MailMessage
+            {
+                From = new MailAddress("northville.internals@gmail.com"),
+                Subject = "Re: Your Recent Leave Request",
+                Body = $"Unfortunately, your leave request (#{LeaveRequest.LeaveRequestID}) has been denied by {reviewingEmployee.FirstName} {reviewingEmployee.LastName}. {(LeaveRequest.ApprovalRemarks.Length > 0 ? $"Additional remarks about its denial may be found below:\n {LeaveRequest.ApprovalRemarks}" : $"No additional remarks found. You may contact the reviewer at {reviewingEmployee.EmailAddress} or {reviewingEmployee.PhoneNumber}.")}",
+            };
+            mailMessage.To.Add(requestingEmployee.EmailAddress);
+            Gmail.Send(mailMessage);
+
+            InsertLogs.AddLogs(LogInCredentials.EMPLOYEE_ID, "User has denied a leave Request with the ID:" + LeaveRequest.LeaveRequestID, 6);
             this.Close();
         }
     }
