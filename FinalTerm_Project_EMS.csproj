@@ -106,6 +106,9 @@
     <Compile Include="AttendanceManagement_Admin.xaml.cs">
       <DependentUpon>AttendanceManagement_Admin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AttendanceManagement_Employee.xaml.cs">
+      <DependentUpon>AttendanceManagement_Employee.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddEmployee.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -171,6 +174,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="AttendanceManagement_Admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AttendanceManagement_Employee.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
