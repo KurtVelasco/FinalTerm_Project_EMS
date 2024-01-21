@@ -59,21 +59,11 @@ namespace FinalTerm_Project_EMS
                     tbxFiledBy.Text = $"(#{employee.EmployeeID}) {employee.FirstName} {employee.LastName}";
                 }
             }
-            if (LeaveRequest.isVacation != null)
+            foreach (tblLeaveType leaveType1 in DB.tblLeaveTypes)
             {
-                switch (LeaveRequest.isVacation)
-                {
-                    case true:
-                        tbxLeaveType.Text = "Vacation";
-                        break;
-                    case false:
-                        tbxLeaveType.Text = "Sick Leave";
-                      break;
+                if (LeaveRequest.LeaveTypeID == leaveType1.LeaveTypeID) {
+                    tbxLeaveType.Text = leaveType1.LeaveType;
                 }
-            }
-            else
-            {
-                tbxLeaveType.Text = "Unpaid";
             }
 
             tbxDateFiled.Text = LeaveRequest.DateFiled.ToString();
@@ -113,7 +103,7 @@ namespace FinalTerm_Project_EMS
 
         private void btnApprove_Click(object sender, RoutedEventArgs e)
         {
-            DB.uspRespondToLeaveRequest(LeaveRequest.EmployeeID, LeaveRequest.LeaveRequestID, true, tbxRemarks.Text);
+            DB.uspRespondToLeaveRequest(LeaveRequest.EmployeeID, LeaveRequest.LeaveRequestID, LeaveRequest.LeaveTypeID, true, tbxRemarks.Text);
             MessageBox.Show("Leave Request has been approved. Window will now close.");
 
             tblEmployee reviewingEmployee = null;
@@ -146,7 +136,7 @@ namespace FinalTerm_Project_EMS
 
         private void btnDeny_Click(object sender, RoutedEventArgs e)
         {
-            DB.uspRespondToLeaveRequest(LeaveRequest.EmployeeID, LeaveRequest.LeaveRequestID, false, tbxRemarks.Text);
+            DB.uspRespondToLeaveRequest(LeaveRequest.EmployeeID, LeaveRequest.LeaveRequestID, LeaveRequest.LeaveTypeID, false, tbxRemarks.Text);
             MessageBox.Show("Leave Request has been denied. Window will now close.");
 
 

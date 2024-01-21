@@ -85,20 +85,15 @@ namespace FinalTerm_Project_EMS
                 startDate = leaveRequest.StartDate.ToString();
                 endDate = leaveRequest.EndDate.ToString();
                 employeeID = leaveRequest.EmployeeID.ToString();
+                leaveType = "";
 
-                if (leaveRequest.isVacation != null)
+                foreach (tblLeaveType leaveType1 in DB.tblLeaveTypes)
                 {
-                    switch (leaveRequest.isVacation)
+                    if (leaveRequest.LeaveTypeID == leaveType1.LeaveTypeID)
                     {
-                        case true:
-                            leaveType = "Vacation";
-                            break;
-                        case false:
-                            leaveType = "Sick Leave";
-                            break;
+                        leaveType = leaveType1.LeaveType;
                     }
                 }
-
 
                 if (leaveRequest.IsApproved != null)
                 {
@@ -227,19 +222,14 @@ namespace FinalTerm_Project_EMS
                         {
                             if (leaveRequest.EmployeeID == employeeID)
                             {
-                                string leaveType = "Unpaid";
                                 string status = "Pending";
+                                string leaveType = "";
 
-                                if (leaveRequest.isVacation != null)
+                                foreach (tblLeaveType leaveType1 in DB.tblLeaveTypes)
                                 {
-                                    switch (leaveRequest.isVacation)
+                                    if (leaveRequest.LeaveTypeID == leaveType1.LeaveTypeID)
                                     {
-                                        case true:
-                                            leaveType = "Vacation";
-                                            break;
-                                        case false:
-                                            leaveType = "Sick Leave";
-                                            break;
+                                        leaveType = leaveType1.LeaveType;
                                     }
                                 }
 
@@ -307,19 +297,14 @@ namespace FinalTerm_Project_EMS
                             {
                                 if (employee.EmployeeID == leaveRequest.EmployeeID)
                                 {
-                                    string leaveType = "Unpaid";
                                     string status = "Pending";
+                                    string leaveType = "";
 
-                                    if (leaveRequest.isVacation != null)
+                                    foreach (tblLeaveType leaveType1 in DB.tblLeaveTypes)
                                     {
-                                        switch (leaveRequest.isVacation)
+                                        if (leaveRequest.LeaveTypeID == leaveType1.LeaveTypeID)
                                         {
-                                            case true:
-                                                leaveType = "Vacation";
-                                                break;
-                                            case false:
-                                                leaveType = "Sick Leave";
-                                                break;
+                                            leaveType = leaveType1.LeaveType;
                                         }
                                     }
 
@@ -357,21 +342,17 @@ namespace FinalTerm_Project_EMS
             {
                 foreach (tblLeaveRequest leaveRequest in DB.tblLeaveRequests)
                 {
-                    string leaveType = "Unpaid";
                     string status = "Pending";
+                    string leaveType = "";
 
-                    if (leaveRequest.isVacation != null)
+                    foreach (tblLeaveType leaveType1 in DB.tblLeaveTypes)
                     {
-                        switch (leaveRequest.isVacation)
+                        if (leaveRequest.LeaveTypeID == leaveType1.LeaveTypeID)
                         {
-                            case true:
-                                leaveType = "Vacation";
-                                break;
-                            case false:
-                                leaveType = "Sick Leave";
-                                break;
+                            leaveType = leaveType1.LeaveType;
                         }
                     }
+
 
                     if (leaveRequest.IsApproved != null)
                     {
