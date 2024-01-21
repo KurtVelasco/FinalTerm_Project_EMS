@@ -5,27 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalTerm_Project_EMS"
         mc:Ignorable="d"
-        Title="LeaveRequestForm" Height="500" Width="634">
+        Title="Attendance Management Menu: Leave Request Form" Height="450" Width="500" ResizeMode="NoResize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label Content="EmployeeID" HorizontalAlignment="Left" Margin="44,119,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="tbxEmployeeID" HorizontalAlignment="Left" Margin="48,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+        <Rectangle HorizontalAlignment="Center" Height="434" Stroke="Black" VerticalAlignment="Center" Width="500" Fill="#FF8B280D"/>
+        <Rectangle HorizontalAlignment="Center" Height="383" VerticalAlignment="Center" Width="450" Fill="#FFFBC361"/>
+        <Image HorizontalAlignment="Left" Margin="25,0,0,0" VerticalAlignment="Top" Height="383" Width="453" Source="/Images/Northville Public School (Icon).png" Opacity="0.4" Stretch="UniformToFill"/>
+        <Label Content="Leave Request Form" HorizontalContentAlignment="Center" FontFamily="Fonts/#Sofia Pro Bold" HorizontalAlignment="Left" Height="33" Margin="120,30,0,0" VerticalAlignment="Top" Width="264" FontSize="20" Foreground="#FF8B280D"/>
 
-        <Label Content="Start Date" HorizontalAlignment="Left" Margin="43,185,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <DatePicker x:Name="dpStartDate" HorizontalAlignment="Left" Margin="48,212,0,0" VerticalAlignment="Top" Width="250"/>
+        <Label Content="EmployeeID" HorizontalAlignment="Left" Margin="39,78,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbxEmployeeID" HorizontalAlignment="Left" Margin="43,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
 
-        <Label Content="Reason for Leave" HorizontalAlignment="Left" Margin="43,312,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <ComboBox x:Name="cbxReason" HorizontalAlignment="Left" Margin="48,340,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Start Date" HorizontalAlignment="Left" Margin="38,126,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <DatePicker x:Name="dpStartDate" HorizontalAlignment="Left" Margin="43,154,0,0" VerticalAlignment="Top" Width="118"/>
 
-        <Label Content="Destination Address" HorizontalAlignment="Left" Margin="324,119,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="tbxDestination" HorizontalAlignment="Left" Margin="330,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="53"/>
+        <Label Content="Reason for Leave" HorizontalAlignment="Left"  Margin="334,128,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ComboBox x:Name="cbxReason" HorizontalAlignment="Left" Margin="339,156,0,0" VerticalAlignment="Top" Width="118" Background="White"/>
 
-        <Label Content="LEAVE REQUEST FORM" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="26,53,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="49" Width="284" FontSize="24"/>
+        <Label Content="Destination Address" HorizontalAlignment="Left" Margin="37,183,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbxDestination" HorizontalAlignment="Center" Margin="0,211,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="414" Height="52"/>
 
-        <Button x:Name="btnFileRequest" Content="File Request" HorizontalAlignment="Left" Margin="459,417,0,0" VerticalAlignment="Top" Height="34" Width="120" RenderTransformOrigin="2.317,0.325" Click="btnFileRequest_Click"/>
-        <Label Content="Request Notes" HorizontalAlignment="Left" Margin="324,214,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="tbxRequestNotes" HorizontalAlignment="Left" Margin="330,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="53"/>
-        <Label Content="End Date" HorizontalAlignment="Left" Margin="43,246,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <DatePicker x:Name="dpEndDate" HorizontalAlignment="Left" Margin="48,273,0,0" VerticalAlignment="Top" Width="250"/>
+        <Button x:Name="btnFileRequest" Content="File Request" Style="{StaticResource ResourceKey=RoundedButton}" HorizontalAlignment="Center" Margin="0,360,0,0" VerticalAlignment="Top" Height="34" Width="414" RenderTransformOrigin="2.317,0.325" Click="btnFileRequest_Click" Background="#FF8B280D" BorderBrush="Black" Foreground="White"/>
+        <Label Content="Request Notes" HorizontalAlignment="Left" Margin="37,263,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbxRequestNotes" HorizontalAlignment="Center" Margin="0,290,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="414" Height="53"/>
+        <Label Content="End Date" HorizontalAlignment="Left" Margin="185,126,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <DatePicker x:Name="dpEndDate" HorizontalAlignment="Center" Margin="0,154,0,0" VerticalAlignment="Top" Width="118"/>
+        <Button x:Name="btnBack" Content="←" Style="{StaticResource ResourceKey=RoundedButton}" HorizontalAlignment="Left" Margin="29,30,0,0" Height="20" VerticalAlignment="Top" Width="20" Click="btnBack_Click" Background="#FF8B280D" BorderBrush="Black" Foreground="White"/>
 
 
     </Grid>
