@@ -30,14 +30,23 @@ namespace FinalTerm_Project_EMS
         public ManageEmployeeRequest(tblLeaveRequest leaveRequest)
         {
             InitializeComponent();
-
-            Gmail = new SmtpClient("smtp.gmail.com")
-            {
-                Port = 587,
-                Credentials = new NetworkCredential("northville.internals@gmail.com", "mlqe tbyo zljl ervy"),
-                EnableSsl = true,
-            };
             this.LeaveRequest = leaveRequest;
+
+            if (leaveRequest.IsApproved != null)
+            {
+                btnApprove.IsEnabled = false;
+                btnDeny.IsEnabled = false;
+            }
+            else 
+            {
+                Gmail = new SmtpClient("smtp.gmail.com")
+                {
+                    Port = 587,
+                    Credentials = new NetworkCredential("northville.internals@gmail.com", "mlqe tbyo zljl ervy"),
+                    EnableSsl = true,
+                };
+            }
+            
             LoadData();
         }
 
@@ -112,7 +121,7 @@ namespace FinalTerm_Project_EMS
 
             foreach (tblEmployee employee in DB.tblEmployees)
             {
-                if (employee.EmployeeID == LeaveRequest.ReviewingEmployeeID)
+                if (employee.EmployeeID == LogInCredentials.EMPLOYEE_ID)
                 {
                     reviewingEmployee = employee;
                 }
@@ -146,7 +155,7 @@ namespace FinalTerm_Project_EMS
 
             foreach (tblEmployee employee in DB.tblEmployees)
             {
-                if (employee.EmployeeID == LeaveRequest.ReviewingEmployeeID)
+                if (employee.EmployeeID == LogInCredentials.EMPLOYEE_ID)
                 {
                     reviewingEmployee = employee;
                 }
