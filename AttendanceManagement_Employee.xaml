@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalTerm_Project_EMS"
         mc:Ignorable="d"
-        Title="Attendance Management Menu" Height="450" Width="800" ResizeMode="NoResize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+        Title="Attendance Management System: Main Menu (Employees)" Height="450" Width="460" ResizeMode="NoResize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Rectangle HorizontalAlignment="Center" Height="434" Stroke="Black" VerticalAlignment="Center" Width="800" Fill="#FF8B280D"/>
-        <Rectangle HorizontalAlignment="Center" Height="363" VerticalAlignment="Center" Width="728" Fill="#FFFBC361"/>
-        <Image HorizontalAlignment="Left" Margin="64,0,0,0" VerticalAlignment="Center" Height="361" Width="364" Source="/Images/Northville Public School (Icon).png"/>
-        <Label x:Name="tbx_welcomelabel" Content="" FontFamily="Fonts/#Sofia Pro Bold" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="310" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF8B280D" Margin="440,50,0,0"/>
+        <Rectangle HorizontalAlignment="Center" Height="434" Stroke="Black" VerticalAlignment="Center" Width="460" Fill="#FF8B280D"/>
+        <Rectangle HorizontalAlignment="Center" Height="363" VerticalAlignment="Center" Width="410" Fill="#FFFBC361"/>
+        <Image HorizontalAlignment="Left" Margin="22,6,0,0" VerticalAlignment="Top" Height="363" Width="413" Source="/Images/Northville Public School (Icon).png" Stretch="UniformToFill" Opacity="0.25"/>
+        <Label x:Name="tbx_welcomelabel" Content="" FontFamily="Fonts/#Sofia Pro Bold" HorizontalAlignment="Center" Height="33" VerticalAlignment="Top" Width="310" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF8B280D" Margin="0,97,0,0"/>
 
-        <Button x:Name="Button_RequestLeave" Style="{StaticResource ResourceKey=RoundedButton}" FontFamily="Fonts/#Munich Regular" Content="File Leave Request" HorizontalAlignment="Left" Margin="495,192,0,0" VerticalAlignment="Top" Width="200" Height="40" Background="#FF8B280D" Foreground="White" BorderBrush="Black" FontSize="15" Click="Button_RequestLeave_Click"/>
-        <Button x:Name="Button_LogOut" Style="{StaticResource ResourceKey=RoundedButton}" FontFamily="Fonts/#Munich Regular" Content="BACK" HorizontalAlignment="Left" Margin="495,322,0,0" VerticalAlignment="Top" Width="200" Height="40" Click="Button_LogOut_Click" Background="#FF8B280D" Foreground="White" BorderBrush="Red" FontSize="15"/>
+        <Button x:Name="Button_RequestLeave" Style="{StaticResource ResourceKey=RoundedButton}" FontFamily="Fonts/#Munich Regular" Content="File Leave Request" HorizontalAlignment="Center" Margin="0,187,0,0" VerticalAlignment="Top" Width="200" Height="40" Background="#FF8B280D" Foreground="White" BorderBrush="Black" FontSize="15" Click="Button_RequestLeave_Click"/>
+        <Button x:Name="Button_LogOut" Style="{StaticResource ResourceKey=RoundedButton}" FontFamily="Fonts/#Munich Regular" Content="BACK" HorizontalAlignment="Center" Margin="0,303,0,0" VerticalAlignment="Top" Width="200" Height="40" Click="Button_LogOut_Click" Background="#FF8B280D" Foreground="White" BorderBrush="Red" FontSize="15"/>
     </Grid>
 </Window>

@@ -17,7 +17,7 @@
         <Button x:Name="Button_ManualAttendance" Style="{StaticResource ResourceKey=RoundedButton}" FontFamily="Fonts/#Munich Regular" Content="Manual Attendance" HorizontalAlignment="Left" Margin="495,0,0,0" VerticalAlignment="Center" Width="200" Height="40" Background="#FF8B280D" Foreground="White" BorderBrush="Black" FontSize="15" Click="Button_ManualAttendance_Click"/>
         <Button x:Name="Button_RequestLeave" Style="{StaticResource ResourceKey=RoundedButton}" FontFamily="Fonts/#Munich Regular" Content="File Leave Request" HorizontalAlignment="Left" Margin="495,249,0,0" VerticalAlignment="Top" Width="200" Height="40" Background="#FF8B280D" Foreground="White" BorderBrush="Black" FontSize="15" Click="Button_RequestLeave_Click"/>
 
-        <Button x:Name="Button_LogOut" Style="{StaticResource ResourceKey=RoundedButton}" FontFamily="Fonts/#Munich Regular" Content="Log Out" HorizontalAlignment="Left" Margin="495,322,0,0" VerticalAlignment="Top" Width="200" Height="40" Click="Button_LogOut_Click" Background="#FF8B280D" Foreground="White" BorderBrush="Red" FontSize="15"/>
+        <Button x:Name="Button_LogOut" Style="{StaticResource ResourceKey=RoundedButton}" FontFamily="Fonts/#Munich Regular" Content="BACK" HorizontalAlignment="Left" Margin="495,322,0,0" VerticalAlignment="Top" Width="200" Height="40" Click="Button_LogOut_Click" Background="#FF8B280D" Foreground="White" BorderBrush="Red" FontSize="15"/>
 
     </Grid>
 </Window>
