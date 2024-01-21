@@ -23,6 +23,13 @@ namespace FinalTerm_Project_EMS
         {
             InitializeComponent();
         }
+
+        private void Button_LogOut_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mw = new MainWindow();
+            mw.Show();
+            this.Close();
+        }
     }
     public class Employee
     {

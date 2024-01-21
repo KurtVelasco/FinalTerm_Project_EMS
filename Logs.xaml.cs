@@ -66,22 +66,31 @@ namespace FinalTerm_Project_EMS
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ListView_Logs.ItemsSource = null;
-            ListView_Logs.Items.Clear();
-            int typeID = ((KeyValuePair<int,string>)ComboBox_LogType.SelectedItem).Key;
-            foreach (tblLog logs in DB.tblLogs)
+            if (ComboBox_LogType.SelectedIndex != -1)
             {
-                if(logs.LogTypeID == typeID)
+                ListView_Logs.ItemsSource = null;
+                ListView_Logs.Items.Clear();
+                int typeID = ((KeyValuePair<int, string>)ComboBox_LogType.SelectedItem).Key;
+                foreach (tblLog logs in DB.tblLogs)
                 {
-                    ListView_Logs.Items.Add(new DataLogs
+                    if (logs.LogTypeID == typeID)
                     {
-                        EmployeeID = logs.EmployeeID,
-                        LogDescription = logs.LogDescription,
-                        Logtype = logs.LogTypeID,
-                        Datetime = logs.LogDate.ToString()
-                    });
+                        ListView_Logs.Items.Add(new DataLogs
+                        {
+                            EmployeeID = logs.EmployeeID,
+                            LogDescription = logs.LogDescription,
+                            Logtype = logs.LogTypeID,
+                            Datetime = logs.LogDate.ToString()
+                        });
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show("Please Enter a valid Log Type", "Invalid log Type", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
+            
 
         }
 
@@ -90,7 +99,7 @@ namespace FinalTerm_Project_EMS
             int employeeID = -1;
             if(!int.TryParse(TextBox_EmployeeID.Text, out employeeID))
             {
-                MessageBox.Show("Please Enter a valid EMployee ID", "Invalid EMployee ID", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show("Please Enter a valid Employee ID", "Invalid EMployee ID", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 return;
             }
             ListView_Logs.ItemsSource = null;

@@ -27,7 +27,7 @@ namespace FinalTerm_Project_EMS
 
         private void Button_EMS_Click(object sender, RoutedEventArgs e)
         {
-            if(LogInCredentials.EMPLOYEE_POSITION == "Administrator")
+            if(LogInCredentials.EMPLOYEE_POSITION == "Head" || LogInCredentials.EMPLOYEE_POSITION == "Coordinator")
             {
                 EmployeeManagment_Admin ea = new EmployeeManagment_Admin();
                 ea.Show();
@@ -43,7 +43,7 @@ namespace FinalTerm_Project_EMS
 
         private void Button_ATM_Click(object sender, RoutedEventArgs e)
         {
-            if (LogInCredentials.EMPLOYEE_POSITION == "Administrator")
+            if (LogInCredentials.EMPLOYEE_POSITION == "Head" || LogInCredentials.EMPLOYEE_POSITION == "Coordinator")
             {
                 AttendanceManagement_Admin ama = new AttendanceManagement_Admin();
                 ama.Show();
@@ -51,13 +51,15 @@ namespace FinalTerm_Project_EMS
             }
             else
             {
-
+                AttendanceManagement_Employee ame = new AttendanceManagement_Employee();
+                ame.Show();
+                this.Close();
             }
         }
 
         private void Button_Logout_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult res = MessageBox.Show("Log out to the System?", "Log Out",MessageBoxButton.OKCancel, MessageBoxImage.Information);
+            MessageBoxResult res = MessageBox.Show("Log out to the System?", "Log Out",MessageBoxButton.YesNo, MessageBoxImage.Information);
             if (res == MessageBoxResult.Yes)
             {
                 EMSLogin em = new EMSLogin();

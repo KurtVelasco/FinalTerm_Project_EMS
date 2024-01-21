@@ -188,5 +188,21 @@ namespace FinalTerm_Project_EMS
                 InsertLogs.AddLogs(LogInCredentials.EMPLOYEE_ID, "Employee has filed a leave request", 5);
             }
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            if (LogInCredentials.EMPLOYEE_POSITION == "Head" || LogInCredentials.EMPLOYEE_POSITION == "Coordinator")
+            {
+                AttendanceManagement_Admin ama = new AttendanceManagement_Admin();
+                ama.Show();
+                this.Close();
+            }
+            else
+            {
+                AttendanceManagement_Employee ame = new AttendanceManagement_Employee();
+                ame.Show();
+                this.Close();
+            }
+        }
     }
 }
