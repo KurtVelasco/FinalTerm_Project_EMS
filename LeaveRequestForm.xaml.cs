@@ -63,6 +63,12 @@ namespace FinalTerm_Project_EMS
                 return false;
             }
 
+            // End Date earlier than Start Date
+            if (DateTime.Compare((DateTime)dpEndDate.SelectedDate, (DateTime)dpStartDate.SelectedDate) <= 0)
+            {
+                MessageBox.Show("Please select an end date that's later than the start date.");
+                return false;
+            }
             // Destination Address
             if (tbxDestination.Text.Length == 0)
             {
