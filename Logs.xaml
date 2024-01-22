@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Employee Management System: System Logs" Height="450" Width="900" ResizeMode="NoResize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Rectangle HorizontalAlignment="Center" Height="434" Stroke="Black" VerticalAlignment="Center" Width="900" Fill="#FF8B280D"/>
+        <Rectangle HorizontalAlignment="Left" Stroke="Black" Width="900" Fill="#FF8B280D" Height="434" VerticalAlignment="Center"/>
         <Rectangle HorizontalAlignment="Left" Height="383" VerticalAlignment="Top" Width="220" Fill="#FFFBC361" Margin="32,22,0,0"/>
         <Image HorizontalAlignment="Left" Margin="32,108,0,0" VerticalAlignment="Top" Height="258" Width="215" Source="/Images/Northville Public School (Icon).png" Opacity="0.4"/>
 
@@ -18,7 +18,7 @@
                 <GridView>
                     <GridViewColumn Header="Employee ID" DisplayMemberBinding="{Binding EmployeeID}" Width="100" />
                     <GridViewColumn Header="Log Description" DisplayMemberBinding="{Binding LogDescription}" Width="286" />
-                    <GridViewColumn Header="Log Type" DisplayMemberBinding="{Binding LogType}" Width="100" />
+                    <GridViewColumn Header="Log Type" DisplayMemberBinding="{Binding Logtype}" Width="100" />
                     <GridViewColumn Header="Log Date" DisplayMemberBinding="{Binding Datetime}" Width="125" />
                 </GridView>
             </ListView.View>

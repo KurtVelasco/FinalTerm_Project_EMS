@@ -35,25 +35,13 @@ namespace FinalTerm_Project_EMS
             }
             ComboBox_LogType.ItemsSource = logType;
         }
-        public void GetLogs()
-        {
-            foreach (tblLog logs in DB.tblLogs)
-            {
-                ListView_Logs.Items.Add(new DataLogs
-                {
-                    EmployeeID = logs.EmployeeID,
-                    LogDescription = logs.LogDescription, 
-                    Logtype = logs.LogTypeID,
-                    Datetime = logs.LogDate.ToString() 
-                });
-            }
-        }
+
 
         public class DataLogs
         {
             public int EmployeeID { get; set; }
             public string LogDescription { get; set; }
-            public int Logtype { get; set; } 
+            public string Logtype { get; set; } 
             public string Datetime { get; set; }
         }
 
@@ -71,19 +59,17 @@ namespace FinalTerm_Project_EMS
                 ListView_Logs.ItemsSource = null;
                 ListView_Logs.Items.Clear();
                 int typeID = ((KeyValuePair<int, string>)ComboBox_LogType.SelectedItem).Key;
-                foreach (tblLog logs in DB.tblLogs)
-                {
-                    if (logs.LogTypeID == typeID)
+                var logsQuery = from logs in DB.tblLogs
+                    join logType in DB.tblLogTypes on logs.LogTypeID equals logType.LogTypeID
+                    where logs.LogTypeID == typeID
+                    select new DataLogs
                     {
-                        ListView_Logs.Items.Add(new DataLogs
-                        {
-                            EmployeeID = logs.EmployeeID,
-                            LogDescription = logs.LogDescription,
-                            Logtype = logs.LogTypeID,
-                            Datetime = logs.LogDate.ToString()
-                        });
-                    }
-                }
+                        EmployeeID = logs.EmployeeID,
+                        LogDescription = logs.LogDescription,
+                        Logtype = logType.LogType,
+                        Datetime = logs.LogDate.ToString()
+                    };
+                ListView_Logs.ItemsSource = logsQuery.ToList();
             }
             else
             {
@@ -104,20 +90,19 @@ namespace FinalTerm_Project_EMS
             }
             ListView_Logs.ItemsSource = null;
             ListView_Logs.Items.Clear();
-           
-            foreach (tblLog logs in DB.tblLogs)
-            {
-                if (logs.EmployeeID == employeeID)
+            var logsQuery = from logs in DB.tblLogs
+                join logType in DB.tblLogTypes on logs.LogTypeID equals logType.LogTypeID
+                where logs.EmployeeID == employeeID
+                select new DataLogs
                 {
-                    ListView_Logs.Items.Add(new DataLogs
-                    {
-                        EmployeeID = logs.EmployeeID,
-                        LogDescription = logs.LogDescription,
-                        Logtype = logs.LogTypeID,
-                        Datetime = logs.LogDate.ToString()
-                    });
-                }
-            }
+                    EmployeeID = logs.EmployeeID,
+                    LogDescription = logs.LogDescription,
+                    Logtype = logType.LogType,
+                    Datetime = logs.LogDate.ToString()
+                };
+            ListView_Logs.ItemsSource = logsQuery.ToList();
+       
+
         }
     }
 }
