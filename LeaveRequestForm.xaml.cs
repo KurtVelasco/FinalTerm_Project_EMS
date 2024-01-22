@@ -85,19 +85,6 @@ namespace FinalTerm_Project_EMS
                 }
             }
 
-            // Inactive employee 
-            foreach (tblEmployeeDetail employeeDetail in DB.tblEmployeeDetails)
-            {
-                if (employeeDetail.EmployeeID == int.Parse(tbxEmployeeID.Text))
-                {
-                    if (employeeDetail.StatusID != 1)
-                    {
-                        MessageBox.Show("Employee is either inactive or tagged as AWOL");
-                        return false;
-                    }
-                }
-            }
-
             return true;
         }
 
@@ -166,13 +153,7 @@ namespace FinalTerm_Project_EMS
                 return;
 
             int employeeID = int.Parse(tbxEmployeeID.Text);
-            bool? isVacation = cbxReason.SelectedValue.ToString().ToUpper() == "VACATION" ? true : false;
             string reqNotes = tbxRequestNotes.Text.Length == 0 ? null : tbxRequestNotes.Text;
-
-            if (cbxReason.SelectedValue.ToString().ToUpper() == "UNPAID")
-            {
-                isVacation = null;
-            }
 
             bool? success = false;
 
@@ -180,7 +161,7 @@ namespace FinalTerm_Project_EMS
         
             if (!(bool)success)
             {
-                MessageBox.Show("Failed to file a request for leave. Specified employee has a pending request or no employee with the specified ID is found.");
+                MessageBox.Show("Failed to file a request for leave for one of the following reasons:\n1) Specified employee has a pending request.\n2) No employee with the specified ID is found.\n3) Employee is currently not active.");
             }
             else
             {
