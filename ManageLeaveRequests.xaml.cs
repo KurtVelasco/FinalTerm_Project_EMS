@@ -13,6 +13,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static FinalTerm_Project_EMS.ManageLeaveRequests;
+using static FinalTerm_Project_EMS.SearchEmployee;
 
 namespace FinalTerm_Project_EMS
 {
@@ -27,7 +29,6 @@ namespace FinalTerm_Project_EMS
         {
             InitializeComponent();
 
-            LoadLeaveRequestsView();
             LoadFilters();
         }
 
@@ -37,7 +38,7 @@ namespace FinalTerm_Project_EMS
             public string DateFiled { get; set; }
             public string StartDate { get; set; }
             public string EndDate { get; set; }
-            public string EmployeeID { get; set; }
+            public int EmployeeID { get; set; }
             public string LeaveType { get; set; }
             public string Status { get; set; }
             public bool? isApproved { get; set; }
@@ -50,7 +51,7 @@ namespace FinalTerm_Project_EMS
                 DateFiled = "2024-01-17",
                 StartDate = "2024-02-01",
                 EndDate = "2024-02-05",
-                EmployeeID = "EMP001",
+                EmployeeID = 1,
                 LeaveType = "Vacation",
                 Status = "Pending"
             };
@@ -61,7 +62,7 @@ namespace FinalTerm_Project_EMS
                 DateFiled = "2024-01-18",
                 StartDate = "2024-03-10",
                 EndDate = "2024-03-15",
-                EmployeeID = "EMP002",
+                EmployeeID = 1,
                 LeaveType = "Sick Leave",
                 Status = "Approved"
             };
@@ -70,22 +71,33 @@ namespace FinalTerm_Project_EMS
             lvLeaveRequests.Items.Add(request1);
             lvLeaveRequests.Items.Add(request2);
         }
-        private void LoadLeaveRequestsView()
-        {
-            lvLeaveRequests.Items.Clear();
-            lvLeaveRequests.ItemsSource = null;
-            // Date filed, Employee ID, Start Date, End Date, Type of Leave, Status (Pending, Approved, Denied)
 
-            string leaveRequestID, dateFiled, startDate, endDate, employeeID, leaveType = "Unpaid", status = "Pending";
+        private void ReloadLeaveRequestsDisplay(List<LeaveRequest> leaveRequests)
+        {
+            foreach (LeaveRequest leaveRequest in leaveRequests)
+            {
+                lvLeaveRequests.Items.Clear();
+                lvLeaveRequests.ItemsSource = null;
+                lvLeaveRequests.Items.Add(leaveRequest);
+            }
+        }
+
+        private List<LeaveRequest> GetLeaveRequests()
+        {
+            List<LeaveRequest> leaveRequests = new List<LeaveRequest>();
+
+            string leaveRequestID, dateFiled, startDate, endDate;
+            int employeeID;
 
             foreach (tblLeaveRequest leaveRequest in DB.tblLeaveRequests)
             {
+                string status = leaveRequest.IsApproved == null ? "Pending" : (bool)leaveRequest.IsApproved ? "Approved" : "Denied";
+                string leaveType = "";
                 leaveRequestID = leaveRequest.LeaveRequestID.ToString();
                 dateFiled = leaveRequest.DateFiled.ToString();
                 startDate = leaveRequest.StartDate.ToString();
                 endDate = leaveRequest.EndDate.ToString();
-                employeeID = leaveRequest.EmployeeID.ToString();
-                leaveType = "";
+                employeeID = leaveRequest.EmployeeID;
 
                 foreach (tblLeaveType leaveType1 in DB.tblLeaveTypes)
                 {
@@ -95,22 +107,8 @@ namespace FinalTerm_Project_EMS
                     }
                 }
 
-                if (leaveRequest.IsApproved != null)
+                LeaveRequest lr = new LeaveRequest
                 {
-                    switch (leaveRequest.IsApproved)
-                    {
-                        case true:
-                            status = "Approved";
-                            break;
-                        case false:
-                            status = "Denied";
-                            break;
-                    }
-                }
-
-
-                lvLeaveRequests.Items.Add(new LeaveRequest 
-                { 
                     LeaveRequestID = leaveRequestID,
                     DateFiled = dateFiled,
                     StartDate = startDate,
@@ -119,10 +117,12 @@ namespace FinalTerm_Project_EMS
                     LeaveType = leaveType,
                     Status = status,
                     isApproved = leaveRequest.IsApproved,
-                }
-                );
+                };
+
+                leaveRequests.Add(lr);
             }
 
+            return leaveRequests;
         }
 
         private void LoadFilters()
@@ -147,6 +147,7 @@ namespace FinalTerm_Project_EMS
             if (lvLeaveRequests.SelectedIndex == -1)
                 return;
 
+            // Open Employee Leave Request Manager
             foreach (tblLeaveRequest leaveRequest in DB.tblLeaveRequests)
             {
                 if (leaveRequest.LeaveRequestID == int.Parse(((LeaveRequest)lvLeaveRequests.SelectedItem).LeaveRequestID))
@@ -155,22 +156,19 @@ namespace FinalTerm_Project_EMS
                 }
             }
 
-            LoadLeaveRequestsView();
+            // Reload Leave Request View
+            ReloadLeaveRequestsDisplay(GetLeaveRequests());
         }
 
         private void btnViewAll_Click(object sender, RoutedEventArgs e)
         {
-            LoadLeaveRequestsView();
+            ReloadLeaveRequestsDisplay(GetLeaveRequests());
         }
 
         private void btnViewAscending_Click(object sender, RoutedEventArgs e)
         {
-            List<LeaveRequest> ascending = new List<LeaveRequest>();
+            List<LeaveRequest> ascending = GetLeaveRequests();
 
-            foreach (LeaveRequest leaveRequest in lvLeaveRequests.Items)
-            {
-                ascending.Add(leaveRequest);
-            }
 
             ascending.Sort((x, y) => x.DateFiled.CompareTo(y.DateFiled));
 
@@ -185,12 +183,7 @@ namespace FinalTerm_Project_EMS
 
         private void btnViewDescending_Click(object sender, RoutedEventArgs e)
         {
-            List<LeaveRequest> descending = new List<LeaveRequest>();
-
-            foreach (LeaveRequest leaveRequest in lvLeaveRequests.Items)
-            {
-                descending.Add(leaveRequest);
-            }
+            List<LeaveRequest> descending = GetLeaveRequests();
 
             descending.Sort((x, y) => y.DateFiled.CompareTo(x.DateFiled));
 
@@ -205,12 +198,6 @@ namespace FinalTerm_Project_EMS
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            //if (cbxFilters.SelectedIndex == -1)
-            //{
-            //    MessageBox.Show("Please select a search-by filter.");
-            //    return;
-            //}
-
             List<LeaveRequest> results = new List<LeaveRequest>();
             if (cbxFilters.SelectedIndex != -1)
             {
@@ -218,60 +205,19 @@ namespace FinalTerm_Project_EMS
                 {
                     if (int.TryParse(tbxSearchBar.Text, out int employeeID))
                     {
-                        foreach (tblLeaveRequest leaveRequest in DB.tblLeaveRequests)
+                        List<LeaveRequest> leaveRequests = GetLeaveRequests();
+
+                        if ((bool)chkbxPending.IsChecked)
                         {
-                            if (leaveRequest.EmployeeID == employeeID)
-                            {
-                                string status = "Pending";
-                                string leaveType = "";
-
-                                foreach (tblLeaveType leaveType1 in DB.tblLeaveTypes)
-                                {
-                                    if (leaveRequest.LeaveTypeID == leaveType1.LeaveTypeID)
-                                    {
-                                        leaveType = leaveType1.LeaveType;
-                                    }
-                                }
-
-                                if (leaveRequest.IsApproved != null)
-                                {
-                                    switch (leaveRequest.IsApproved)
-                                    {
-                                        case true:
-                                            status = "Approved";
-                                            break;
-                                        case false:
-                                            status = "Denied";
-                                            break;
-                                    }
-                                }
-                                if ((bool)chkbxPending.IsChecked && leaveRequest.IsApproved == null)
-                                {
-                                    results.Add(new LeaveRequest
-                                    {
-                                        LeaveRequestID = leaveRequest.LeaveRequestID.ToString(),
-                                        DateFiled = leaveRequest.DateFiled.ToString(),
-                                        StartDate = leaveRequest.StartDate.ToString(),
-                                        EndDate = leaveRequest.EndDate.ToString(),
-                                        EmployeeID = leaveRequest.EmployeeID.ToString(),
-                                        LeaveType = leaveType,
-                                        Status = status
-                                    });
-                                }
-                                else if ((bool)chkbxPending.IsChecked && leaveRequest.IsApproved != null)
-                                {
-                                    results.Add(new LeaveRequest
-                                    {
-                                        LeaveRequestID = leaveRequest.LeaveRequestID.ToString(),
-                                        DateFiled = leaveRequest.DateFiled.ToString(),
-                                        StartDate = leaveRequest.StartDate.ToString(),
-                                        EndDate = leaveRequest.EndDate.ToString(),
-                                        EmployeeID = leaveRequest.EmployeeID.ToString(),
-                                        LeaveType = leaveType,
-                                        Status = status
-                                    });
-                                }
-                            }
+                            results = leaveRequests
+                                                   .FindAll((lr) => lr.EmployeeID == employeeID)
+                                                   .FindAll((lr) => lr.isApproved == null);
+                        }
+                        else
+                        {
+                            results = leaveRequests
+                                                   .FindAll((lr) => lr.EmployeeID == employeeID)
+                                                   .FindAll((lr) => lr.isApproved != null);
                         }
                     }
                     else
@@ -293,45 +239,19 @@ namespace FinalTerm_Project_EMS
                     {
                         if (employee.EmailAddress.ToUpper().Contains(tbxSearchBar.Text.ToUpper()))
                         {
-                            foreach (tblLeaveRequest leaveRequest in DB.tblLeaveRequests)
+                            List<LeaveRequest> leaveRequests = GetLeaveRequests();
+
+                            if ((bool)chkbxPending.IsChecked)
                             {
-                                if (employee.EmployeeID == leaveRequest.EmployeeID)
-                                {
-                                    string status = "Pending";
-                                    string leaveType = "";
-
-                                    foreach (tblLeaveType leaveType1 in DB.tblLeaveTypes)
-                                    {
-                                        if (leaveRequest.LeaveTypeID == leaveType1.LeaveTypeID)
-                                        {
-                                            leaveType = leaveType1.LeaveType;
-                                        }
-                                    }
-
-                                    if (leaveRequest.IsApproved != null)
-                                    {
-                                        switch (leaveRequest.IsApproved)
-                                        {
-                                            case true:
-                                                status = "Approved";
-                                                break;
-                                            case false:
-                                                status = "Denied";
-                                                break;
-                                        }
-                                    }
-
-                                    results.Add(new LeaveRequest
-                                    {
-                                        LeaveRequestID = leaveRequest.LeaveRequestID.ToString(),
-                                        DateFiled = leaveRequest.DateFiled.ToString(),
-                                        StartDate = leaveRequest.StartDate.ToString(),
-                                        EndDate = leaveRequest.EndDate.ToString(),
-                                        EmployeeID = leaveRequest.EmployeeID.ToString(),
-                                        LeaveType = leaveType,
-                                        Status = status
-                                    });
-                                }
+                                results = leaveRequests
+                                                       .FindAll((lr) => lr.EmployeeID == employee.EmployeeID)
+                                                       .FindAll((lr) => lr.isApproved == null);
+                            }
+                            else
+                            {
+                                results = leaveRequests
+                                                       .FindAll((lr) => lr.EmployeeID == employee.EmployeeID)
+                                                       .FindAll((lr) => lr.isApproved != null);
                             }
                         }
                     }
@@ -340,60 +260,19 @@ namespace FinalTerm_Project_EMS
             }
             else
             {
-                foreach (tblLeaveRequest leaveRequest in DB.tblLeaveRequests)
+                List<LeaveRequest> leaveRequests = GetLeaveRequests();
+
+                if ((bool)chkbxPending.IsChecked)
                 {
-                    string status = "Pending";
-                    string leaveType = "";
-
-                    foreach (tblLeaveType leaveType1 in DB.tblLeaveTypes)
-                    {
-                        if (leaveRequest.LeaveTypeID == leaveType1.LeaveTypeID)
-                        {
-                            leaveType = leaveType1.LeaveType;
-                        }
-                    }
-
-
-                    if (leaveRequest.IsApproved != null)
-                    {
-                        switch (leaveRequest.IsApproved)
-                        {
-                            case true:
-                                status = "Approved";
-                                break;
-                            case false:
-                                status = "Denied";
-                                break;
-                        }
-                    }
-                    results.Add(new LeaveRequest
-                    {
-                        LeaveRequestID = leaveRequest.LeaveRequestID.ToString(),
-                        DateFiled = leaveRequest.DateFiled.ToString(),
-                        StartDate = leaveRequest.StartDate.ToString(),
-                        EndDate = leaveRequest.EndDate.ToString(),
-                        EmployeeID = leaveRequest.EmployeeID.ToString(),
-                        LeaveType = leaveType,
-                        Status = status,
-                        isApproved = leaveRequest.IsApproved,
-                    });
+                    results = leaveRequests.FindAll((lr) => lr.isApproved == null);
+                }
+                else
+                {
+                    results = leaveRequests.FindAll((lr) => lr.isApproved != null);
                 }
             }
-            DisplaySearchResults(results);
-        }
 
-        private void DisplaySearchResults(List<LeaveRequest> results)
-        {
-            lvLeaveRequests.Items.Clear();
-            lvLeaveRequests.ItemsSource = null;
-
-            foreach (LeaveRequest leaveRequest in results)
-            {
-                if (chkbxPending.IsChecked == true && leaveRequest.isApproved == null)
-                    lvLeaveRequests.Items.Add(leaveRequest);
-                else if (!chkbxPending.IsChecked == false && leaveRequest.isApproved != null)
-                    lvLeaveRequests.Items.Add(leaveRequest);
-            }
+            ReloadLeaveRequestsDisplay(results);
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
