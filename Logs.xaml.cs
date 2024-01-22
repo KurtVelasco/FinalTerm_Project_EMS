@@ -35,25 +35,13 @@ namespace FinalTerm_Project_EMS
             }
             ComboBox_LogType.ItemsSource = logType;
         }
-        public void GetLogs()
-        {
-            foreach (tblLog logs in DB.tblLogs)
-            {
-                ListView_Logs.Items.Add(new DataLogs
-                {
-                    EmployeeID = logs.EmployeeID,
-                    LogDescription = logs.LogDescription, 
-                    Logtype = logs.LogTypeID,
-                    Datetime = logs.LogDate.ToString() 
-                });
-            }
-        }
+
 
         public class DataLogs
         {
             public int EmployeeID { get; set; }
             public string LogDescription { get; set; }
-            public int Logtype { get; set; } 
+            public string Logtype { get; set; } 
             public string Datetime { get; set; }
         }
 
@@ -71,19 +59,32 @@ namespace FinalTerm_Project_EMS
                 ListView_Logs.ItemsSource = null;
                 ListView_Logs.Items.Clear();
                 int typeID = ((KeyValuePair<int, string>)ComboBox_LogType.SelectedItem).Key;
-                foreach (tblLog logs in DB.tblLogs)
+                var logJoined = from logs in DB.tblLogs
+                join employees in DB.tblEmployees on logs.EmployeeID equals employees.EmployeeID
+                where logs.LogTypeID == typeID
+                select new DataLogs
                 {
-                    if (logs.LogTypeID == typeID)
-                    {
-                        ListView_Logs.Items.Add(new DataLogs
-                        {
-                            EmployeeID = logs.EmployeeID,
-                            LogDescription = logs.LogDescription,
-                            Logtype = logs.LogTypeID,
-                            Datetime = logs.LogDate.ToString()
-                        });
-                    }
-                }
+                    EmployeeID = logs.EmployeeID,
+                    LogDescription = logs.LogDescription,
+                    Logtype = logs.LogDescription,
+                    Datetime = logs.LogDate.ToString(),
+                               
+                };
+
+                ListView_Logs.Items.Add(logJoined);
+                //foreach (tblLog logs in DB.tblLogs)
+                //{
+                //    if (logs.LogTypeID == typeID)
+                //    {
+                //        ListView_Logs.Items.Add(new DataLogs
+                //        {
+                //            EmployeeID = logs.EmployeeID,
+                //            LogDescription = logs.LogDescription,
+                //            Logtype = logs.LogTypeID.ToString(),       
+                //            Datetime = logs.LogDate.ToString()
+                //        });
+                //    }
+                //}
             }
             else
             {
@@ -104,20 +105,20 @@ namespace FinalTerm_Project_EMS
             }
             ListView_Logs.ItemsSource = null;
             ListView_Logs.Items.Clear();
-           
-            foreach (tblLog logs in DB.tblLogs)
+
+            int typeID = ((KeyValuePair<int, string>)ComboBox_LogType.SelectedItem).Key;
+            var logJoined = from logs in DB.tblLogs
+            join employees in DB.tblEmployees on logs.EmployeeID equals employees.EmployeeID
+            where logs.EmployeeID == employeeID
+            select new DataLogs
             {
-                if (logs.EmployeeID == employeeID)
-                {
-                    ListView_Logs.Items.Add(new DataLogs
-                    {
-                        EmployeeID = logs.EmployeeID,
-                        LogDescription = logs.LogDescription,
-                        Logtype = logs.LogTypeID,
-                        Datetime = logs.LogDate.ToString()
-                    });
-                }
-            }
+                EmployeeID = logs.EmployeeID,
+                LogDescription = logs.LogDescription,
+                Logtype = logs.LogDescription,
+                Datetime = logs.LogDate.ToString(),
+
+            };
+
         }
     }
 }
