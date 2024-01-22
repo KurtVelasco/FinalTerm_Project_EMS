@@ -70,7 +70,7 @@ namespace FinalTerm_Project_EMS
             tbxStartDate.Text = LeaveRequest.StartDate.ToString();
             tbxEndDate.Text = LeaveRequest.EndDate.ToString();
             tbxDestinationAddress.Text = LeaveRequest.DestinationAddress;
-            tbxRequestNotes.Text = LeaveRequest.RequestNotes;
+            tbxRequestNotes.Text = LeaveRequest.RequestNotes == null ? "" : LeaveRequest.RequestNotes;
 
             foreach (tblLeaveEntitlement entitlement in DB.tblLeaveEntitlements)
             {
@@ -125,7 +125,7 @@ namespace FinalTerm_Project_EMS
             {
                 From = new MailAddress("northville.internals@gmail.com"),
                 Subject = "Re: Your Recent Leave Request",
-                Body = $"Good News! Your leave request (#{LeaveRequest.LeaveRequestID}) has been approved by {reviewingEmployee.FirstName} {reviewingEmployee.LastName}. {(LeaveRequest.ApprovalRemarks.Length > 0 ? $"Additional remarks about its approval may be found below:\n {LeaveRequest.ApprovalRemarks}" : $"No additional remarks found. Enjoy your leave! For inquiries, you may contact {reviewingEmployee.EmailAddress} or {reviewingEmployee.PhoneNumber}.")}",
+                Body = $"Good News! Your leave request (#{LeaveRequest.LeaveRequestID}) has been approved by {reviewingEmployee.FirstName} {reviewingEmployee.LastName}. {(LeaveRequest.ApprovalRemarks != null ? $"Additional remarks about its approval may be found below:\n {LeaveRequest.ApprovalRemarks}" : $"No additional remarks found. Enjoy your leave! For inquiries, you may contact {reviewingEmployee.EmailAddress} or {reviewingEmployee.PhoneNumber}.")}",
             };
             mailMessage.To.Add(requestingEmployee.EmailAddress);
             Gmail.Send(mailMessage);
@@ -159,7 +159,8 @@ namespace FinalTerm_Project_EMS
             {
                 From = new MailAddress("northville.internals@gmail.com"),
                 Subject = "Re: Your Recent Leave Request",
-                Body = $"Unfortunately, your leave request (#{LeaveRequest.LeaveRequestID}) has been denied by {reviewingEmployee.FirstName} {reviewingEmployee.LastName}. {(LeaveRequest.ApprovalRemarks.Length > 0 ? $"Additional remarks about its denial may be found below:\n {LeaveRequest.ApprovalRemarks}" : $"No additional remarks found. You may contact the reviewer at {reviewingEmployee.EmailAddress} or {reviewingEmployee.PhoneNumber}.")}",
+                Body = $"Unfortunately, your leave request (#{LeaveRequest.LeaveRequestID}) has been denied by " +
+                $"{reviewingEmployee.FirstName} {reviewingEmployee.LastName}. {(LeaveRequest.ApprovalRemarks != null ? $"Additional remarks about its denial may be found below:\n {LeaveRequest.ApprovalRemarks}" : $"No additional remarks found. You may contact the reviewer at {reviewingEmployee.EmailAddress} or {reviewingEmployee.PhoneNumber}.")}",
             };
             mailMessage.To.Add(requestingEmployee.EmailAddress);
             Gmail.Send(mailMessage);
