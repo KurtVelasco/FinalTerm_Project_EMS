@@ -250,26 +250,11 @@ namespace FinalTerm_Project_EMS
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspFileLeaveRequest")]
-		public int uspFileLeaveRequest([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> employeeId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> leaveTypeId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> startDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> endDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> isVacation, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string destinationAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string requestNotes, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> success)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeId, leaveTypeId, startDate, endDate, isVacation, destinationAddress, requestNotes, success);
-			success = ((System.Nullable<bool>)(result.GetParameterValue(7)));
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspRecordAbsences")]
 		public int uspRecordAbsences([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> employeeId)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeId);
 			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspRespondToLeaveRequest")]
-		public ISingleResult<uspRespondToLeaveRequestResult> uspRespondToLeaveRequest([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> employeeId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> leaveRequestId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> isApproved, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string approvalRemarks)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeId, leaveRequestId, isApproved, approvalRemarks);
-			return ((ISingleResult<uspRespondToLeaveRequestResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspTimeIn")]
@@ -299,6 +284,21 @@ namespace FinalTerm_Project_EMS
 		public int USP_UPDATE_EMPLOYEE_PERSONAL([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployeeID", DbType="Int")] System.Nullable<int> employeeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="NVarChar(255)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MiddleName", DbType="NVarChar(255)")] string middleName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(255)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Birthday", DbType="Date")] System.Nullable<System.DateTime> birthday, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneNumber", DbType="NVarChar(13)")] string phoneNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmailAddress", DbType="NVarChar(255)")] string emailAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HomeAddress", DbType="NVarChar(255)")] string homeAddress)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeID, firstName, middleName, lastName, birthday, phoneNumber, emailAddress, homeAddress);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspRespondToLeaveRequest")]
+		public ISingleResult<uspRespondToLeaveRequestResult> uspRespondToLeaveRequest([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> employeeId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> leaveRequestId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> leaveTypeId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> isApproved, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string approvalRemarks)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeId, leaveRequestId, leaveTypeId, isApproved, approvalRemarks);
+			return ((ISingleResult<uspRespondToLeaveRequestResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspFileLeaveRequest")]
+		public int uspFileLeaveRequest([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> employeeId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> leaveTypeId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> startDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> endDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string destinationAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string requestNotes, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> success)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeId, leaveTypeId, startDate, endDate, destinationAddress, requestNotes, success);
+			success = ((System.Nullable<bool>)(result.GetParameterValue(6)));
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -1737,13 +1737,15 @@ namespace FinalTerm_Project_EMS
 		
 		private string _ApprovalRemarks;
 		
-		private bool _isVacation;
-		
 		private System.Nullable<int> _ReviewingEmployeeID;
+		
+		private int _LeaveTypeID;
 		
 		private EntityRef<tblEmployee> _tblEmployee;
 		
 		private EntityRef<tblEmployee> _tblEmployee1;
+		
+		private EntityRef<tblLeaveType> _tblLeaveType;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1767,16 +1769,17 @@ namespace FinalTerm_Project_EMS
     partial void OnIsApprovedChanged();
     partial void OnApprovalRemarksChanging(string value);
     partial void OnApprovalRemarksChanged();
-    partial void OnisVacationChanging(bool value);
-    partial void OnisVacationChanged();
     partial void OnReviewingEmployeeIDChanging(System.Nullable<int> value);
     partial void OnReviewingEmployeeIDChanged();
+    partial void OnLeaveTypeIDChanging(int value);
+    partial void OnLeaveTypeIDChanged();
     #endregion
 		
 		public tblLeaveRequest()
 		{
 			this._tblEmployee = default(EntityRef<tblEmployee>);
 			this._tblEmployee1 = default(EntityRef<tblEmployee>);
+			this._tblLeaveType = default(EntityRef<tblLeaveType>);
 			OnCreated();
 		}
 		
@@ -1964,26 +1967,6 @@ namespace FinalTerm_Project_EMS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isVacation", DbType="Bit NOT NULL")]
-		public bool isVacation
-		{
-			get
-			{
-				return this._isVacation;
-			}
-			set
-			{
-				if ((this._isVacation != value))
-				{
-					this.OnisVacationChanging(value);
-					this.SendPropertyChanging();
-					this._isVacation = value;
-					this.SendPropertyChanged("isVacation");
-					this.OnisVacationChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReviewingEmployeeID", DbType="Int")]
 		public System.Nullable<int> ReviewingEmployeeID
 		{
@@ -2004,6 +1987,30 @@ namespace FinalTerm_Project_EMS
 					this._ReviewingEmployeeID = value;
 					this.SendPropertyChanged("ReviewingEmployeeID");
 					this.OnReviewingEmployeeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LeaveTypeID", DbType="Int NOT NULL")]
+		public int LeaveTypeID
+		{
+			get
+			{
+				return this._LeaveTypeID;
+			}
+			set
+			{
+				if ((this._LeaveTypeID != value))
+				{
+					if (this._tblLeaveType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnLeaveTypeIDChanging(value);
+					this.SendPropertyChanging();
+					this._LeaveTypeID = value;
+					this.SendPropertyChanged("LeaveTypeID");
+					this.OnLeaveTypeIDChanged();
 				}
 			}
 		}
@@ -2076,6 +2083,40 @@ namespace FinalTerm_Project_EMS
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblLeaveType_tblLeaveRequest", Storage="_tblLeaveType", ThisKey="LeaveTypeID", OtherKey="LeaveTypeID", IsForeignKey=true)]
+		public tblLeaveType tblLeaveType
+		{
+			get
+			{
+				return this._tblLeaveType.Entity;
+			}
+			set
+			{
+				tblLeaveType previousValue = this._tblLeaveType.Entity;
+				if (((previousValue != value) 
+							|| (this._tblLeaveType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tblLeaveType.Entity = null;
+						previousValue.tblLeaveRequests.Remove(this);
+					}
+					this._tblLeaveType.Entity = value;
+					if ((value != null))
+					{
+						value.tblLeaveRequests.Add(this);
+						this._LeaveTypeID = value.LeaveTypeID;
+					}
+					else
+					{
+						this._LeaveTypeID = default(int);
+					}
+					this.SendPropertyChanged("tblLeaveType");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2109,6 +2150,8 @@ namespace FinalTerm_Project_EMS
 		
 		private EntitySet<tblLeaveEntitlement> _tblLeaveEntitlements;
 		
+		private EntitySet<tblLeaveRequest> _tblLeaveRequests;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2122,6 +2165,7 @@ namespace FinalTerm_Project_EMS
 		public tblLeaveType()
 		{
 			this._tblLeaveEntitlements = new EntitySet<tblLeaveEntitlement>(new Action<tblLeaveEntitlement>(this.attach_tblLeaveEntitlements), new Action<tblLeaveEntitlement>(this.detach_tblLeaveEntitlements));
+			this._tblLeaveRequests = new EntitySet<tblLeaveRequest>(new Action<tblLeaveRequest>(this.attach_tblLeaveRequests), new Action<tblLeaveRequest>(this.detach_tblLeaveRequests));
 			OnCreated();
 		}
 		
@@ -2178,6 +2222,19 @@ namespace FinalTerm_Project_EMS
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblLeaveType_tblLeaveRequest", Storage="_tblLeaveRequests", ThisKey="LeaveTypeID", OtherKey="LeaveTypeID")]
+		public EntitySet<tblLeaveRequest> tblLeaveRequests
+		{
+			get
+			{
+				return this._tblLeaveRequests;
+			}
+			set
+			{
+				this._tblLeaveRequests.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2205,6 +2262,18 @@ namespace FinalTerm_Project_EMS
 		}
 		
 		private void detach_tblLeaveEntitlements(tblLeaveEntitlement entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblLeaveType = null;
+		}
+		
+		private void attach_tblLeaveRequests(tblLeaveRequest entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblLeaveType = this;
+		}
+		
+		private void detach_tblLeaveRequests(tblLeaveRequest entity)
 		{
 			this.SendPropertyChanging();
 			entity.tblLeaveType = null;

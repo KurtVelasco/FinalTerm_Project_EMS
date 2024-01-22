@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MockEMSDatabase" Class="EmployeeDatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=MSI\SQLEXPRESS;Initial Catalog=MockEMSDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False" SettingsObjectName="FinalTerm_Project_EMS.Properties.Settings" SettingsPropertyName="MockEMSDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=CC1006-148\SQLEXPRESS;Initial Catalog=MockEMSDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False" SettingsObjectName="FinalTerm_Project_EMS.Properties.Settings" SettingsPropertyName="MockEMSDatabaseConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.tblAttendance" Member="tblAttendances">
     <Type Name="tblAttendance">
       <Column Name="AttendanceID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -75,10 +75,11 @@
       <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IsApproved" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="ApprovalRemarks" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="isVacation" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="ReviewingEmployeeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LeaveTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="tblEmployee_tblLeaveRequest" Member="tblEmployee" ThisKey="ReviewingEmployeeID" OtherKey="EmployeeID" Type="tblEmployee" IsForeignKey="true" />
       <Association Name="tblEmployee_tblLeaveRequest1" Member="tblEmployee1" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="tblEmployee" IsForeignKey="true" />
+      <Association Name="tblLeaveType_tblLeaveRequest" Member="tblLeaveType" ThisKey="LeaveTypeID" OtherKey="LeaveTypeID" Type="tblLeaveType" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.tblLeaveTypes" Member="tblLeaveTypes">
@@ -86,6 +87,7 @@
       <Column Name="LeaveTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="LeaveType" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
       <Association Name="tblLeaveType_tblLeaveEntitlement" Member="tblLeaveEntitlements" ThisKey="LeaveTypeID" OtherKey="LeaveTypeID" Type="tblLeaveEntitlement" />
+      <Association Name="tblLeaveType_tblLeaveRequest" Member="tblLeaveRequests" ThisKey="LeaveTypeID" OtherKey="LeaveTypeID" Type="tblLeaveRequest" />
     </Type>
   </Table>
   <Table Name="dbo.tblLogs" Member="tblLogs">
@@ -251,30 +253,9 @@
     <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(255)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.uspFileLeaveRequest" Method="uspFileLeaveRequest">
-    <Parameter Name="employeeId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="leaveTypeId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="startDate" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="endDate" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="isVacation" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="destinationAddress" Type="System.String" DbType="NVarChar(255)" />
-    <Parameter Name="requestNotes" Type="System.String" DbType="NVarChar(255)" />
-    <Parameter Name="success" Type="System.Boolean" DbType="Bit" Direction="InOut" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.uspRecordAbsences" Method="uspRecordAbsences">
     <Parameter Name="employeeId" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.uspRespondToLeaveRequest" Method="uspRespondToLeaveRequest">
-    <Parameter Name="employeeId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="leaveRequestId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="isApproved" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="approvalRemarks" Type="System.String" DbType="NVarChar(255)" />
-    <ElementType Name="uspRespondToLeaveRequestResult">
-      <Column Name="StatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="StatusName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-    </ElementType>
   </Function>
   <Function Name="dbo.uspTimeIn" Method="uspTimeIn">
     <Parameter Name="employeeId" Type="System.Int32" DbType="Int" />
@@ -305,6 +286,27 @@
     <Parameter Name="PhoneNumber" Parameter="phoneNumber" Type="System.String" DbType="NVarChar(13)" />
     <Parameter Name="EmailAddress" Parameter="emailAddress" Type="System.String" DbType="NVarChar(255)" />
     <Parameter Name="HomeAddress" Parameter="homeAddress" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspRespondToLeaveRequest" Method="uspRespondToLeaveRequest">
+    <Parameter Name="employeeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="leaveRequestId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="leaveTypeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="isApproved" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="approvalRemarks" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="uspRespondToLeaveRequestResult">
+      <Column Name="StatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StatusName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspFileLeaveRequest" Method="uspFileLeaveRequest">
+    <Parameter Name="employeeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="leaveTypeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="startDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="endDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="destinationAddress" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="requestNotes" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="success" Type="System.Boolean" DbType="Bit" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
 </Database>
