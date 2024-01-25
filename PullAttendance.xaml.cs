@@ -48,6 +48,12 @@ namespace FinalTerm_Project_EMS
 
         private void btnPullData_Click(object sender, RoutedEventArgs e)
         {
+            // Check priveleges
+            if (LogInCredentials.EMPLOYEE_POSITION.ToUpper() == "ASSOCIATE")
+            {
+                MessageBox.Show("You do not have the permissions necessary to perform this action.");
+                return;
+            }    
             OpenFileDialog ofd = new OpenFileDialog();
 
             if ((bool)ofd.ShowDialog())
