@@ -86,6 +86,7 @@ namespace FinalTerm_Project_EMS
                             if (cols.Length < 3)
                             {
                                 errRowsDict.Add(rowNum, $"One or more columns were missing.");
+                                rowNum++;
                                 continue;
                             }
 
@@ -97,16 +98,19 @@ namespace FinalTerm_Project_EMS
                             if (id == string.Empty)
                             {
                                 errRowsDict.Add(rowNum, $"Empty column for Employee ID: {id}, {strTimeIn}, {strTimeOut}");
+                                rowNum++;
                                 continue;
                             }
                             else if (strTimeIn == string.Empty)
                             {
                                 errRowsDict.Add(rowNum, $"Empty column for Time-in: {id}, {strTimeIn}, {strTimeOut}");
+                                rowNum++;
                                 continue;
                             }
                             else if (strTimeOut == string.Empty)
                             {
                                 errRowsDict.Add(rowNum, $"Empty column for Time-out: {id}, {strTimeIn}, {strTimeOut}");
+                                rowNum++;
                                 continue;
                             }
 
@@ -144,6 +148,7 @@ namespace FinalTerm_Project_EMS
                             else
                             {
                                 errRowsDict.Add(rowNum, $"Could not parse columns as values: {id}, {strTimeIn}, {strTimeOut}");
+                                rowNum++;
                                 continue;
                             }
                         }
@@ -167,6 +172,8 @@ namespace FinalTerm_Project_EMS
 
                                 DB.USP_INSERT_LOGS(LogInCredentials.EMPLOYEE_ID, $"Row #{error.Key}: {error.Value}", 8);
                             }
+
+                            tblkLogs.Text = message;
                         }
                     }
                 }
