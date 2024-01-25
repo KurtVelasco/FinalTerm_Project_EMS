@@ -163,9 +163,17 @@ namespace FinalTerm_Project_EMS
         {
             foreach (tblEmployee employee in DB.tblEmployees)
             {
+                // If employee not in attendance
                 if (!employeesInAttendance.Contains(employee.EmployeeID))
                 {
-                    DB.uspRecordAbsences(employee.EmployeeID);
+                    foreach (tblEmployeeDetail employeeDetail in DB.tblEmployeeDetails)
+                    {
+                        // If employee is active
+                        if (employeeDetail.EmployeeID == employee.EmployeeID && employeeDetail.StatusID == 1)
+                        {
+                            DB.uspRecordAbsences(employee.EmployeeID);
+                        }
+                    }
                 }
             }
         }
