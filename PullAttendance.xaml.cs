@@ -37,7 +37,6 @@ namespace FinalTerm_Project_EMS
                 {
                     if (employeeDetail.StatusID != 1)
                     {
-                        MessageBox.Show("Employee is either inactive or tagged as AWOL");
                         return false;
                     }
                 }
@@ -185,7 +184,6 @@ namespace FinalTerm_Project_EMS
 
         private bool CheckForLate(DateTime timeIn, int employeeID)
         {
-
             // Check for late
             if ((timeIn.Hour == 7 && timeIn.Minute > 0) || timeIn.Hour > 7)
             {
