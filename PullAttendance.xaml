@@ -12,7 +12,7 @@
         <Image HorizontalAlignment="Center" VerticalAlignment="Center" Height="264" Width="280" Source="/Images/Northville Public School (Icon).png" Opacity="0.25"/>
 
         <Button x:Name="btnPullData" Content="Pull Data" HorizontalAlignment="Center" FontFamily="Fonts/#Munich Regular" Style="{StaticResource ResourceKey=RoundedButton}" Margin="0,222,0,0" VerticalAlignment="Top" Width="232" Click="btnPullData_Click" Height="40" Background="#FF8B280D" BorderBrush="Black" Foreground="White"/>
-        <TextBlock x:Name="tblkLogs" HorizontalAlignment="Center" Margin="0,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="162" Width="232" Background="#FF8B280D" Opacity="0.61"/>
+        <TextBox x:Name="tblkLogs" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Center" Margin="0,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="162" Width="232" Background="#FF8B280D" Opacity="0.61" Foreground="White"/>
         <Label Content="Pull Attendance" HorizontalContentAlignment="Center" FontFamily="Fonts/#Sofia Pro Bold" HorizontalAlignment="Center" Height="33" Margin="0,22,0,0" VerticalAlignment="Top" Width="264" FontSize="20" Foreground="#FF8B280D"/>
         <Button x:Name="btnBack" Content="←" Style="{StaticResource ResourceKey=RoundedButton}" HorizontalAlignment="Left" Margin="14,15,0,0" Height="20" VerticalAlignment="Top" Width="20" Click="btnBack_Click" Background="#FF8B280D" BorderBrush="Black" Foreground="White"/>
 
