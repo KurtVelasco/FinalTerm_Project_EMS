@@ -58,7 +58,7 @@ namespace FinalTerm_Project_EMS
             {
                 try
                 {
-                    using (StreamReader sr = new StreamReader("attendance.csv"))
+                    using (StreamReader sr = new StreamReader(ofd.FileName))
                     {
                         Dictionary<int, string> errRowsDict = new Dictionary<int, string>();
                         List<int> employeesInAttendance = new List<int>();
