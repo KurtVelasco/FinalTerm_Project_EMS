@@ -42,6 +42,18 @@ namespace FinalTerm_Project_EMS
                 }
             }
 
+            List<int> employees = new List<int>();
+
+            foreach (tblEmployee employee in DB.tblEmployees)
+            {
+                employees.Add(employee.EmployeeID);
+            }
+
+            if (!employees.Contains(employeeID))
+            {
+                return false;
+            }
+
             return true;
         }
 
@@ -110,7 +122,11 @@ namespace FinalTerm_Project_EMS
                             {
                                 // Check for inactive employee
                                 if (!ValidateEmployee(employeeID))
+                                {
+                                    errRowsDict.Add(rowNum, $"Invalid or inactive employee: {id}, {strTimeIn}, {strTimeOut}");
+                                    rowNum++;
                                     continue;
+                                }
 
                                 bool isLate = false;
 
