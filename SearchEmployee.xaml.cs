@@ -77,17 +77,17 @@ namespace FinalTerm_Project_EMS
                     Status = split[5]
                 });
 
-                if (!cbxDeptSearch.Items.Contains(split[2]))
+                if (!cbxDeptSearch.Items.Contains(split[3]))
                 {
-                    cbxDeptSearch.Items.Add(split[2]);
+                    cbxDeptSearch.Items.Add(split[3]);
                 }
-                if (!cbxPosSearch.Items.Contains(split[3]))
+                if (!cbxPosSearch.Items.Contains(split[4]))
                 {
-                    cbxPosSearch.Items.Add(split[3]);
+                    cbxPosSearch.Items.Add(split[4]);
                 }
-                if (!cbxStsSearch.Items.Contains(split[4]))
+                if (!cbxStsSearch.Items.Contains(split[5]))
                 {
-                    cbxStsSearch.Items.Add(split[4]);
+                    cbxStsSearch.Items.Add(split[5]);
                 }
             }
         }
@@ -160,7 +160,7 @@ namespace FinalTerm_Project_EMS
             bool dept = false;
             bool pos = false;
             bool sts = false;
-
+            lv_employeedata.Items.Clear();
             if (cbxDeptSearch.IsEnabled == true)
             {
                 dept = true;
@@ -181,7 +181,7 @@ namespace FinalTerm_Project_EMS
                 string[] split = item.Split(',');
                 if (dept)
                 {
-                    if (value == split[2])
+                    if (value == split[3])
                     {
                         lv_employeedata.Items.Add(new Employee
                         {
@@ -196,7 +196,7 @@ namespace FinalTerm_Project_EMS
                 }
                 else if (pos)
                 {
-                    if (value == split[3])
+                    if (value == split[4])
                     {
                         lv_employeedata.Items.Add(new Employee
                         {
@@ -211,7 +211,7 @@ namespace FinalTerm_Project_EMS
                 }
                 else if (sts)
                 {
-                    if (value == split[4])
+                    if (value == split[5])
                     {
                         lv_employeedata.Items.Add(new Employee
                         {

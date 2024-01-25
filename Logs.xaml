@@ -13,7 +13,7 @@
 
         <Label Content="System Logs" HorizontalContentAlignment="Center" FontFamily="Fonts/#Sofia Pro Bold" HorizontalAlignment="Left" Height="33" Margin="40,39,0,0" VerticalAlignment="Top" Width="202" FontSize="20" Foreground="#FF8B280D"/>
 
-        <ListView x:Name="ListView_Logs" Margin="247,22,34,0" Height="383" VerticalAlignment="Top" Foreground="Black" BorderBrush="#FFFBC361" Background="#FFFBC361">
+        <ListView x:Name="ListView_Logs" Margin="247,22,0,0" Height="383" VerticalAlignment="Top" Foreground="Black" BorderBrush="#FFFBC361" Background="#FFFBC361" HorizontalAlignment="Left" Width="619">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Employee ID" DisplayMemberBinding="{Binding EmployeeID}" Width="100" />

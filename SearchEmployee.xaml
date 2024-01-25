@@ -21,7 +21,7 @@
 
         <Label Content="SEARCH" HorizontalContentAlignment="Center" FontFamily="Fonts/#Sofia Pro Bold" HorizontalAlignment="Left" Height="33" Margin="36,42,0,0" VerticalAlignment="Top" Width="178" FontSize="20" Foreground="#FF8B280D"/>
 
-        <ListView x:Name="lv_employeedata" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="239,35,41,35" Background="#FFFBC361" Foreground="Black" BorderBrush="#FFFBC361">
+        <ListView x:Name="lv_employeedata" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="239,0,0,0" Background="#FFFBC361" Foreground="Black" BorderBrush="#FFFBC361" Height="364" VerticalAlignment="Center" HorizontalAlignment="Left" Width="620">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="First Name" DisplayMemberBinding="{Binding Path = FirstName}" Width = "110"/>
